@@ -1,0 +1,10 @@
+.cartIconWrapper {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  span {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
