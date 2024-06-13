@@ -1,4 +1,5 @@
 import { ProductListTitle } from 'shared';
+import DiscountProductList from './DiscountProductList/DiscountProductList';
 
 import css from './DiscountProductsSection.module.css';
 
@@ -8,7 +9,7 @@ const DiscountProductsSection = () => {
       <ProductListTitle className={css.title}>
         Discount products
       </ProductListTitle>
-      <DiscountProductsSection />
+      <DiscountProductList />
     </section>
   );
 };
