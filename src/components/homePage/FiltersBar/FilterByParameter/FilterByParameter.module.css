@@ -1,0 +1,12 @@
+.parametersSelectWrapper {
+  width: 100%;
+
+  @media (min-width:768px) {
+    width: 200px;
+  }
+
+  svg {
+    fill: #010101;
+    cursor: pointer;
+  }
+}

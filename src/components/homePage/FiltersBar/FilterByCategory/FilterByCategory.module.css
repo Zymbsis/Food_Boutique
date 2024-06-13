@@ -1,0 +1,12 @@
+.categorySelectWrapper {
+  width: 100%;
+
+  @media (min-width:768px) {
+    width: 189px;
+  }
+
+  svg {
+    fill: #010101;
+    cursor: pointer;
+  }
+}

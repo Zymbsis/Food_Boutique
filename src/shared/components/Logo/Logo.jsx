@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import icon from '../../../icons/sprite.svg';
-import css from './Logo.module.css';
+import { Icon } from 'shared';
 import clsx from 'clsx';
+import css from './Logo.module.css';
 
-const Logo = ({ placement = 'header', className }) => {
+const Logo = ({ placement = 'header', className, ...props }) => {
   return (
     <Link
       to="/"
@@ -11,14 +11,9 @@ const Logo = ({ placement = 'header', className }) => {
         [css.footerLogoLink]: placement === 'footer',
         [className]: className,
       })}
+      {...props}
     >
-      <svg role="img">
-        <use
-          xlinkHref={`${icon}#${
-            placement === 'header' ? 'logoHeader' : 'logoFooter'
-          }`}
-        />
-      </svg>
+      <Icon iconId={placement === 'header' ? 'logoHeader' : 'logoFooter'} />
       <span>Food Boutique</span>
     </Link>
   );

@@ -1,0 +1,9 @@
+.descriptionItem {
+  font-size: 12px;
+  line-height: 1.16;
+  display: inline;
+}
+
+.descriptionItem span:first-child {
+  color: var(--secondary-grey-color);
+}

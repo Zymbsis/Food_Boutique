@@ -1,19 +1,19 @@
 import '../src/shared/styles/base.css';
 import 'modern-normalize';
-import Header from './components/Header/Header';
+
 import { Route, Routes } from 'react-router-dom';
-import Test from './Test';
-import Test2 from './Test2';
+
+import { HomePage, OrderPage } from 'pages';
+import { Layout } from 'components';
 
 const App = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <Routes>
-        <Route path="/" element={<Test />} />
-        <Route path="/cart" element={<Test2 />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cart" element={<OrderPage />} />
       </Routes>
-    </>
+    </Layout>
   );
 };
 

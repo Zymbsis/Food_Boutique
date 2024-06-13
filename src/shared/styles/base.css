@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
 h1,
 h2,
 h3,
@@ -40,6 +45,7 @@ button {
   cursor: pointer;
   border: none;
   color: inherit;
+  padding: 0;
 }
 
 input,
@@ -56,4 +62,17 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

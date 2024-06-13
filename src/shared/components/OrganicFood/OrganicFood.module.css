@@ -1,0 +1,16 @@
+.organicFoodImg {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  animation: rotate 10000ms linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
