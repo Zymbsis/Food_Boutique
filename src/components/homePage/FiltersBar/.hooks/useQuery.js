@@ -18,6 +18,7 @@ export const useQuery = () => {
   };
 
   const handleClick = () => {
+    if (keyword === '') return;
     dispatch(changeKeyword(''));
   };
 
