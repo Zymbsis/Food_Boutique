@@ -9,6 +9,8 @@ import { fetchProductCategories } from 'services';
 export const useCategories = () => {
   const dispatch = useDispatch();
   const category = useSelector(selectCategory);
+  console.log(category);
+
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const { data } = useSimpleFetch(fetchProductCategories);
 

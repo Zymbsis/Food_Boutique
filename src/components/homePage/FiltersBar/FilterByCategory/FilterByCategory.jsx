@@ -5,6 +5,7 @@ import css from './FilterByCategory.module.css';
 
 const FilterByCategory = () => {
   const { optionsList, selectedOption, handleChange } = useCategories();
+  console.log(55);
 
   return (
     <div className={css.categorySelectWrapper}>

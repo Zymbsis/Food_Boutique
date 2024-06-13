@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCart } from '@redux/cart/slice';
-import { addProduct, deleteProduct } from '@redux/cart/slice';
-import { ProductCardIcon, ProductDescription, ProductName } from 'shared';
-import css from './Product.module.css';
+import { ProductName, ProductDescription, ProductCardIcon } from 'shared';
+import { selectCart, deleteProduct, addProduct } from '@redux/cart/slice';
+import css from './MainProductItem.module.css';
 
-const Product = ({ product }) => {
+const MainProductItem = ({ product }) => {
   const { img, name, price } = product;
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
@@ -33,4 +32,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default MainProductItem;

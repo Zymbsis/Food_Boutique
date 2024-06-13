@@ -4,11 +4,11 @@ import { changePage } from '@redux/requestParams/slice';
 import { ProductNavArrowButton } from 'shared';
 
 import clsx from 'clsx';
-import css from './ProductsNavigation.module.css';
+import css from './ProductNavigation.module.css';
 import { useMediaQuery } from 'react-responsive';
-import { createButtonPanel } from '../../helpers/createButtonPanel';
+import { createButtonPanel } from '../.helpers/createButtonPanel';
 
-const ProductsNavigation = ({ totalPages, setter }) => {
+const ProductNavigation = ({ totalPages, setter }) => {
   const dispatch = useDispatch();
   const { page } = useSelector(selectRequestParams);
   const isMobile = useMediaQuery({ query: '(max-width: 767.98px)' });
@@ -89,4 +89,4 @@ const ProductsNavigation = ({ totalPages, setter }) => {
   );
 };
 
-export default ProductsNavigation;
+export default ProductNavigation;

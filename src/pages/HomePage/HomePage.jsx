@@ -1,12 +1,11 @@
-import { AllProducts } from 'modules';
+import { Container } from 'shared';
 import {
   Hero,
   FiltersBar,
+  MainProductsSection,
   PopularProductsSection,
   DiscountProductsSection,
 } from 'components';
-import { Container } from 'shared';
-
 import css from './HomePages.module.css';
 
 const HomePage = () => {
@@ -16,7 +15,7 @@ const HomePage = () => {
       <FiltersBar />
       <section className={css.section}>
         <Container className={css.container}>
-          <AllProducts />
+          <MainProductsSection />
           <aside>
             <PopularProductsSection />
             <DiscountProductsSection />

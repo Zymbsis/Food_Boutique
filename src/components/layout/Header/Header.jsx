@@ -1,13 +1,12 @@
-import { useLocation } from 'react-router-dom';
 import { Container, Logo } from 'shared';
 import Navigation from './Navigation/Navigation';
 import css from './Header.module.css';
 
 const Header = () => {
-  const { pathname } = useLocation();
   const handleClick = () => {
-    pathname === '/' && location.reload();
+    location.pathname === '/' && location.reload();
   };
+  console.log(555);
 
   return (
     <header className={css.header}>
