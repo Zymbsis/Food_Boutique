@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductListTitle, OrganicFood } from 'shared';
 import { useWindowSize } from 'hooks';
@@ -14,6 +14,7 @@ import ProductNavigation from './ProductNavigation/ProductNavigation';
 import NothingFound from './NothingFound/NothingFound';
 import clsx from 'clsx';
 import css from './MainProductsSection.module.css';
+import { scrollSection } from './.helpers/scrollIntoView';
 
 const MainProductsSection = () => {
   const windowWidth = useWindowSize();
@@ -26,6 +27,7 @@ const MainProductsSection = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
   const [allowScroll, setAllowScroll] = useState(null);
+  const sectionRef = useRef(null);
 
   const getLimit = useCallback(windowWidth => {
     if (windowWidth >= 1440) {
@@ -61,9 +63,14 @@ const MainProductsSection = () => {
     getProducts();
   }, [requestParams, limit, setTotalPages]);
 
+  useEffect(() => {
+    if (allowScroll === null) return;
+    scrollSection(sectionRef, windowWidth);
+  }, [allowScroll, windowWidth]);
+
   return (
     <section
-      // ref={sectionRef}
+      ref={sectionRef}
       className={clsx(css.section, {
         [css.optionalContainer]:
           totalPages === 1 ||
@@ -77,15 +84,11 @@ const MainProductsSection = () => {
       </ProductListTitle>
       {loading && <OrganicFood className={css.loader} />}
       {error && <p>Error</p>}
-      {allProducts.length === 0 ? (
-        <NothingFound />
-      ) : (
-        <MainProductList
-          productList={allProducts}
-          windowWidth={windowWidth}
-          allowScroll={allowScroll}
-        />
-      )}
+      {allProducts.length === 0 && !loading ? <NothingFound /> : null}
+      {allProducts.length > 0 && !loading ? (
+        <MainProductList productList={allProducts} />
+      ) : null}
+
       {totalPages > 1 && (
         <ProductNavigation totalPages={totalPages} setter={setAllowScroll} />
       )}

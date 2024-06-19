@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   keyword: '',
-  category: null,
+  category: '',
   page: 1,
   limit: null,
 };

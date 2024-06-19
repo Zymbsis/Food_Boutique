@@ -1,19 +1,10 @@
 import MainProductItem from '../MainProductItem/MainProductItem';
 import css from './MainProductList.module.css';
-import { useRef, useEffect } from 'react';
-import { scrollSection } from '../.helpers/scrollIntoView.js';
 
-const MainProductList = ({ productList, windowWidth, allowScroll }) => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    if (allowScroll === null) return;
-    scrollSection(sectionRef, windowWidth);
-  }, [allowScroll, windowWidth]);
-
+const MainProductList = ({ productList }) => {
   return (
     <>
-      <ul className={css.productList} ref={sectionRef}>
+      <ul className={css.productList}>
         {productList.map(product => (
           <li className={css.productItem} key={product._id}>
             <MainProductItem product={product} />
