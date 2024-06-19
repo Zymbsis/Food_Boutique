@@ -1,9 +1,11 @@
 import '../src/shared/styles/base.css';
 import 'modern-normalize';
+import { lazy } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const OrderPage = lazy(() => import('./pages/OrderPage/OrderPage'));
 
-import { HomePage, OrderPage } from 'pages';
 import { Layout } from 'components';
 
 const App = () => {

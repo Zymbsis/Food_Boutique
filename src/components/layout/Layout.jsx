@@ -5,9 +5,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>
-        <Suspense fallback={<div>LOADING</div>}>{children}</Suspense>
-      </main>
+      <Suspense fallback={<div style={{ paddingTop: 200 }}>LOADING</div>}>
+        <main>{children}</main>
+      </Suspense>
       {/* <Footer /> */}
     </>
   );

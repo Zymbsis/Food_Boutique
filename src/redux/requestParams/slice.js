@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   keyword: '',
-  category: null,
+  category: '',
   page: 1,
   limit: null,
 };
@@ -39,13 +39,20 @@ const requestParams = createSlice({
     selectRequestParams: state => state,
     selectKeyword: state => state.keyword,
     selectCategory: state => state.category,
+    selectLimit: state => state.limit,
+    selectPage: state => state.page,
   },
 });
 
 export const requestParamsReducer = requestParams.reducer;
 
-export const { selectRequestParams, selectKeyword, selectCategory } =
-  requestParams.selectors;
+export const {
+  selectRequestParams,
+  selectKeyword,
+  selectCategory,
+  selectLimit,
+  selectPage,
+} = requestParams.selectors;
 
 export const {
   changeKeyword,

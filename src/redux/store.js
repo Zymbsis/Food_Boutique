@@ -12,11 +12,13 @@ import {
 } from 'redux-persist';
 
 import { cartPersistConfig, cartReducer } from './cart/slice';
+import { productListsReducer } from './productLists/slice';
 
 export const store = configureStore({
   reducer: {
     requestParams: requestParamsReducer,
     cart: persistReducer(cartPersistConfig, cartReducer),
+    productLists: productListsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
