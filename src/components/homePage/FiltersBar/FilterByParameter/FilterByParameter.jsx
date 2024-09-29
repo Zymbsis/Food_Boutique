@@ -11,7 +11,9 @@ const FilterByParameter = () => {
   const [selectedOption, setSelectedOption] = useState(defaultOption);
 
   const handleChange = option => {
+    // dispatch(addSortParams(option.value));
     dispatch(addSortParams(JSON.parse(option.value)));
+
     setSelectedOption(option.value === '{}' ? defaultOption : option);
   };
 

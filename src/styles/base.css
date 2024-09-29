@@ -1,0 +1,29 @@
+:root {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--primary-black-color);
+  background-color: var(--primary-white-color);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

@@ -8,6 +8,7 @@ import {
   changeLimit,
   selectRequestParams,
   selectPage,
+  selectSortParams,
 } from '@redux/requestParams/slice';
 import MainProductList from './MainProductList/MainProductList';
 import ProductNavigation from './ProductNavigation/ProductNavigation';
@@ -15,6 +16,11 @@ import NothingFound from './NothingFound/NothingFound';
 import clsx from 'clsx';
 import css from './MainProductsSection.module.css';
 import { scrollSection } from './.helpers/scrollIntoView';
+import {
+  selectIsDesktop,
+  selectIsMobile,
+  selectIsTablet,
+} from '../../../redux/windowSize/slice';
 
 const MainProductsSection = () => {
   const windowWidth = useWindowSize();
@@ -22,12 +28,14 @@ const MainProductsSection = () => {
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);
   const requestParams = useSelector(selectRequestParams);
+  const sortParams = useSelector(selectSortParams);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
   const [allowScroll, setAllowScroll] = useState(null);
   const sectionRef = useRef(null);
+  const isMobile = useSelector(selectIsMobile);
 
   const getLimit = useCallback(windowWidth => {
     if (windowWidth >= 1440) {
@@ -38,6 +46,16 @@ const MainProductsSection = () => {
       return 6;
     }
   }, []);
+
+  // useEffect(() => {
+  //   if (isDesktop) {
+  //     dispatch(changeLimit(9));
+  //   } else if (isTablet) {
+  //     dispatch(changeLimit(8));
+  //   } else {
+  //     dispatch(changeLimit(6));
+  //   }
+  // }, [isDesktop, isTablet, dispatch]);
 
   useEffect(() => {
     const newLimit = getLimit(windowWidth);
@@ -51,7 +69,11 @@ const MainProductsSection = () => {
       try {
         setError(false);
         setLoading(true);
-        const { results, totalPages } = await fetchProducts(requestParams);
+        const { results, totalPages } = await fetchProducts({
+          ...requestParams,
+          ...sortParams,
+        });
+
         setAllProducts(results);
         setTotalPages(totalPages);
       } catch (error) {
@@ -61,12 +83,12 @@ const MainProductsSection = () => {
       }
     }
     getProducts();
-  }, [requestParams, limit, setTotalPages]);
+  }, [requestParams, sortParams, limit, setTotalPages]);
 
   useEffect(() => {
     if (allowScroll === null) return;
-    scrollSection(sectionRef, windowWidth);
-  }, [allowScroll, windowWidth]);
+    scrollSection(sectionRef, isMobile);
+  }, [allowScroll, isMobile]);
 
   return (
     <section

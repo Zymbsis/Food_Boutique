@@ -1,12 +1,12 @@
 .section {
-  padding-top: calc(74px + 36px);
+  padding-top: 128px;
   padding-bottom: 74px;
 
   @media (min-width:768px) {
-    padding-top: calc(96px + 58px);
+    padding-top: 188px;
   }
 
   @media (min-width:1440px) {
-    padding-top: calc(96px + 77px);
+    padding-top: 149px;
   }
 }

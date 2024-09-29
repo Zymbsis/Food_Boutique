@@ -7,12 +7,18 @@ import clsx from 'clsx';
 import css from './ProductNavigation.module.css';
 import { useMediaQuery } from 'react-responsive';
 import { createButtonPanel } from '../.helpers/createButtonPanel';
+import { useEffect, useState } from 'react';
 
 const ProductNavigation = ({ totalPages, setter }) => {
   const dispatch = useDispatch();
   const { page } = useSelector(selectRequestParams);
   const isMobile = useMediaQuery({ query: '(max-width: 767.98px)' });
-  const buttonPanel = createButtonPanel(totalPages, page, isMobile);
+  const [buttonPanel, setButtonPanel] = useState([]);
+
+  useEffect(() => {
+    const buttonArray = createButtonPanel(totalPages, page, isMobile);
+    setButtonPanel(buttonArray);
+  }, [isMobile, totalPages, page]);
 
   return (
     <div className={css.navWrapper}>

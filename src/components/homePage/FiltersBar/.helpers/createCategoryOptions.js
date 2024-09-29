@@ -1,6 +1,10 @@
 import { defaultOption } from '../.data/categoryOptions';
 
 export const createOptions = arr => {
+  if (arr.length === 0) {
+    return defaultOption;
+  }
+
   const optionsList = [
     ...arr.map(category => ({
       value: category,

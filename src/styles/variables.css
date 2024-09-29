@@ -9,4 +9,6 @@
   --primary-green-color: #6D8434;
   --error-validation-color: #df4141;
   --transition-duration: 500ms;
+  --primary-font: 'NeueMontreal';
+  --secondary-font: 'DemoFonts';
 }
