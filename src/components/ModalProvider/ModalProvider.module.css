@@ -20,11 +20,6 @@
   position: relative;
   background-color: var(--primary-white-color);
   border-radius: 20px;
-  padding: 40px 20px;
-
-  @media screen and (min-width: 768px) {
-    padding: 40px;
-  }
 }
 
 .closeBtn {

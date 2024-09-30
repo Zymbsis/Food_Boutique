@@ -11,7 +11,6 @@ const MainProductItem = ({ product }) => {
   const isInCart = cart.some(item => item._id === product._id);
 
   const { openModal } = useModalContext();
-  console.log(openModal);
 
   const onClick = () => {
     openModal(<p>Hello World</p>);

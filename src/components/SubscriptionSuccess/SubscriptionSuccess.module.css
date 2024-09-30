@@ -1,0 +1,51 @@
+.textWrapper {
+  width: 335px;
+  padding: 100px 45px 166px;
+  background-image: url(/img/subscriptionSuccess-png-1x.png);
+  background-image: image-set(url('/img/subscriptionSuccess-webp-1x.webp') 1x,
+      url('/img/subscriptionSuccess-webp-2x.webp') 2x,
+      url('/img/subscriptionSuccess-webp-3x.webp') 3x,
+      url('/img/subscriptionSuccess-png-1x.png') 1x,
+      url('/img/subscriptionSuccess-png-2x.png') 2x,
+      url('/img/subscriptionSuccess-png-3x.png') 3x);
+  background-repeat: no-repeat;
+  background-position: right 0 bottom 0;
+  background-size: auto 144px;
+
+  @media screen and (min-width: 768px) {
+    width: 490px;
+    padding: 90px 81px 162px;
+    background-size: auto 159px;
+  }
+}
+
+.textWrapper > h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 14px;
+
+  span {
+    color: var(--primary-green-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 245px;
+    font-size: 24px;
+    line-height: 1;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
+.textWrapper > p {
+  color: rgba(1, 1, 1, 0.70);
+  text-align: center;
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

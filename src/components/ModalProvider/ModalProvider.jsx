@@ -6,18 +6,24 @@ import { Icon } from '../../shared/index.js';
 
 const ModalProvider = ({ children }) => {
   const [modalContent, setModalContent] = useState(null);
+
   const openModal = content => {
     setModalContent(content);
+    document.body.style.overflow = 'hidden';
   };
+
   const closeModal = e => {
     if (e.target === e.currentTarget || e.code === 'Escape') {
       setModalContent(null);
+      document.body.style.overflow = 'visible';
     }
   };
+
   useEffect(() => {
     window.addEventListener('keydown', closeModal);
     return () => window.removeEventListener('keydown', closeModal);
   }, []);
+
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}

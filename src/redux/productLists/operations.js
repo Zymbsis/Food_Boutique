@@ -17,6 +17,7 @@ export const fetchPopularProducts = createAsyncThunk(
     }
   }
 );
+
 export const fetchDiscountProducts = createAsyncThunk(
   'productLists/getDiscountProducts',
   async (_, thunkAPI) => {
@@ -28,6 +29,7 @@ export const fetchDiscountProducts = createAsyncThunk(
     }
   }
 );
+
 export const fetchProductCategories = createAsyncThunk(
   'productLists/getProductCategories',
   async (_, thunkAPI) => {
