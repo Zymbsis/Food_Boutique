@@ -3,6 +3,7 @@
   align-items: center;
   gap: 8px;
   width: 154px;
+  height: 28px;
 
   span {
     font-family: var(--secondary-font);
@@ -15,6 +16,7 @@
 
   @media (min-width:768px) {
     width: 197px;
+    height: 32px;
 
     span {
       font-size: 24px;

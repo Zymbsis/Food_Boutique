@@ -47,9 +47,11 @@
 <path fill="none" stroke="#a3a3a3" style="stroke: var(--color1, #a3a3a3)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
 <path fill="none" stroke="#a3a3a3" style="stroke: var(--color1, #a3a3a3)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M10.667 21.333l5.333-5.333-5.333-5.333"></path>
 </symbol>
+
 <symbol id="close" viewBox="0 0 32 32">
 <path d="M25 9.093l-2.093-2.093-6.907 6.907-6.907-6.907-2.093 2.093 6.907 6.907-6.907 6.907 2.093 2.093 6.907-6.907 6.907 6.907 2.093-2.093-6.907-6.907 6.907-6.907z"></path>
 </symbol>
+
 <symbol id="chevronDown" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 12l8 8 8-8"></path>
 </symbol>
@@ -64,7 +66,7 @@
 </symbol>
 
 <symbol id="facebook" viewBox="0 0 32 32">
-<path fill="#e8e8e2" style="fill: var(--color1, #e8e8e2)" d="M19.52 4.64c0.24 0 0.48 0 0.96 0v3.6c-0.24 0-0.72 0-1.2 0s-0.96 0-1.2 0.24c-0.24 0.24-0.24 0.48-0.24 1.040 0 0.48 0 0.8 0 1.28h2.64v3.040h-2.64v13.2h-4.080v-13.28h-2.16v-3.040h2.16v-1.040c0-1.76 0.24-3.040 0.72-3.6 0.72-1.040 2.16-1.52 4.32-1.52 0.24 0.080 0.48 0.080 0.72 0.080z"></path>
+<path fill="#e8e8e2" style="fill: var(--color1, #e8e8e2)" opacity="0.8" d="M19.52 4.64c0.24 0 0.48 0 0.96 0v3.6c-0.24 0-0.72 0-1.2 0s-0.96 0-1.2 0.24c-0.24 0.24-0.24 0.48-0.24 1.040 0 0.48 0 0.8 0 1.28h2.64v3.040h-2.64v13.2h-4.080v-13.28h-2.16v-3.040h2.16v-1.040c0-1.76 0.24-3.040 0.72-3.6 0.72-1.040 2.16-1.52 4.32-1.52 0.24 0.080 0.48 0.080 0.72 0.080z"></path>
 </symbol>
 </defs>
 </svg>

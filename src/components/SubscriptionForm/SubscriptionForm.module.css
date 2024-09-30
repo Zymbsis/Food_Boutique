@@ -1,0 +1,73 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 337px;
+    gap: 20px;
+  }
+}
+
+.form > p {
+  color: var(--primary-white-color);
+  line-height: 1.28;
+  margin-bottom: 6px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: 0;
+  }
+}
+
+.form > input {
+  width: 100%;
+  height: 42px;
+  border-radius: 30px;
+  border: 1px solid #E8E8E2;
+  padding: 12px 18px;
+  color: var(--primary-white-color);
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.form > input::placeholder {
+  color: rgba(232, 232, 226, 0.60);
+}
+
+.form > button {
+  height: 42px;
+  border-radius: 30px;
+  background-color: var(--primary-white-color);
+  font-weight: 500;
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.invalidEmail {
+  position: absolute;
+  font-size: 12px;
+  padding-left: 18px;
+  color: #E63946;
+  font-weight: 500;
+  top: 24px;
+  right: 18px;
+  letter-spacing: 0.01em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    top: 26px;
+  }
+}

@@ -2,12 +2,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ProductName, ProductDescription, ProductCardIcon } from 'shared';
 import { selectCart, deleteProduct, addProduct } from '@redux/cart/slice';
 import css from './MainProductItem.module.css';
+import { useModalContext } from '../../../../hooks/useContext.js';
 
 const MainProductItem = ({ product }) => {
   const { img, name, price } = product;
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const isInCart = cart.some(item => item._id === product._id);
+
+  const { openModal } = useModalContext();
+  console.log(openModal);
+
+  const onClick = () => {
+    openModal(<p>Hello World</p>);
+  };
 
   const handleClick = () => {
     isInCart
@@ -17,7 +25,7 @@ const MainProductItem = ({ product }) => {
 
   return (
     <>
-      <div className={css.imgWrapper}>
+      <div className={css.imgWrapper} onClick={onClick}>
         <img src={img} alt={name} width={140} height={140} />
       </div>
       <ul className={css.descriptionWrapper}>
