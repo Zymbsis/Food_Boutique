@@ -1,17 +1,10 @@
 import PopularProductItem from '../PopularProductItem/PopularProductItem';
 import css from './PopularProductList.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectPopularProducts } from '@redux/productLists/slice';
-import { useEffect } from 'react';
-import { fetchPopularProducts } from '../../../../redux/productLists/operations';
+import { useSelector } from 'react-redux';
+import { selectPopularProductsList } from '@redux/productLists/selectors.js';
 
 const PopularProductList = () => {
-  const dispatch = useDispatch();
-  const data = useSelector(selectPopularProducts);
-  useEffect(() => {
-    if (data.length > 0) return;
-    dispatch(fetchPopularProducts());
-  }, [dispatch, data]);
+  const data = useSelector(selectPopularProductsList);
 
   return (
     <ul className={css.productList}>

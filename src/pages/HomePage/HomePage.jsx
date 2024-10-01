@@ -7,8 +7,26 @@ import {
   DiscountProductsSection,
 } from 'components';
 import css from './HomePages.module.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchDiscountProducts,
+  fetchPopularProducts,
+  fetchProductCategories,
+} from '@redux/productLists/operations.js';
+import { selectProductCategoriesList } from '@redux/productLists/selectors.js';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const data = useSelector(selectProductCategoriesList);
+
+  useEffect(() => {
+    if (data.length > 0) return;
+    dispatch(fetchProductCategories());
+    dispatch(fetchPopularProducts());
+    dispatch(fetchDiscountProducts());
+  }, [dispatch, data]);
+
   return (
     <>
       <Hero />

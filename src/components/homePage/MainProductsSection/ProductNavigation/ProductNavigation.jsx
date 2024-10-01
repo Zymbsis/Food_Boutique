@@ -8,9 +8,11 @@ import css from './ProductNavigation.module.css';
 import { useMediaQuery } from 'react-responsive';
 import { createButtonPanel } from '../.helpers/createButtonPanel';
 import { useEffect, useState } from 'react';
+import { selectTotalPages } from '../../../../redux/productLists/selectors.js';
 
-const ProductNavigation = ({ totalPages, setter }) => {
+const ProductNavigation = ({ setter }) => {
   const dispatch = useDispatch();
+  const totalPages = useSelector(selectTotalPages);
   const { page } = useSelector(selectRequestParams);
   const isMobile = useMediaQuery({ query: '(max-width: 767.98px)' });
   const [buttonPanel, setButtonPanel] = useState([]);

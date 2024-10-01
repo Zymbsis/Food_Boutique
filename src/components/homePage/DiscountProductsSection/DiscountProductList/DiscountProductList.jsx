@@ -1,17 +1,10 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectDiscountProducts } from '@redux/productLists/slice';
-import { fetchDiscountProducts } from '@redux/productLists/operations';
 import DiscountProductItem from '../DiscountProductItem/DiscountProductItem';
 import css from './DiscountProductList.module.css';
+import { selectDiscountProductsList } from '../../../../redux/productLists/selectors.js';
+import { useSelector } from 'react-redux';
 
 const DiscountProductList = () => {
-  const dispatch = useDispatch();
-  const data = useSelector(selectDiscountProducts);
-  useEffect(() => {
-    if (data.length > 0) return;
-    dispatch(fetchDiscountProducts());
-  }, [dispatch, data]);
+  const data = useSelector(selectDiscountProductsList);
 
   return (
     <div className={css.innerContainer}>
