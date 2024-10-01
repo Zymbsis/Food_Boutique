@@ -1,2 +1,3 @@
-export { useSimpleFetch as useSimpleFetch } from './useSimpleFetch';
-export { useWindowSize as useWindowSize } from './useWindowSize';
+export { useSimpleFetch } from './useSimpleFetch';
+export { useWindowSize } from './useWindowSize';
+export { useSubscribe } from './useSubscribe.js';

@@ -7,8 +7,8 @@ import { Icon } from '../../shared/index.js';
 const ModalProvider = ({ children }) => {
   const [modalContent, setModalContent] = useState(null);
 
-  const openModal = content => {
-    setModalContent(content);
+  const openModal = (Component, props) => {
+    setModalContent(<Component {...props} />);
     document.body.style.overflow = 'hidden';
   };
 

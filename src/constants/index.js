@@ -6,3 +6,5 @@ const ENDPOINTS = {
   ORDERS: '/orders',
 };
 export const { PRODUCTS, SUBSCRIPTION, ORDERS } = ENDPOINTS;
+
+export const EMAIL_PATTERN = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
