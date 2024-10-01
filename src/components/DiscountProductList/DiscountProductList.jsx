@@ -1,7 +1,7 @@
-import DiscountProductItem from '../DiscountProductItem/DiscountProductItem';
 import css from './DiscountProductList.module.css';
-import { selectDiscountProductsList } from '../../../../redux/productLists/selectors.js';
+import { selectDiscountProductsList } from '@redux/productLists/selectors.js';
 import { useSelector } from 'react-redux';
+import DiscountProductItem from '../DiscountProductItem/DiscountProductItem.jsx';
 
 const DiscountProductList = () => {
   const data = useSelector(selectDiscountProductsList);

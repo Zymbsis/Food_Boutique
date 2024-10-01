@@ -13,14 +13,12 @@ import {
 
 import { cartPersistConfig, cartReducer } from './cart/slice';
 import { productListsReducer } from './productLists/slice';
-import { windowSizeReducer } from './windowSize/slice';
 
 export const store = configureStore({
   reducer: {
     requestParams: requestParamsReducer,
     cart: persistReducer(cartPersistConfig, cartReducer),
     productLists: productListsReducer,
-    windowSize: windowSizeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -6,8 +6,8 @@ const initialState = {
     category: '',
     page: 1,
     limit: null,
+    sortParams: {},
   },
-  sortParams: {},
 };
 
 const requestParams = createSlice({
@@ -30,29 +30,13 @@ const requestParams = createSlice({
       state.requestParams.page = 1;
     },
     addSortParams: (state, action) => {
-      state.sortParams = action.payload;
+      state.requestParams.sortParams = action.payload;
+      state.requestParams.page = 1;
     },
-  },
-  selectors: {
-    selectRequestParams: state => state.requestParams,
-    selectSortParams: state => state.sortParams,
-    selectKeyword: state => state.requestParams.keyword,
-    selectCategory: state => state.requestParams.category,
-    selectLimit: state => state.requestParams.limit,
-    selectPage: state => state.requestParams.page,
   },
 });
 
 export const requestParamsReducer = requestParams.reducer;
-
-export const {
-  selectRequestParams,
-  selectSortParams,
-  selectKeyword,
-  selectCategory,
-  selectLimit,
-  selectPage,
-} = requestParams.selectors;
 
 export const {
   changeKeyword,

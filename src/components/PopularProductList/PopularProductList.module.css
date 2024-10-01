@@ -3,10 +3,14 @@
   flex-direction: column;
   gap: 13px;
 
-  @media (min-width:768px) and (max-width:1439.98px) {
+  @media (min-width: 768px) and (max-width: 1439.98px) {
     width: 563px;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 542px;
   }
 }
 
@@ -19,7 +23,7 @@
   border-radius: 10px;
   background-color: var(--secondary-white-color);
 
-  @media (min-width:768px) and (max-width:1439.98px) {
+  @media (min-width: 768px) and (max-width: 1439.98px) {
     width: calc((100% - 13px) / 2);
   }
 }

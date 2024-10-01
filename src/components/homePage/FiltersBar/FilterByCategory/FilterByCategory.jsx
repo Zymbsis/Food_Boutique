@@ -1,10 +1,11 @@
 import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeCategory, selectCategory } from '@redux/requestParams/slice';
+import { changeCategory } from '@redux/requestParams/slice';
 import { selectComponentStyles } from '../.helpers/selectComponentStyles';
 import { createOption, createOptions } from '../.helpers/createCategoryOptions';
 import css from './FilterByCategory.module.css';
-import { selectProductCategoriesList } from '../../../../redux/productLists/selectors.js';
+import { selectProductCategoriesList } from '@redux/productLists/selectors.js';
+import { selectCategory } from '@redux/requestParams/selectors.js';
 
 const FilterByCategory = () => {
   const dispatch = useDispatch();

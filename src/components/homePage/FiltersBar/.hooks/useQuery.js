@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeKeyword, selectKeyword } from '@redux/requestParams/slice';
+import { changeKeyword } from '@redux/requestParams/slice';
 import { useState } from 'react';
+import { selectKeyword } from '@redux/requestParams/selectors.js';
 
 export const useQuery = () => {
   const dispatch = useDispatch();

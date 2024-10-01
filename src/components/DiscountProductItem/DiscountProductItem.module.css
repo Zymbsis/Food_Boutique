@@ -7,7 +7,7 @@
   border-radius: 10px;
   background-color: var(--primary-white-color);
 
-  @media (min-width:768px) and (max-width:1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1440px) {
     padding-top: 18px;
     padding-bottom: 18px;
   }
@@ -16,7 +16,7 @@
     width: 105px;
     height: 105px;
 
-    @media (min-width:768px) and (max-width:1440px) {
+    @media screen and (min-width: 768px) and (max-width: 1440px) {
       width: 114px;
       height: 114px;
     }
@@ -38,7 +38,7 @@
 }
 
 .productName {
-  @media (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     max-width: 124px;
     white-space: nowrap;
     overflow: hidden;
@@ -57,7 +57,7 @@
   font-weight: 500;
   line-height: 1.1;
 
-  @media (min-width:768px) {
+  @media screen and (min-width: 768px) {
     font-size: 20px;
     line-height: 1.2;
   }

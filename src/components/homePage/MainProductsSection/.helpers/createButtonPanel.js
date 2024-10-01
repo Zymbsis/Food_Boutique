@@ -1,6 +1,8 @@
-export const createButtonPanel = (totalPages, page, isMobile) => {
+import { tablet } from 'constants';
+
+export const createButtonPanel = (totalPages, page, windowWidth) => {
   if (totalPages === 1) return;
-  if (isMobile) {
+  if (windowWidth < tablet.width) {
     return page === totalPages ? [page - 1, page] : [page, page + 1];
   } else {
     if (totalPages <= 4) {

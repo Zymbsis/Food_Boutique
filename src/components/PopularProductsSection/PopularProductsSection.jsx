@@ -1,10 +1,9 @@
 import { ProductListTitle } from 'shared';
-import css from './PopularProductsSection.module.css';
-import PopularProductList from './PopularProductList/PopularProductList';
+import PopularProductList from '../PopularProductList/PopularProductList';
 
 const PopularProductsSection = () => {
   return (
-    <section className={css.section}>
+    <section>
       <ProductListTitle>Popular products</ProductListTitle>
       <PopularProductList />
     </section>

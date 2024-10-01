@@ -4,11 +4,10 @@ import { ProductCardIcon, ProductName, Icon } from 'shared';
 import css from './DiscountProductItem.module.css';
 
 const DiscountProductItem = ({ product }) => {
-  const { img, name, price } = product;
+  const { _id, img, name, price } = product;
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-
-  const isInCart = cart.some(item => item._id === product._id);
+  const isInCart = cart.some(item => item._id === _id);
 
   const handleClick = () => {
     isInCart

@@ -5,10 +5,10 @@ import clsx from 'clsx';
 import css from './PopularProductItem.module.css';
 
 const PopularProductItem = ({ product }) => {
-  const cart = useSelector(selectCart);
+  const { _id, img, name } = product;
   const dispatch = useDispatch();
-  const isInCart = cart.some(item => item._id === product._id);
-  const { img, name } = product;
+  const cart = useSelector(selectCart);
+  const isInCart = cart.some(item => item._id === _id);
 
   const handleClick = () => {
     isInCart
