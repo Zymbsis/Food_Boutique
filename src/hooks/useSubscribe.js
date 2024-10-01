@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useModalContext } from './useContext.js';
+import { EMAIL_PATTERN } from 'constants';
+import { useModalContext } from 'hooks';
+import { sendSubscriptionRequest } from 'services';
 import SubscriptionSuccess from '../components/SubscriptionSuccess/SubscriptionSuccess.jsx';
 import SubscriptionError from '../components/SubscriptionError/SubscriptionError.jsx';
-import { sendSubscriptionRequest } from '../services/foodBoutiqueCustomersApi.js';
-import { EMAIL_PATTERN } from '../constants/index.js';
 
 export const useSubscribe = () => {
   const [email, setEmail] = useState('');

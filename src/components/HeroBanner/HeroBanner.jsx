@@ -1,7 +1,7 @@
 import { OrganicFood } from 'shared';
-import css from './Banner.module.css';
+import css from './HeroBanner.module.css';
 
-const Banner = () => {
+const HeroBanner = () => {
   return (
     <div className={css.bannerWrapper}>
       <OrganicFood className={css.organicFoodImg} />
@@ -62,4 +62,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default HeroBanner;

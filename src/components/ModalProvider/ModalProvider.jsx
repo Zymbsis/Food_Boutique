@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import css from './ModalProvider.module.css';
-import { ModalContext } from '../../hooks/useContext.js';
 import { createPortal } from 'react-dom';
-import { Icon } from '../../shared/index.js';
+import { ModalContext } from 'hooks';
+import { Icon } from 'shared';
+import css from './ModalProvider.module.css';
 
 const ModalProvider = ({ children }) => {
   const [modalContent, setModalContent] = useState(null);
