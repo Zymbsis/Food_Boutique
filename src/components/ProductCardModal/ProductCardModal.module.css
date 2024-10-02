@@ -13,7 +13,7 @@
 .cardWrapper {
   width: 335px;
   padding: 40px 20px;
-  transition: width 500ms ease-in;
+  max-height: 100%;
 }
 
 .cardImgWrapper {
@@ -44,7 +44,7 @@
 }
 
 .descWrapper {
-  max-height: calc(100vh - 560px);
+  max-height: calc(100vh - 580px);
   padding-right: 10px;
   overflow: auto;
   margin-bottom: 40px;
