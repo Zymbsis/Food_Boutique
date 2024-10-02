@@ -27,6 +27,7 @@ const HomePage = () => {
   const data = useSelector(selectProductCategoriesList);
 
   useEffect(() => {
+    if (limit === null) return;
     if (data.length > 0) return;
     dispatch(fetchProductCategories());
     dispatch(fetchPopularProducts());
