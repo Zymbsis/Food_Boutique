@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWindowSize } from 'hooks';
 import MainProductList from './MainProductList/MainProductList';
-import Pagination from './Pagination/Pagination';
+import Pagination from '../../Pagination/Pagination';
 import NothingFound from './NothingFound/NothingFound';
-import css from './MainProductsSection.module.css';
-import { scrollSection } from './.helpers/scrollIntoView';
+import { scrollIntoView } from 'helpers';
 import { fetchAllProducts } from '@redux/productLists/operations.js';
+import css from './MainProductsSection.module.css';
 import {
   selectAllProductsList,
   selectIsAllProductsError,
@@ -40,23 +40,17 @@ const MainProductsSection = () => {
   useEffect(() => {
     if (limit === null) return;
     const requestParams = { limit, page, category, keyword, ...sortParams };
+
     dispatch(fetchAllProducts(requestParams));
-    if (firstRender) {
-      setFirstRender(false);
+  }, [page, category, keyword, sortParams, limit, dispatch]);
+
+  useEffect(() => {
+    if (!firstRender) {
+      scrollIntoView(sectionRef, windowWidth);
       return;
-    } else {
-      scrollSection(sectionRef, windowWidth);
     }
-  }, [
-    page,
-    category,
-    keyword,
-    sortParams,
-    limit,
-    firstRender,
-    windowWidth,
-    dispatch,
-  ]);
+    setFirstRender(false);
+  }, [page, firstRender, windowWidth]);
 
   if (loading)
     return (
@@ -70,11 +64,7 @@ const MainProductsSection = () => {
     </div>;
   }
   if (allProducts.length === 0) {
-    return (
-      <div className={css.section}>
-        <NothingFound />
-      </div>
-    );
+    return <NothingFound />;
   }
   return (
     <section ref={sectionRef} className={css.section}>

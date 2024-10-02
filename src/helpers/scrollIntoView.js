@@ -1,6 +1,6 @@
 import { desktop, mobile, tablet } from 'constants';
 
-export const scrollSection = (ref, windowSize) => {
+export const scrollIntoView = (ref, windowSize) => {
   if (ref.current === null) return;
   const sectionPosition = ref.current.getBoundingClientRect().top;
   let scrollOffset;

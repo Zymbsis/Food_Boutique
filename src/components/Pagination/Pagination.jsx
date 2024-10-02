@@ -9,7 +9,7 @@ import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './Pagination.module.css';
 
-import { createButtonPanel } from '../.helpers/createButtonPanel';
+import { createPaginationPageNumbers } from 'helpers';
 import { selectPage } from '@redux/requestParams/selectors.js';
 
 const Pagination = () => {
@@ -26,7 +26,11 @@ const Pagination = () => {
     (windowWidth >= tablet.width && totalPages > page + 3);
 
   useEffect(() => {
-    const buttonArray = createButtonPanel(totalPages, page, windowWidth);
+    const buttonArray = createPaginationPageNumbers(
+      totalPages,
+      page,
+      windowWidth
+    );
     setButtonPanel(buttonArray);
   }, [windowWidth, totalPages, page]);
 

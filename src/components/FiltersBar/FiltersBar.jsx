@@ -1,7 +1,7 @@
 import { Container } from 'shared';
-import FilterByCategory from './FilterByCategory/FilterByCategory';
-import FilterByParameter from './FilterByParameter/FilterByParameter';
-import FilterByQuery from './FilterByQuery/FilterByQuery';
+import FilterByCategory from '../FilterByCategory/FilterByCategory';
+import SortByParameter from '../SortByParameter/SortByParameter';
+import SearchByKeyword from '../SearchByKeyword/SearchByKeyword.jsx';
 import css from './FiltersBar.module.css';
 
 const FiltersBar = () => {
@@ -10,9 +10,9 @@ const FiltersBar = () => {
       <Container>
         <p className={css.filtersBarTitle}>Filters:</p>
         <div className={css.filtersWrapper}>
-          <FilterByQuery />
+          <SearchByKeyword />
           <FilterByCategory />
-          <FilterByParameter />
+          <SortByParameter />
         </div>
       </Container>
     </section>

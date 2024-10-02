@@ -1,6 +1,6 @@
 export { default as SharedLayout } from './SharedLayout/SharedLayout.jsx';
 export { default as Hero } from './Hero/Hero.jsx';
-export { default as FiltersBar } from './homePage/FiltersBar/FiltersBar';
+export { default as FiltersBar } from './FiltersBar/FiltersBar.jsx';
 export { default as MainProductsSection } from './homePage/MainProductsSection/MainProductsSection';
 export { default as PopularProductsSection } from './PopularProductsSection/PopularProductsSection.jsx';
 export { default as DiscountProductsSection } from './DiscountProductsSection/DiscountProductsSection.jsx';

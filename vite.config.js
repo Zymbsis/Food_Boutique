@@ -17,6 +17,7 @@ export default defineConfig({
       icons: '/src/icons',
       constants: '/src/constants',
       components: '/src/components',
+      styles: '/src/styles',
     },
   },
   // build: {

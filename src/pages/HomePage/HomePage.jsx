@@ -14,7 +14,6 @@ import {
   fetchPopularProducts,
   fetchProductCategories,
 } from '@redux/productLists/operations.js';
-import { selectProductCategoriesList } from '@redux/productLists/selectors.js';
 import { useWindowSize } from '../../hooks/useWindowSize.js';
 import { desktop, mobile, tablet } from 'constants';
 import { changeLimit } from '../../redux/requestParams/slice.js';
@@ -24,15 +23,14 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const windowWidth = useWindowSize();
   const limit = useSelector(selectLimit);
-  const data = useSelector(selectProductCategoriesList);
 
   useEffect(() => {
-    if (limit === null) return;
-    if (data.length > 0) return;
+    if (limit !== null) return;
+
     dispatch(fetchProductCategories());
     dispatch(fetchPopularProducts());
     dispatch(fetchDiscountProducts());
-  }, [dispatch, data, limit]);
+  }, [dispatch, limit]);
 
   useEffect(() => {
     let perPageLimit;
