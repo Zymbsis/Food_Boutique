@@ -1,4 +1,4 @@
-.section {
+.container {
   padding-top: 40px;
   padding-bottom: 80px;
 
@@ -8,12 +8,7 @@
 
   @media (min-width:1440px) {
     padding-top: 60px;
-    padding-bottom: 140px;
-  }
-}
-
-.container {
-  @media (min-width:1440px) {
+    padding-bottom: 60px;
     display: flex;
     gap: 40px;
   }
@@ -26,7 +21,7 @@
 
     @media (min-width:768px) {
       padding-top: 100px;
-      gap: 100px;
+      gap: 64px;
     }
 
     @media (min-width:1440px) {

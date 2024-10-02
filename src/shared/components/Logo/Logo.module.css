@@ -2,24 +2,21 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
-  svg {
-    width: 28px;
-    height: 28px;
-  }
+  width: 154px;
+  height: 28px;
 
   span {
-    font-family: 'DemoFonts';
+    font-family: var(--secondary-font);
     font-size: 18px;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
     align-self: center;
+    flex-shrink: 0;
+    line-height: 1;
   }
 
   @media (min-width:768px) {
-    svg {
-      width: 32px;
-      height: 32px;
-    }
+    width: 197px;
+    height: 32px;
 
     span {
       font-size: 24px;
@@ -27,8 +24,13 @@
   }
 }
 
-.footerLogoLink {
+.logoLink.footer {
+  svg {
+    --color1: #E8E8E2;
+    --color2: #6D8434;
+  }
+
   span {
-    color: var(--primary-white-color);
+    color: #E8E8E2;
   }
 }

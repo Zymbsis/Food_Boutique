@@ -1,0 +1,128 @@
+.footer {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background-color: var(--primary-green-color);
+}
+
+.container {}
+
+.contentWrapper {
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    column-gap: 78px;
+    height: 404px;
+    margin-bottom: 120px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 128px;
+    flex-direction: row;
+    column-gap: 148px;
+    height: auto;
+  }
+}
+
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    height: 100%;
+  }
+}
+
+.socialLinksList {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLinksList > li {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 232, 226, 0.30);
+  padding: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.footerText {
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    width: 429px;
+    margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 410px;
+    margin-bottom: 0;
+  }
+}
+
+.footerText > h2 {
+  color: var(--primary-white-color);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+}
+
+.footerText > p {
+  color: rgba(232, 232, 226, 0.70);
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.legalLinksWrapper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.legalLinksWrapper > p {
+  color: var(--primary-white-color);
+  line-height: 1.28;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.legalLinksList {
+  display: flex;
+  gap: 8px;
+}
+
+.legalLinksList > li {
+  color: var(--primary-white-color);
+  line-height: 1.28;
+}
+
+.legalLinksList > li:first-child > a {
+  display: inline-flex;
+  gap: 8px;
+}

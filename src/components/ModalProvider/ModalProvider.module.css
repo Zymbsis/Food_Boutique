@@ -1,0 +1,42 @@
+.modalBackdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: rgba(1, 1, 1, 0.40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 84px;
+  }
+}
+
+.modalWindow {
+  position: relative;
+  background-color: var(--primary-white-color);
+  border-radius: 20px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.closeBtn > svg {
+  pointer-events: none;
+}

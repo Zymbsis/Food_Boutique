@@ -6,6 +6,22 @@ const axiosInstance = axios.create({
   baseURL: `${BASE_URL}${PRODUCTS}`,
 });
 
+export const fetchAllProducts = createAsyncThunk(
+  'productLists/getAllProducts',
+  async (params, thunkAPI) => {
+    try {
+      const {
+        data: { results, totalPages },
+      } = await axiosInstance('/', {
+        params,
+      });
+      return { results, totalPages };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 export const fetchPopularProducts = createAsyncThunk(
   'productLists/getPopularProducts',
   async (_, thunkAPI) => {
@@ -17,6 +33,7 @@ export const fetchPopularProducts = createAsyncThunk(
     }
   }
 );
+
 export const fetchDiscountProducts = createAsyncThunk(
   'productLists/getDiscountProducts',
   async (_, thunkAPI) => {
@@ -28,6 +45,7 @@ export const fetchDiscountProducts = createAsyncThunk(
     }
   }
 );
+
 export const fetchProductCategories = createAsyncThunk(
   'productLists/getProductCategories',
   async (_, thunkAPI) => {

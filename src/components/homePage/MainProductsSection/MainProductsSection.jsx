@@ -1,97 +1,84 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ProductListTitle, OrganicFood } from 'shared';
 import { useWindowSize } from 'hooks';
-import { fetchProducts } from 'services';
-import {
-  selectLimit,
-  changeLimit,
-  selectRequestParams,
-  selectPage,
-} from '@redux/requestParams/slice';
 import MainProductList from './MainProductList/MainProductList';
-import ProductNavigation from './ProductNavigation/ProductNavigation';
+import Pagination from './Pagination/Pagination';
 import NothingFound from './NothingFound/NothingFound';
-import clsx from 'clsx';
 import css from './MainProductsSection.module.css';
 import { scrollSection } from './.helpers/scrollIntoView';
+import { fetchAllProducts } from '@redux/productLists/operations.js';
+import {
+  selectAllProductsList,
+  selectIsAllProductsError,
+  selectIsAllProductsLoading,
+  selectTotalPages,
+} from '@redux/productLists/selectors.js';
+import { OrganicFood } from 'shared';
+import {
+  selectCategory,
+  selectKeyword,
+  selectLimit,
+  selectPage,
+  selectSortParams,
+} from '@redux/requestParams/selectors.js';
 
 const MainProductsSection = () => {
-  const windowWidth = useWindowSize();
   const dispatch = useDispatch();
+  const windowWidth = useWindowSize();
+  const [firstRender, setFirstRender] = useState(true);
+  const sectionRef = useRef(null);
+  const totalPages = useSelector(selectTotalPages);
+  const allProducts = useSelector(selectAllProductsList);
+  const loading = useSelector(selectIsAllProductsLoading);
+  const error = useSelector(selectIsAllProductsError);
   const page = useSelector(selectPage);
   const limit = useSelector(selectLimit);
-  const requestParams = useSelector(selectRequestParams);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [allProducts, setAllProducts] = useState([]);
-  const [totalPages, setTotalPages] = useState(null);
-  const [allowScroll, setAllowScroll] = useState(null);
-  const sectionRef = useRef(null);
-
-  const getLimit = useCallback(windowWidth => {
-    if (windowWidth >= 1440) {
-      return 9;
-    } else if (windowWidth < 1440 && windowWidth > 768) {
-      return 8;
-    } else {
-      return 6;
-    }
-  }, []);
-
-  useEffect(() => {
-    const newLimit = getLimit(windowWidth);
-    if (newLimit === limit) return;
-    dispatch(changeLimit(newLimit));
-  }, [dispatch, getLimit, windowWidth, limit]);
+  const category = useSelector(selectCategory);
+  const keyword = useSelector(selectKeyword);
+  const sortParams = useSelector(selectSortParams);
 
   useEffect(() => {
     if (limit === null) return;
-    async function getProducts() {
-      try {
-        setError(false);
-        setLoading(true);
-        const { results, totalPages } = await fetchProducts(requestParams);
-        setAllProducts(results);
-        setTotalPages(totalPages);
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
+    const requestParams = { limit, page, category, keyword, ...sortParams };
+    dispatch(fetchAllProducts(requestParams));
+    if (firstRender) {
+      setFirstRender(false);
+      return;
+    } else {
+      scrollSection(sectionRef, windowWidth);
     }
-    getProducts();
-  }, [requestParams, limit, setTotalPages]);
+  }, [
+    page,
+    category,
+    keyword,
+    sortParams,
+    limit,
+    firstRender,
+    windowWidth,
+    dispatch,
+  ]);
 
-  useEffect(() => {
-    if (allowScroll === null) return;
-    scrollSection(sectionRef, windowWidth);
-  }, [allowScroll, windowWidth]);
-
+  if (loading)
+    return (
+      <div className={css.loaderWrapper}>
+        <OrganicFood className={css.loader} />
+      </div>
+    );
+  if (error) {
+    <div className={css.section}>
+      <p>Error</p>
+    </div>;
+  }
+  if (allProducts.length === 0) {
+    return (
+      <div className={css.section}>
+        <NothingFound />
+      </div>
+    );
+  }
   return (
-    <section
-      ref={sectionRef}
-      className={clsx(css.section, {
-        [css.optionalContainer]:
-          totalPages === 1 ||
-          totalPages === page ||
-          allProducts.length === 0 ||
-          error,
-      })}
-    >
-      <ProductListTitle className="visually-hidden">
-        Organic Food
-      </ProductListTitle>
-      {loading && <OrganicFood className={css.loader} />}
-      {error && <p>Error</p>}
-      {allProducts.length === 0 && !loading ? <NothingFound /> : null}
-      {allProducts.length > 0 && !loading ? (
-        <MainProductList productList={allProducts} />
-      ) : null}
-
-      {totalPages > 1 && (
-        <ProductNavigation totalPages={totalPages} setter={setAllowScroll} />
-      )}
+    <section ref={sectionRef} className={css.section}>
+      <MainProductList /> {totalPages > 1 && <Pagination />}
     </section>
   );
 };

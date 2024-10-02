@@ -1,49 +1,53 @@
 .section {
   position: relative;
-  min-height: 2000px;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  justify-content: space-between;
   transition: all 500ms;
 
-  @media (min-width:768px) {
-    min-height: 1500px;
+  @media screen and (min-width: 768px) {
     gap: 50px;
   }
 
-  @media (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     min-height: 1249px;
     width: 925px;
-    gap: 0
+    gap: 40px;
   }
 }
 
-.optionalContainer {
-  min-height: 356px;
-  transition: all 500ms;
+.loaderWrapper {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
 
-  @media (min-width:768px) {
-    min-height: 360px;
+  @media screen and (min-width: 768px) {
+    padding-top: 110px;
+    padding-bottom: 200px;
   }
 
-  @media (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
+    width: 925px;
     min-height: 1249px;
+    padding-top: 140px;
+    padding-bottom: 200px;
   }
 }
 
 .loader {
+  position: static;
   width: 150px;
   height: 150px;
   right: unset;
   top: 100px;
   left: 113px;
 
-  @media (min-width:768px) {
+  @media screen and (min-width: 768px) {
     left: 309px;
   }
 
-  @media (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     left: 404px;
   }
 }

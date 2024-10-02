@@ -3,17 +3,18 @@ import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './Logo.module.css';
 
-const Logo = ({ placement = 'header', className, ...props }) => {
+const Logo = ({ placement }) => {
+  const handleClick = () => {
+    location.pathname === '/' && location.reload();
+  };
+
   return (
     <Link
       to="/"
-      className={clsx(css.logoLink, {
-        [css.footerLogoLink]: placement === 'footer',
-        [className]: className,
-      })}
-      {...props}
+      className={clsx(css.logoLink, css[placement])}
+      onClick={handleClick}
     >
-      <Icon iconId={placement === 'header' ? 'logoHeader' : 'logoFooter'} />
+      <Icon iconId="logo" />
       <span>Food Boutique</span>
     </Link>
   );

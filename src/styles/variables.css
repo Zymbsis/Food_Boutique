@@ -1,0 +1,14 @@
+:root {
+  --primary-white-color: #e8e8e2;
+  --secondary-white-color: #FAFAFA;
+  --primary-black-color: #010101;
+  --secondary-black-color: #010101b3;
+  --opacity-black-color: #010101cc;
+  --secondary-grey-color: #0101014d;
+  --nav-button-grey-color: #a3a3a3;
+  --primary-green-color: #6D8434;
+  --error-validation-color: #df4141;
+  --transition-duration: 500ms;
+  --primary-font: 'NeueMontreal';
+  --secondary-font: 'DemoFonts';
+}

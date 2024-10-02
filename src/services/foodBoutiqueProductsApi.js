@@ -14,7 +14,7 @@ export const fetchProducts = async params => {
   const {
     data: { results, totalPages },
   } = await axiosInstance('/', {
-    params: params,
+    params,
   });
   return { results, totalPages };
 };
