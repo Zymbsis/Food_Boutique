@@ -12,7 +12,7 @@ import css from './Pagination.module.css';
 import { createButtonPanel } from '../.helpers/createButtonPanel';
 import { selectPage } from '@redux/requestParams/selectors.js';
 
-const Pagination = ({ setter }) => {
+const Pagination = () => {
   const dispatch = useDispatch();
   const windowWidth = useWindowSize();
   const totalPages = useSelector(selectTotalPages);
@@ -39,7 +39,6 @@ const Pagination = ({ setter }) => {
             disabled={page === 1}
             onClick={() => {
               dispatch(changePage(1));
-              setter(prev => prev + 1);
             }}
             type="button"
           >
@@ -50,7 +49,6 @@ const Pagination = ({ setter }) => {
             disabled={page === 1}
             onClick={() => {
               dispatch(changePage(page - 1));
-              setter(prev => prev + 1);
             }}
             type="button"
           >
@@ -70,7 +68,6 @@ const Pagination = ({ setter }) => {
               })}
               onClick={() => {
                 dispatch(changePage(item));
-                setter(prev => prev + 1);
               }}
             >
               {item}
@@ -86,7 +83,6 @@ const Pagination = ({ setter }) => {
             disabled={totalPages === page}
             onClick={() => {
               dispatch(changePage(page + 1));
-              setter(prev => prev + 1);
             }}
             type="button"
           >
@@ -97,7 +93,6 @@ const Pagination = ({ setter }) => {
             disabled={totalPages === page}
             onClick={() => {
               dispatch(changePage(totalPages));
-              setter(prev => prev + 1);
             }}
             type="button"
           >

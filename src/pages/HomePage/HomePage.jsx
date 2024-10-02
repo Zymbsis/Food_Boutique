@@ -16,7 +16,7 @@ import {
 } from '@redux/productLists/operations.js';
 import { selectProductCategoriesList } from '@redux/productLists/selectors.js';
 import { useWindowSize } from '../../hooks/useWindowSize.js';
-import { desktop, mobile, tablet } from '../../constants/index.js';
+import { desktop, mobile, tablet } from 'constants';
 import { changeLimit } from '../../redux/requestParams/slice.js';
 import { selectLimit } from '../../redux/requestParams/selectors.js';
 
@@ -31,7 +31,7 @@ const HomePage = () => {
     dispatch(fetchProductCategories());
     dispatch(fetchPopularProducts());
     dispatch(fetchDiscountProducts());
-  }, [dispatch, data]);
+  }, [dispatch, data, limit]);
 
   useEffect(() => {
     let perPageLimit;

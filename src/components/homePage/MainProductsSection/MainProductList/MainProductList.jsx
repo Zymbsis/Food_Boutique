@@ -7,6 +7,7 @@ const MainProductList = () => {
   const allProducts = useSelector(selectAllProductsList);
   return (
     <>
+      <h2 className="visually-hidden">Organic Food</h2>
       <ul className={css.productList}>
         {allProducts.map(product => (
           <li className={css.productItem} key={product._id}>
