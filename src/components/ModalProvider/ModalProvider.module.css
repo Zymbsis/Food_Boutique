@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 40px 20px;
 
   @media screen and (min-width: 768px) {
     padding: 0 84px;
@@ -18,8 +18,9 @@
 
 .modalWindow {
   position: relative;
-  background-color: var(--primary-white-color);
+  background-color: var(--secondary-white-color);
   border-radius: 20px;
+  max-height: 100%;
 }
 
 .closeBtn {

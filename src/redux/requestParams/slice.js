@@ -6,8 +6,8 @@ const initialState = {
     category: '',
     page: 1,
     limit: null,
-    sortParams: {},
   },
+  sortParams: {},
 };
 
 const requestParams = createSlice({
@@ -30,7 +30,7 @@ const requestParams = createSlice({
       state.requestParams.page = 1;
     },
     addSortParams: (state, action) => {
-      state.requestParams.sortParams = action.payload;
+      state.sortParams = action.payload;
       state.requestParams.page = 1;
     },
   },

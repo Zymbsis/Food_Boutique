@@ -10,14 +10,14 @@ import { ModalProvider } from 'components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ModalProvider>
-      <BrowserRouter>
-        <Provider store={store}>
-          <PersistGate persistor={persistor}>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ModalProvider>
+          <BrowserRouter>
             <App />
-          </PersistGate>
-        </Provider>
-      </BrowserRouter>
-    </ModalProvider>
+          </BrowserRouter>
+        </ModalProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

@@ -30,6 +30,6 @@ export const fetchDiscountProducts = async () => {
 };
 
 export const fetchProductById = async id => {
-  const { data } = await axios(id);
+  const { data } = await axiosInstance(`/${id}`);
   return data;
 };

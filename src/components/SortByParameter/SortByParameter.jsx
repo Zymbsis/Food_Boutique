@@ -13,7 +13,6 @@ const SortByParameter = () => {
 
   const handleChange = option => {
     dispatch(addSortParams(JSON.parse(option.value)));
-    console.log(option.value);
   };
 
   return (

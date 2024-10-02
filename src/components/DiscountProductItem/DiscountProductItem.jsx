@@ -24,7 +24,7 @@ const DiscountProductItem = ({ product }) => {
       <div className={css.descriptionWrapper}>
         <ProductName className={css.productName}>{name}</ProductName>
         <div className={css.priceWrapper}>
-          <span>{`$${price}`}</span>
+          <span>{`$${price.toFixed(2)}`}</span>
           <ProductCardIcon onClick={handleClick} isInCart={isInCart} />
         </div>
       </div>

@@ -1,0 +1,86 @@
+.loaderWrapper {
+  width: 335px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.loader {
+  position: static;
+}
+
+.cardWrapper {
+  width: 335px;
+  padding: 40px 20px;
+  transition: width 500ms ease-in;
+}
+
+.cardImgWrapper {
+  border-radius: 10px;
+  background-color: var(--primary-white-color);
+  padding: 26px 67.5px;
+  margin-bottom: 20px;
+}
+
+.cardImgWrapper > img {
+  width: 160px;
+  height: 160px;
+}
+
+.cardName {
+  margin-bottom: 10px;
+}
+
+.cardFeatures {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardFeatures > li > span:first-child {
+  margin-right: 4px;
+}
+
+.descWrapper {
+  max-height: calc(100vh - 560px);
+  padding-right: 10px;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.cardDesc {
+  color: rgba(1, 1, 1, 0.70);
+  line-height: 1.28;
+}
+
+.cardPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cardPrice > span {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.cardPrice > button {
+  padding: 12px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-radius: 30px;
+  background: var(--primary-green-color);
+  color: var(--primary-white-color);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.cardPrice > button > svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--primary-white-color);
+}

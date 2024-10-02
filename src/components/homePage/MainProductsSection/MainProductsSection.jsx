@@ -1,26 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useWindowSize } from 'hooks';
-import MainProductList from './MainProductList/MainProductList';
-import Pagination from '../../Pagination/Pagination';
-import NothingFound from './NothingFound/NothingFound';
-import { scrollIntoView } from 'helpers';
 import { fetchAllProducts } from '@redux/productLists/operations.js';
-import css from './MainProductsSection.module.css';
 import {
   selectAllProductsList,
   selectIsAllProductsError,
   selectIsAllProductsLoading,
   selectTotalPages,
 } from '@redux/productLists/selectors.js';
-import { OrganicFood } from 'shared';
 import {
-  selectCategory,
-  selectKeyword,
-  selectLimit,
-  selectPage,
+  selectRequestParams,
   selectSortParams,
 } from '@redux/requestParams/selectors.js';
+import { scrollIntoView } from 'helpers';
+import { useWindowSize } from 'hooks';
+import { OrganicFood } from 'shared';
+import MainProductList from './MainProductList/MainProductList';
+import Pagination from '../../Pagination/Pagination';
+import NothingFound from './NothingFound/NothingFound';
+import css from './MainProductsSection.module.css';
 
 const MainProductsSection = () => {
   const dispatch = useDispatch();
@@ -31,18 +28,13 @@ const MainProductsSection = () => {
   const allProducts = useSelector(selectAllProductsList);
   const loading = useSelector(selectIsAllProductsLoading);
   const error = useSelector(selectIsAllProductsError);
-  const page = useSelector(selectPage);
-  const limit = useSelector(selectLimit);
-  const category = useSelector(selectCategory);
-  const keyword = useSelector(selectKeyword);
   const sortParams = useSelector(selectSortParams);
+  const requestParams = useSelector(selectRequestParams);
 
   useEffect(() => {
-    if (limit === null) return;
-    const requestParams = { limit, page, category, keyword, ...sortParams };
-
-    dispatch(fetchAllProducts(requestParams));
-  }, [page, category, keyword, sortParams, limit, dispatch]);
+    if (requestParams.limit === null) return;
+    dispatch(fetchAllProducts({ ...requestParams, ...sortParams }));
+  }, [requestParams, sortParams, dispatch]);
 
   useEffect(() => {
     if (!firstRender) {
@@ -50,7 +42,7 @@ const MainProductsSection = () => {
       return;
     }
     setFirstRender(false);
-  }, [page, firstRender, windowWidth]);
+  }, [requestParams.page, firstRender, windowWidth]);
 
   if (loading)
     return (

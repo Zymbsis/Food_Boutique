@@ -1,6 +1,7 @@
 .textWrapper {
   width: 335px;
   padding: 80px 43.5px;
+  background-color: var(--primary-white-color);
 
   @media screen and (min-width: 768px) {
     width: 469px;
