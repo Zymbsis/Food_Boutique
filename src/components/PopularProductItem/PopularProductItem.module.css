@@ -23,9 +23,9 @@
   fill: var(--primary-green-color)
 }
 
-.productButton.optionalClass svg {
-  fill: none;
-  stroke: var(--primary-green-color);
+.cartBtn {
+  position: absolute;
+  right: 12px;
 }
 
 .productName {

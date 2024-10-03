@@ -1,0 +1,35 @@
+.cartBtn {
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 30px;
+  background-color: var(--primary-green-color);
+  transition: all 300ms ease-in;
+}
+
+.cartBtn > svg {
+  --color1: var(--primary-white-color);
+}
+
+.cartBtn:hover {
+  background-color: var(--hovered-green-color);
+}
+
+.popCartBtn {
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  background-color: var(--primary-white-color);
+}
+
+.popCartBtn > svg {
+  --color1: var(--primary-green-color);
+}
+
+.popCartBtn:hover {
+  background-color: var(--primary-green-color);
+}
+
+.popCartBtn:hover > svg {
+  --color1: var(--primary-white-color)
+}

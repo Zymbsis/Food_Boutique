@@ -1,39 +1,17 @@
 import { useEffect, useState } from 'react';
 import css from './ProductCardModal.module.css';
 import { fetchProductById } from '../../services/foodBoutiqueProductsApi.js';
-import {
-  Icon,
-  OrganicFood,
-  ProductDescription,
-  ProductName,
-} from '../../shared/index.js';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  addProduct,
-  deleteProduct,
-  selectCart,
-} from '../../redux/cart/slice.js';
+import { Icon, OrganicFood, ProductDescription, ProductName } from 'shared';
 
-const ProductCardModal = ({ id }) => {
-  const dispatch = useDispatch();
+const ProductCardModal = ({ _id, isInCart, handleClick }) => {
   const [productCard, setProductCard] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const cart = useSelector(selectCart);
-  const isInCart = cart.some(item => item._id === productCard?._id);
-
-  const handleClick = () => {
-    isInCart
-      ? dispatch(deleteProduct(productCard))
-      : dispatch(addProduct({ ...productCard, quantity: 1 }));
-  };
 
   useEffect(() => {
     (async () => {
       try {
         setIsLoading(true);
-        const data = await fetchProductById(id);
-        console.log();
-
+        const data = await fetchProductById(_id);
         setProductCard(data);
         setIsLoading(false);
       } catch (error) {
@@ -41,7 +19,7 @@ const ProductCardModal = ({ id }) => {
         console.log(error);
       }
     })();
-  }, [id]);
+  }, [_id]);
 
   if (isLoading)
     return (
@@ -49,29 +27,36 @@ const ProductCardModal = ({ id }) => {
         <OrganicFood className={css.loader} />
       </div>
     );
+
   return (
     productCard !== null && (
       <div className={css.cardWrapper}>
-        <div className={css.cardImgWrapper}>
-          <img
-            src={productCard.img}
-            alt={productCard.name}
-            width={160}
-            height={160}
-          />
-        </div>
-        <ProductName className={css.cardName}>{productCard.name}</ProductName>
-        <ul className={css.cardFeatures}>
-          <ProductDescription
-            product={{
-              category: productCard.category,
-              size: productCard.size,
-              popularity: productCard.popularity,
-            }}
-          />
-        </ul>
-        <div className={css.descWrapper}>
-          <p className={css.cardDesc}>{productCard.desc}</p>
+        <div className={css.cardInfo}>
+          <div className={css.cardImgWrapper}>
+            <img
+              src={productCard.img}
+              alt={productCard.name}
+              width={160}
+              height={160}
+            />
+          </div>
+          <div className={css.textContent}>
+            <ProductName className={css.cardName}>
+              {productCard.name}
+            </ProductName>
+            <ul className={css.cardFeatures}>
+              <ProductDescription
+                product={{
+                  category: productCard.category,
+                  size: productCard.size,
+                  popularity: productCard.popularity,
+                }}
+              />
+            </ul>
+            <div className={css.descWrapper}>
+              <p className={css.cardDesc}>{productCard.desc}</p>
+            </div>
+          </div>
         </div>
         <div className={css.cardPrice}>
           <span>{`$${productCard.price?.toFixed(2)}`}</span>

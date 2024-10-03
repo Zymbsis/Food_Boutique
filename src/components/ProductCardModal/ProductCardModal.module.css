@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 500px;
+
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    height: 380px;
+  }
 }
 
 .loader {
@@ -13,7 +18,21 @@
 .cardWrapper {
   width: 335px;
   padding: 40px 20px;
-  max-height: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    padding: 40px;
+  }
+}
+
+.cardInfo {
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
 }
 
 .cardImgWrapper {
@@ -21,6 +40,11 @@
   background-color: var(--primary-white-color);
   padding: 26px 67.5px;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 26px 40px;
+    margin-bottom: 0;
+  }
 }
 
 .cardImgWrapper > img {
@@ -37,6 +61,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .cardFeatures > li > span:first-child {
@@ -44,15 +72,38 @@
 }
 
 .descWrapper {
-  max-height: calc(100vh - 580px);
+  max-height: 100px;
   padding-right: 10px;
-  overflow: auto;
-  margin-bottom: 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media screen and (min-width: 768px) {
+    max-height: 117px;
+  }
+}
+
+.descWrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.descWrapper::-webkit-scrollbar-thumb {
+  background-color: var(--primary-green-color);
+  border-radius: 4px;
+}
+
+.descWrapper::-webkit-scrollbar-track {
+  background-color: var(--primary-white-color);
+  border-radius: 4px;
 }
 
 .cardDesc {
   color: rgba(1, 1, 1, 0.70);
   line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .cardPrice {
@@ -65,6 +116,11 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.1;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .cardPrice > button {
@@ -77,6 +133,11 @@
   color: var(--primary-white-color);
   font-weight: 500;
   line-height: 1.25;
+
+  @media screen and (min-width: 768px) {
+    padding: 10px 28px;
+    font-size: 16px;
+  }
 }
 
 .cardPrice > button > svg {

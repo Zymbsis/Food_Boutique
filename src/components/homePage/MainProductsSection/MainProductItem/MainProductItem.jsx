@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ProductName, ProductDescription, ProductCardIcon } from 'shared';
+import { ProductName, ProductDescription } from 'shared';
 import { selectCart, deleteProduct, addProduct } from '@redux/cart/slice';
 import css from './MainProductItem.module.css';
 import { useModalContext } from '../../../../hooks/useContext.js';
 import ProductCardModal from '../../../ProductCardModal/ProductCardModal.jsx';
+import AddToCartButton from '../../../AddToCartButton/AddToCartButton.jsx';
 
 const MainProductItem = ({ product }) => {
   const { _id, img, name, price } = product;
@@ -24,7 +25,7 @@ const MainProductItem = ({ product }) => {
       <div
         className={css.imgWrapper}
         onClick={() => {
-          openModal(ProductCardModal, { id: _id });
+          openModal(ProductCardModal, { _id, isInCart, handleClick });
         }}
       >
         <img src={img} alt={name} width={140} height={140} />
@@ -35,7 +36,7 @@ const MainProductItem = ({ product }) => {
       </ul>
       <div className={css.priceWrapper}>
         <span>{`$${price.toFixed(2)}`}</span>
-        <ProductCardIcon onClick={handleClick} isInCart={isInCart} />
+        <AddToCartButton product={product} />
       </div>
     </>
   );
