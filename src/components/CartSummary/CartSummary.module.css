@@ -1,0 +1,25 @@
+.cartIconWrapper {
+  width: 14px;
+  height: 14px;
+  margin-right: 14px;
+
+  @media (min-width:768px) {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.cartIconWrapper svg {
+  --color1: var(--primary-white-color);
+}
+
+.cartTextWrapper {
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.16;
+
+  @media (min-width:768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

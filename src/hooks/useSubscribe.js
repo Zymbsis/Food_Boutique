@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { EMAIL_PATTERN } from 'constants';
 import { useModalContext } from 'hooks';
 import { sendSubscriptionRequest } from 'services';
@@ -33,8 +33,16 @@ export const useSubscribe = () => {
 
   const onInputChange = ({ target: { value } }) => {
     setEmail(value);
-    if (invalidEmail) setInvalidEmail(null);
   };
+
+  useEffect(() => {
+    if (!invalidEmail) return;
+    const handleClearError = () => {
+      setInvalidEmail(null);
+    };
+    document.addEventListener('click', handleClearError);
+    return () => document.removeEventListener('click', handleClearError);
+  }, [invalidEmail]);
 
   return { email, invalidEmail, onFormSubmit, onInputChange };
 };

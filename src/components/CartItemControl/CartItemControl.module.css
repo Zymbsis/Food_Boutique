@@ -1,0 +1,94 @@
+.ctrlWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.discountWrapper {
+  gap: 8px;
+  align-items: center;
+}
+
+.ctrlWrapper > span {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.ctrlWrapper > button {
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 30px;
+  background-color: var(--primary-green-color);
+  transition: all 300ms ease-in;
+}
+
+.ctrlWrapper > button > svg {
+  --color1: var(--primary-white-color);
+}
+
+.ctrlWrapper > button:hover {
+  background-color: var(--hovered-green-color);
+}
+
+.popularWrapper > button {
+  position: absolute;
+  padding: 4px;
+  width: 20px;
+  height: 20px;
+  right: 12px;
+  top: 12px;
+  background-color: var(--primary-white-color);
+}
+
+.popularWrapper > button > svg {
+  --color1: var(--primary-green-color);
+}
+
+.popularWrapper > button:hover {
+  background-color: var(--primary-green-color);
+}
+
+.popularWrapper > button:hover > svg {
+  --color1: var(--primary-white-color);
+}
+
+.modalWrapper > button {
+  width: 116px;
+  height: 42px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-white-color);
+  font-weight: 500;
+  line-height: 1.28;
+  white-space: nowrap;
+  transition: all 100ms ease-in;
+
+  @media screen and (min-width: 768px) {
+    width: 130px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.modalWrapper > button > svg {
+  width: 18px;
+  height: 18px;
+}
+
+.modalWrapper.isInCart > button {
+  width: 157px;
+
+  @media screen and (min-width: 768px) {
+    width: 177px;
+  }
+}

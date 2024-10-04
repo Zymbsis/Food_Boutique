@@ -1,14 +1,17 @@
-import { CartIndicator } from 'shared';
+import { Container } from 'shared';
 import { useSelector } from 'react-redux';
 import { selectProductsQuantity } from '@redux/cart/slice';
 import css from './OrderPage.module.css';
+import Cart from '../../components/Cart/Cart.jsx';
 
 const OrderPage = () => {
   const productsQuantity = useSelector(selectProductsQuantity);
   return (
-    <div style={{ paddingTop: 100 }}>
-      <CartIndicator productsQuantity={productsQuantity} />
-    </div>
+    <section className={css.section}>
+      <Container className={css.container}>
+        {productsQuantity ? <Cart /> : <p>Empty</p>}
+      </Container>
+    </section>
   );
 };
 

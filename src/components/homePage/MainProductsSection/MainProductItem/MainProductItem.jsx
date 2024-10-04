@@ -1,31 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useModalContext } from 'hooks';
 import { ProductName, ProductDescription } from 'shared';
-import { selectCart, deleteProduct, addProduct } from '@redux/cart/slice';
-import css from './MainProductItem.module.css';
-import { useModalContext } from '../../../../hooks/useContext.js';
 import ProductCardModal from '../../../ProductCardModal/ProductCardModal.jsx';
-import AddToCartButton from '../../../AddToCartButton/AddToCartButton.jsx';
+import CartItemControl from '../../../CartItemControl/CartItemControl.jsx';
+import css from './MainProductItem.module.css';
 
 const MainProductItem = ({ product }) => {
-  const { _id, img, name, price } = product;
-  const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
-  const isInCart = cart.some(item => item._id === _id);
-
+  const { img, name } = product;
   const { openModal } = useModalContext();
-
-  const handleClick = () => {
-    isInCart
-      ? dispatch(deleteProduct(product))
-      : dispatch(addProduct({ ...product, quantity: 1 }));
-  };
 
   return (
     <>
       <div
         className={css.imgWrapper}
         onClick={() => {
-          openModal(ProductCardModal, { _id, isInCart, handleClick });
+          openModal(ProductCardModal, { product });
         }}
       >
         <img src={img} alt={name} width={140} height={140} />
@@ -34,10 +22,7 @@ const MainProductItem = ({ product }) => {
         <ProductName className={css.productName}>{name}</ProductName>
         <ProductDescription product={product} />
       </ul>
-      <div className={css.priceWrapper}>
-        <span>{`$${price.toFixed(2)}`}</span>
-        <AddToCartButton product={product} />
-      </div>
+      <CartItemControl product={product} />
     </>
   );
 };

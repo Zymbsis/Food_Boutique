@@ -15,7 +15,9 @@ const SubscriptionForm = () => {
         onChange={onInputChange}
       />
       {invalidEmail && <span className={css.invalidEmail}>{invalidEmail}</span>}
-      <button type="submit">Send</button>
+      <button type="submit" className={css.submitBtn}>
+        Send
+      </button>
     </form>
   );
 };

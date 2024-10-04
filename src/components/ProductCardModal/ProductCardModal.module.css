@@ -122,26 +122,3 @@
     line-height: 1.2;
   }
 }
-
-.cardPrice > button {
-  padding: 12px 24px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  border-radius: 30px;
-  background: var(--primary-green-color);
-  color: var(--primary-white-color);
-  font-weight: 500;
-  line-height: 1.25;
-
-  @media screen and (min-width: 768px) {
-    padding: 10px 28px;
-    font-size: 16px;
-  }
-}
-
-.cardPrice > button > svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--primary-white-color);
-}

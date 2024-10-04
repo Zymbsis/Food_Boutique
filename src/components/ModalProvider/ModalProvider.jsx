@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalContext } from 'hooks';
-import { Icon } from 'shared';
+import { CloseButton, Icon } from 'shared';
 import css from './ModalProvider.module.css';
 
 const ModalProvider = ({ children }) => {
@@ -31,13 +31,7 @@ const ModalProvider = ({ children }) => {
         createPortal(
           <div className={css.modalBackdrop} onClick={closeModal}>
             <div className={css.modalWindow}>
-              <button
-                type="button"
-                onClick={closeModal}
-                className={css.closeBtn}
-              >
-                <Icon iconId="close" />
-              </button>
+              <CloseButton handleClick={closeModal} className={css.closeBtn} />
               {modalContent}
             </div>
           </div>,

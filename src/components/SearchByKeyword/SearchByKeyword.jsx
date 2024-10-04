@@ -7,7 +7,7 @@ const SearchByKeyword = () => {
     useFetchByKeyword();
 
   return (
-    <div className={css.inputWrapper}>
+    <div className={`${css.inputWrapper} ${keyword && css.activeInput}`}>
       <input
         type="text"
         placeholder="Search for anything"
@@ -20,7 +20,7 @@ const SearchByKeyword = () => {
         <span className={css.error}>May contain only letters and spaces</span>
       )}
       <button type="button" onClick={handleClick} className={css.clearButton}>
-        <Icon iconId="close" />
+        <Icon iconId={keyword ? 'close' : 'search'} />
       </button>
     </div>
   );

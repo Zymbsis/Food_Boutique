@@ -4,6 +4,7 @@
   height: 74px;
   border-radius: 10px;
   padding: 9px;
+  cursor: pointer;
   background-color: var(--primary-white-color);
 }
 
@@ -14,18 +15,6 @@
   width: 20px;
   height: 20px;
   background-color: var(--primary-white-color);
-}
-
-.productButton svg {
-  width: 12px;
-  height: 12px;
-  stroke: none;
-  fill: var(--primary-green-color)
-}
-
-.cartBtn {
-  position: absolute;
-  right: 12px;
 }
 
 .productName {

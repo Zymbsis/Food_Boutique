@@ -1,10 +1,10 @@
-import { OrganicFood } from 'shared';
+import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 import css from './HeroBanner.module.css';
 
 const HeroBanner = () => {
   return (
     <div className={css.bannerWrapper}>
-      <OrganicFood className={css.organicFoodImg} />
+      <OrganicFoodBadge className={css.organicFoodImg} />
       <picture>
         <source
           srcSet="/img/desktop/hero-banner-desktop-webp-1x.webp 1x,

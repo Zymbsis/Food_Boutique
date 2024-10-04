@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  cursor: pointer;
   background-color: var(--primary-white-color);
 
   @media screen and (min-width: 768px) and (max-width: 1440px) {

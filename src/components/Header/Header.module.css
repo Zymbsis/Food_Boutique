@@ -34,164 +34,111 @@
   }
 }
 
-.homeNavLink {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  border: 1px solid var(--primary-green-color);
-  border-radius: 30px;
-  transition: border-color var(--transition-duration);
+.navigation > li:first-child {
+  width: 77px;
+  height: 38px;
 
-  @media (min-width:768px) {
-    padding: 12px 28px;
-    font-size: 18px;
+  @media screen and (min-width: 768px) {
+    width: 104px;
+    height: 48px;
   }
 }
 
-.homeNavLink.activeLink {
-  border-color: transparent;
-  transition: border-color var(--transition-duration);
-}
-
-.homeNavLink > span {
-  position: relative;
-  z-index: 5;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.33;
-  transition: color var(--transition-duration);
-
-  @media (min-width:768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width:1440px) {
-    gap: 24px;
-  }
-}
-
-.homeNavLink.activeLink > span {
-  color: var(--primary-white-color);
-  transition: color var(--transition-duration);
-}
-
-.cartNavLink {
-  position: relative;
-  display: flex;
-  justify-content: center;
+.navigation > li:last-child {
   width: 38px;
   height: 38px;
-  border: 1px solid var(--primary-green-color);
-  border-radius: 30px;
-  transition: border-color var(--transition-duration);
 
-  @media (min-width:768px) {
-    width: fit-content;
+  @media screen and (min-width: 768px) {
+    width: 153px;
     height: 48px;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 }
 
-.cartNavLink.activeLink {
-  border-color: transparent;
-  transition: border-color var(--transition-duration);
-}
-
-.cartNavLink .headerCart div {
-  background-color: transparent;
-  width: 14px;
-  height: 14px;
-
-  @media (min-width:768px) {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-.cartNavLink svg {
+.homeNavLink,
+.cartNavLink {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
-  z-index: 5;
-  fill: var(--primary-green-color);
-  transition: fill var(--transition-duration);
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  border: 1px solid var(--primary-green-color);
+  font-weight: 500;
+  line-height: 1.28;
+  transition: color 300ms ease-in, border-color 300ms ease-in;
 
-.cartNavLink.activeLink svg {
-  fill: var(--primary-white-color);
-  transition: fill var(--transition-duration);
-}
-
-.cartNavLink span {
-  display: none;
-  position: relative;
-  z-index: 5;
-  transition: color var(--transition-duration);
-
-  @media (min-width:768px) {
-    display: inline;
+  @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
   }
 }
 
-.cartNavLink.activeLink span {
+.homeNavLink > span,
+.cartNavLink > span {
+  position: relative;
+  z-index: 5;
+}
+
+.homeNavLink:hover,
+.cartNavLink:hover {
+  color: var(--primary-green-color);
+  border-color: var(--hovered-green-color);
+}
+
+.cartNavLink svg {
+  --color1: var(--primary-green-color)
+}
+
+.cartNavLink > span:first-of-type {
+  @media screen and (max-width: 767.98px) {
+    margin-right: 0;
+  }
+}
+
+.cartNavLink > span:last-of-type {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.homeNavLink.activeLink,
+.cartNavLink.activeLink {
   color: var(--primary-white-color);
-  transition: color var(--transition-duration);
+  border-color: transparent;
 }
 
-.homeNavLink::after {
-  width: 38px;
-  left: calc(100% + 6px);
-  transition: width var(--transition-duration), left var(--transition-duration);
-
-  @media (min-width:768px) {
-    left: calc(100% + 16px)
-  }
-
-  @media (min-width:1440px) {
-    left: calc(100% + 24px)
-  }
-}
-
-.cartNavLink::before {
-  width: 75px;
-  left: calc(-100% + 6px);
-  transition: width var(--transition-duration), left var(--transition-duration);
-
-  @media (min-width:768px) {
-    left: calc(-100% + 16px);
-  }
-
-  @media (min-width:1440px) {
-    left: calc(-100% + 24px)
-  }
+.cartNavLink.activeLink svg {
+  --color1: var(--primary-white-color);
 }
 
 .homeNavLink::after,
-.cartNavLink::before {
-  height: 100%;
+.cartNavLink::after {
   position: absolute;
-  top: 0;
   display: block;
+  width: 100%;
+  height: 100%;
+  left: 100%;
   content: '';
-  border-radius: 30px;
+  pointer-events: none;
   background-color: transparent;
-  border: 1px solid transparent;
-  transition: width var(--transition-duration), left var(--transition-duration), border var(--transition-duration), background-color var(--transition-duration);
+  border-radius: 30px;
+  transition: left 300ms ease-in, background-color 300ms ease-in;
+}
 
-  @media (min-width:768px) {
-    width: 100%;
-  }
+.cartNavLink::after {
+  left: -100%;
 }
 
 .homeNavLink.activeLink::after,
-.cartNavLink.activeLink::before {
-  width: 100%;
+.cartNavLink.activeLink::after {
   left: 0;
-  border: 1px solid transparent;
   background-color: var(--primary-green-color);
-  transition: width var(--transition-duration), left var(--transition-duration), border var(--transition-duration), background-color var(--transition-duration);
+}
+
+.homeNavLink.activeLink:hover::after,
+.cartNavLink.activeLink:hover::after {
+  background-color: var(--hovered-green-color);
 }

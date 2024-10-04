@@ -13,11 +13,11 @@ import {
 } from '@redux/requestParams/selectors.js';
 import { scrollIntoView } from 'helpers';
 import { useWindowSize } from 'hooks';
-import { OrganicFood } from 'shared';
 import MainProductList from './MainProductList/MainProductList';
 import Pagination from '../../Pagination/Pagination';
 import NothingFound from './NothingFound/NothingFound';
 import css from './MainProductsSection.module.css';
+import OrganicFoodBadge from '../../OrganicFoodBadge/OrganicFoodBadge.jsx';
 
 const MainProductsSection = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const MainProductsSection = () => {
   if (loading)
     return (
       <div className={css.loaderWrapper}>
-        <OrganicFood className={css.loader} />
+        <OrganicFoodBadge className={css.loader} />
       </div>
     );
   if (error) {

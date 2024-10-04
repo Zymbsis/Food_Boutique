@@ -1,32 +1,39 @@
 import { useEffect, useState } from 'react';
+import { modal } from 'constants';
+import { fetchProductById } from 'services';
+import { ProductDescription, ProductName } from 'shared';
+import CartItemControl from '../CartItemControl/CartItemControl.jsx';
 import css from './ProductCardModal.module.css';
-import { fetchProductById } from '../../services/foodBoutiqueProductsApi.js';
-import { Icon, OrganicFood, ProductDescription, ProductName } from 'shared';
+import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 
-const ProductCardModal = ({ _id, isInCart, handleClick }) => {
+const ProductCardModal = ({ product }) => {
   const [productCard, setProductCard] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
         setIsLoading(true);
-        const data = await fetchProductById(_id);
+        setIsError(false);
+        const data = await fetchProductById(product._id);
         setProductCard(data);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
-        console.log(error);
+        setIsError(true);
       }
     })();
-  }, [_id]);
+  }, [product]);
 
   if (isLoading)
     return (
       <div className={css.loaderWrapper}>
-        <OrganicFood className={css.loader} />
+        <OrganicFoodBadge className={css.loader} />
       </div>
     );
+
+  if (isError) return <div className={css.loaderWrapper}>Error</div>;
 
   return (
     productCard !== null && (
@@ -58,12 +65,7 @@ const ProductCardModal = ({ _id, isInCart, handleClick }) => {
             </div>
           </div>
         </div>
-        <div className={css.cardPrice}>
-          <span>{`$${productCard.price?.toFixed(2)}`}</span>
-          <button type="button" onClick={handleClick}>
-            {isInCart ? 'Delete from' : 'Add to'} <Icon iconId="cart" />
-          </button>
-        </div>
+        <CartItemControl product={product} renderLocation={modal} />
       </div>
     )
   );

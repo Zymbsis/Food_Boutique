@@ -16,3 +16,12 @@ const VIEWPORT_SETTINGS = {
 };
 
 export const { mobile, desktop, tablet } = VIEWPORT_SETTINGS;
+
+const renderLocations = {
+  all: 'allProductsList',
+  discount: 'discountProductsList',
+  popular: 'popularProductsList',
+  modal: 'modalWindow',
+};
+
+export const { all, discount, popular, modal } = renderLocations;

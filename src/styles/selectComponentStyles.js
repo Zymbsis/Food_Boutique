@@ -1,25 +1,23 @@
 export const selectComponentStyles = {
-  control: (baseStyles, state) => {
-    return {
-      ...baseStyles,
-      backgroundColor:
-        state.selectProps.value.value === '' ? '#e8e8e2' : '#fff',
-      width: '100%',
-      height: 48,
-      border:
-        state.selectProps.value.value === ''
-          ? '1px solid #0101014d'
-          : '1px solid transparent',
-      borderRadius: '30px',
-      boxShadow: 'none',
-      outline: 'none',
-      paddingLeft: 20,
-      paddingRight: 12,
-      transition: 'all 200ms',
-      '&:hover': {},
-      '@media (min-width:768px)': { height: 52 },
-    };
-  },
+  control: (baseStyles, state) => ({
+    ...baseStyles,
+    backgroundColor: state.selectProps.value.value === '' ? '#e8e8e2' : '#fff',
+    width: '100%',
+    height: 48,
+    border:
+      state.selectProps.value.value === ''
+        ? '1px solid #0101014d'
+        : '1px solid transparent',
+    borderRadius: '30px',
+    boxShadow: 'none',
+    outline: 'none',
+    paddingLeft: 20,
+    paddingRight: 12,
+    cursor: 'pointer',
+    transition: 'all 200ms',
+    '&:hover': {},
+    '@media (min-width:768px)': { height: 52 },
+  }),
   valueContainer: baseStyles => ({
     ...baseStyles,
     paddingLeft: 0,

@@ -13,6 +13,9 @@ const cart = createSlice({
     deleteProduct: (state, action) => {
       state.cart = state.cart.filter(item => item._id !== action.payload._id);
     },
+    deleteAllProducts: state => {
+      state.cart = [];
+    },
   },
   selectors: {
     selectCart: state => state.cart,
@@ -24,7 +27,8 @@ export const cartReducer = cart.reducer;
 
 export const { selectCart, selectProductsQuantity } = cart.selectors;
 
-export const { addProduct, deleteProduct, isInCart } = cart.actions;
+export const { addProduct, deleteProduct, isInCart, deleteAllProducts } =
+  cart.actions;
 
 export const cartPersistConfig = {
   key: 'cart',

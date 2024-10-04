@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectProductsQuantity } from '../../redux/cart/slice.js';
-import { CartIndicator, Container, Logo } from 'shared';
+import { Container, Logo } from 'shared';
+import CartSummary from '../CartSummary/CartSummary.jsx';
 import clsx from 'clsx';
 import css from './Header.module.css';
 
@@ -11,32 +10,33 @@ const getActiveClass = (isActive, necessaryClassName) =>
   });
 
 const Header = () => {
-  const productsQuantity = useSelector(selectProductsQuantity);
-
   return (
     <header className={css.header}>
       <Container className={css.container}>
         <Logo />
-        <nav className={css.navigation}>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              getActiveClass(isActive, 'homeNavLink')
-            }
-          >
-            <span>Home</span>
-          </NavLink>
-          <NavLink
-            to="/cart"
-            className={({ isActive }) =>
-              getActiveClass(isActive, 'cartNavLink')
-            }
-          >
-            <CartIndicator
-              className={css.headerCart}
-              productsQuantity={productsQuantity}
-            />
-          </NavLink>
+        <nav>
+          <ul className={css.navigation}>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  getActiveClass(isActive, 'homeNavLink')
+                }
+              >
+                <span>Home</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  getActiveClass(isActive, 'cartNavLink')
+                }
+              >
+                <CartSummary />
+              </NavLink>
+            </li>
+          </ul>
         </nav>
       </Container>
     </header>

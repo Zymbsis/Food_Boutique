@@ -42,18 +42,23 @@
   color: rgba(232, 232, 226, 0.60);
 }
 
-.form > button {
+.submitBtn {
   height: 42px;
   border-radius: 30px;
   background-color: var(--primary-white-color);
   font-weight: 500;
   line-height: 1.28;
+  transition: color 300ms ease-in;
 
   @media screen and (min-width: 768px) {
     height: 48px;
     font-size: 16px;
     line-height: 1.5;
   }
+}
+
+.submitBtn:hover {
+  color: var(--primary-green-color);
 }
 
 .invalidEmail {

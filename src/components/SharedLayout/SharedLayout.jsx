@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
 import Header from '../Header/Header.jsx';
 import Footer from '../Footer/Footer.jsx';
-import { OrganicFood } from '../../shared/index.js';
 import css from './SharedLayout.module.css';
+import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 
 const SharedLayout = ({ children }) => {
   return (
@@ -12,7 +12,7 @@ const SharedLayout = ({ children }) => {
         <Suspense
           fallback={
             <div className={css.fallback}>
-              <OrganicFood />
+              <OrganicFoodBadge />
             </div>
           }
         >

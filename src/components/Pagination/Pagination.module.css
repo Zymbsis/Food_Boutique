@@ -33,6 +33,10 @@
   rotate: 180deg;
 }
 
+.arrowBtn:disabled {
+  cursor: auto;
+}
+
 .arrowBtn:disabled svg {
   stroke: #a3a3a34d;
 }
@@ -49,6 +53,11 @@
 .activeBtn {
   color: var(--primary-white-color);
   background-color: var(--primary-green-color);
+  transition: background-color 300ms ease-in;
+}
+
+.activeBtn:hover {
+  background-color: var(--hovered-green-color);
 }
 
 .ellipsis {

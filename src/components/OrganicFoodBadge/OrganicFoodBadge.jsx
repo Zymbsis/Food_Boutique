@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import css from './OrganicFood.module.css';
+import css from './OrganicFoodBadge.module.css';
 
-const OrganicFood = ({ className }) => {
+const OrganicFoodBadge = ({ className }) => {
   return (
     <picture>
       <source
@@ -18,7 +18,7 @@ const OrganicFood = ({ className }) => {
       />
 
       <img
-        className={clsx(css.organicFoodImg, { [className]: className })}
+        className={clsx(css.organicFoodImg, className)}
         loading="lazy"
         src="/img/organic-food-png-1x.png"
         alt="Organic Food"
@@ -29,4 +29,4 @@ const OrganicFood = ({ className }) => {
   );
 };
 
-export default OrganicFood;
+export default OrganicFoodBadge;
