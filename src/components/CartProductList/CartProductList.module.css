@@ -1,0 +1,112 @@
+.cartListWrapper {
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 551px;
+    margin-bottom: 0px;
+  }
+}
+
+.deleteAll {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  padding-right: 14px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+    padding-right: 39px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 44px;
+    padding-right: 40px;
+  }
+}
+
+.deleteAll > span {
+  font-weight: 500;
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.deleteAllBtn {
+  width: 24px;
+  height: 24px;
+}
+
+.cartList {
+  padding-right: 7px;
+  height: 432px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 39px;
+    height: 520px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-right: 40px;
+    height: 523px;
+  }
+}
+
+.cartList::-webkit-scrollbar {
+  width: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 9px;
+  }
+}
+
+.cartList::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: rgba(1, 1, 1, 0.08);
+}
+
+.cartList::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.cartList > li {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(1, 1, 1, 0.10);
+
+  @media screen and (min-width: 768px) {
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.cartList > li:first-child {
+  padding-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+  }
+}
+
+.cartList > li:first-child button {
+  top: 0;
+}
+
+.cartList > li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}

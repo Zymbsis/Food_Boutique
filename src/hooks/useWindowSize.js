@@ -7,6 +7,7 @@ export const useWindowSize = () => {
   const handleResize = useCallback(() => {
     setWindowWidth(window.innerWidth);
   }, []);
+
   const debounceResize = debounce(handleResize, 200);
 
   useEffect(() => {

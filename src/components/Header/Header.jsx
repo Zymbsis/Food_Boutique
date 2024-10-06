@@ -33,7 +33,7 @@ const Header = () => {
                   getActiveClass(isActive, 'cartNavLink')
                 }
               >
-                <CartSummary />
+                <CartSummary className={css.headerCartSummery} />
               </NavLink>
             </li>
           </ul>

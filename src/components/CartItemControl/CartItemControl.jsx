@@ -12,7 +12,7 @@ const CartItemControl = ({ product, renderLocation = all, className }) => {
 
   const handleToggleCart = () => {
     isInCart
-      ? dispatch(deleteProduct(product))
+      ? dispatch(deleteProduct(product._id))
       : dispatch(addProduct({ ...product, quantity: 1 }));
   };
 

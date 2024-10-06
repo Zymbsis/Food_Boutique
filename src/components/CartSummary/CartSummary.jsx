@@ -1,20 +1,20 @@
 import { useSelector } from 'react-redux';
 import { Icon } from 'shared';
-import { selectProductsQuantity } from '@redux/cart/slice.js';
+import { selectProductQuantity } from '@redux/cart/slice.js';
 import css from './CartSummary.module.css';
 
-const CartSummary = () => {
-  const productsQuantity = useSelector(selectProductsQuantity);
+const CartSummary = ({ className }) => {
+  const productsQuantity = useSelector(selectProductQuantity);
 
   return (
-    <>
+    <span className={`${css.summeryWrapper} ${className}`}>
       <span className={css.cartIconWrapper}>
         <Icon iconId={'cart'} />
       </span>
       <span
         className={css.cartTextWrapper}
       >{`Cart (${productsQuantity})`}</span>
-    </>
+    </span>
   );
 };
 

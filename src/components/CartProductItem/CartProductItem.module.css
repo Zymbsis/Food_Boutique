@@ -1,0 +1,80 @@
+.imgWrapper {
+  width: 100px;
+  height: 100px;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: var(--secondary-white-color);
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    height: 120px;
+    padding: 24px;
+  }
+}
+
+.imgWrapper > img {
+  width: 64px;
+  height: 64px;
+
+  @media screen and (min-width: 768px) {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+.name {
+  margin-bottom: 10px;
+}
+
+.featuresList {
+  display: flex;
+  max-width: 215px;
+  column-gap: 8px;
+  margin-bottom: 36px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 100%;
+    column-gap: 16px;
+    margin-bottom: 44px;
+  }
+}
+
+.featuresList > li:last-child {
+  display: none;
+}
+
+.featuresList > li:first-child {
+  white-space: nowrap;
+}
+
+.featuresList > li:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 22px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+
+  @media screen and (min-width: 768px) {
+    top: 40px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+  }
+}
