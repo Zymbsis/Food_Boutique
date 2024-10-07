@@ -1,5 +1,4 @@
 import { Container } from 'shared';
-import HeroBanner from '../HeroBanner/HeroBanner.jsx';
 import css from './Hero.module.css';
 
 const Hero = () => {
@@ -13,7 +12,6 @@ const Hero = () => {
           With Food Boutique, you`re not just subscribing to food, you`re
           signing up for a fresher, fitter, and happier you.
         </p>
-        <HeroBanner />
       </Container>
     </section>
   );
