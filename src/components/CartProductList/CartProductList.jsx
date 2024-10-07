@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  decreaseProductQuantity,
   deleteAllProducts,
   deleteProduct,
+  increaseProductQuantity,
   selectCart,
 } from '@redux/cart/slice.js';
 import { CloseButton } from 'shared';
@@ -18,7 +20,12 @@ const CartProductList = () => {
   const handleDeleteProduct = _id => {
     dispatch(deleteProduct(_id));
   };
-
+  const handleIncreaseQuantity = _id => {
+    dispatch(increaseProductQuantity(_id));
+  };
+  const handleDecreaseQuantity = _id => {
+    dispatch(decreaseProductQuantity(_id));
+  };
   return (
     <div className={css.cartListWrapper}>
       <div className={css.deleteAll}>
@@ -34,6 +41,8 @@ const CartProductList = () => {
             <CartProductItem
               product={item}
               handleDeleteProduct={handleDeleteProduct}
+              handleIncreaseQuantity={handleIncreaseQuantity}
+              handleDecreaseQuantity={handleDecreaseQuantity}
             />
           </li>
         ))}

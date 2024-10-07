@@ -1,7 +1,12 @@
-import { CloseButton, ProductDescription, ProductName } from 'shared';
+import { CloseButton, Icon, ProductDescription, ProductName } from 'shared';
 import css from './CartProductItem.module.css';
 
-const CartProductItem = ({ product, handleDeleteProduct }) => {
+const CartProductItem = ({
+  product,
+  handleDeleteProduct,
+  handleIncreaseQuantity,
+  handleDecreaseQuantity,
+}) => {
   return (
     <>
       <CloseButton
@@ -22,7 +27,26 @@ const CartProductItem = ({ product, handleDeleteProduct }) => {
             }}
           />
         </ul>
-        <span className={css.price}>{`$${product.price.toFixed(2)}`}</span>
+        <div className={css.productControl}>
+          <span className={css.price}>{`$${(
+            product.price * product.quantity
+          ).toFixed(2)}`}</span>
+          <div className={css.changeQuantity}>
+            <button
+              type="button"
+              onClick={() => handleDecreaseQuantity(product._id)}
+            >
+              <Icon iconId="symbol-minus" />
+            </button>
+            <span>{product.quantity}</span>
+            <button
+              type="button"
+              onClick={() => handleIncreaseQuantity(product._id)}
+            >
+              <Icon iconId="symbol-plus" />
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

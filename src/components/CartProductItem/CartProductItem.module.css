@@ -39,6 +39,10 @@
   }
 }
 
+.textWrapper {
+  flex-grow: 1;
+}
+
 .featuresList > li:last-child {
   display: none;
 }
@@ -77,4 +81,33 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.productControl {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.changeQuantity {
+  border-radius: 100px;
+  border: 1px solid rgba(1, 1, 1, 0.10);
+  padding: 4px 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.changeQuantity > button {
+  width: 14px;
+  height: 14px;
+}
+
+.changeQuantity > button > svg {
+  stroke: var(--primary-black-color);
+}
+
+.changeQuantity > span {
+  font-size: 16px;
+  line-height: 1.12;
 }
