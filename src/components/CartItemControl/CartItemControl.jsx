@@ -22,8 +22,8 @@ const CartItemControl = ({ product, renderLocation = all, className }) => {
         [css.popularWrapper]: renderLocation === popular,
         [css.discountWrapper]: renderLocation === discount,
         [css.modalWrapper]: renderLocation === modal,
-        [css.isInCart]: isInCart === true,
-        [className]: className,
+        [css.isInCart]: isInCart,
+        className,
       })}
     >
       {renderLocation !== popular && (

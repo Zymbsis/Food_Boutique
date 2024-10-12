@@ -1,5 +1,7 @@
-import { CloseButton, Icon, ProductDescription, ProductName } from 'shared';
+import { CloseButton, Icon } from 'shared';
 import css from './CartProductItem.module.css';
+import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
+import { cart } from 'constants';
 
 const CartProductItem = ({
   product,
@@ -17,16 +19,7 @@ const CartProductItem = ({
         <img src={product.img} alt={product.name} width={72} height={72} />
       </div>
       <div className={css.textWrapper}>
-        <ProductName className={css.name}>{product.name}</ProductName>
-        <ul className={css.featuresList}>
-          <ProductDescription
-            product={{
-              category: product.category,
-              size: product.size,
-              popularity: product.popularity,
-            }}
-          />
-        </ul>
+        <ProductCardInfo product={product} renderLocation={cart} />
         <div className={css.productControl}>
           <span className={css.price}>{`$${(
             product.price * product.quantity

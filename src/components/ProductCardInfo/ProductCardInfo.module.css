@@ -1,0 +1,104 @@
+.productName {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.discountName {
+  margin-bottom: 0;
+}
+
+.featuresList {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.allFeaturesList {
+  margin-bottom: 40px;
+  flex-wrap: nowrap;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.allFeaturesList .descriptionItem {
+  @media screen and (max-width: 1439.98px) {
+    &:nth-of-type(1) {
+      flex-shrink: 0;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    &:nth-of-type(1) {
+      max-width: calc(60% - 4.5px);
+    }
+
+    &:nth-of-type(2) {
+      max-width: calc(40% - 4.5px);
+    }
+  }
+}
+
+.popularFeaturesList .descriptionItem {
+
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    max-width: calc((100% - 9px) / 2);
+  }
+}
+
+.modalFeaturesList {
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+.cartFeaturesList {
+  flex-wrap: nowrap;
+  gap: 8px;
+  max-width: 215px;
+  margin-bottom: 36px;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 320px;
+  }
+}
+
+.descriptionItem {
+  font-size: 12px;
+  line-height: 1.16;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.descriptionItem span:first-child {
+  color: var(--secondary-grey-color);
+  margin-right: 4px;
+}
+
+.descriptionItem span:last-child {
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.28;
+  }
+}

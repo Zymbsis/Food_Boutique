@@ -19,7 +19,6 @@ const OrganicFoodBadge = ({ className }) => {
 
       <img
         className={clsx(css.organicFoodImg, className)}
-        loading="lazy"
         src="/img/organic-food-png-1x.png"
         alt="Organic Food"
         width={100}

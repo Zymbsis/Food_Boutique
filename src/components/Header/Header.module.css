@@ -8,7 +8,7 @@
   padding: 18px 0;
   background-color: var(--primary-white-color);
 
-  @media (min-width:768px) {
+  @media screen and (min-width: 768px) {
     height: 96px;
     padding: 24px 0;
   }
@@ -22,35 +22,40 @@
 }
 
 .navigation {
+  height: 100%;
+}
+
+.navigationList {
   display: flex;
   gap: 6px;
+  height: 100%;
 
-  @media (min-width:768px) {
+  @media screen and(min-width: 768px) {
     gap: 16px;
   }
 
-  @media (min-width:1440px) {
+  @media screen and (min-width: 1440px) {
     gap: 24px;
   }
 }
 
-.navigation > li:first-child {
+.navigationList > li {
+  height: 100%;
+}
+
+.navigationList > li:first-child {
   width: 77px;
-  height: 38px;
 
   @media screen and (min-width: 768px) {
     width: 104px;
-    height: 48px;
   }
 }
 
-.navigation > li:last-child {
+.navigationList > li:last-child {
   width: 38px;
-  height: 38px;
 
   @media screen and (min-width: 768px) {
     width: 153px;
-    height: 48px;
   }
 }
 

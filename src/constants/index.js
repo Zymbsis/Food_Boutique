@@ -22,6 +22,7 @@ const renderLocations = {
   discount: 'discountProductsList',
   popular: 'popularProductsList',
   modal: 'modalWindow',
+  cart: 'cart',
 };
 
-export const { all, discount, popular, modal } = renderLocations;
+export const { all, discount, popular, modal, cart } = renderLocations;

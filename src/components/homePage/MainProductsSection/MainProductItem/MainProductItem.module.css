@@ -1,17 +1,9 @@
 .imgWrapper {
-  border-radius: 10px;
-  background-color: var(--primary-white-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 20px;
-  padding-top: 19px;
-  padding-bottom: 19px;
-  cursor: pointer;
+  padding: 19px 78px;
 
-  img {
-    width: 140px;
-    height: 140px;
+  @media screen and (min-width: 1440px) {
+    padding: 19px 58px;
   }
 }
 

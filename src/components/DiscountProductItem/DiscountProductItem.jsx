@@ -1,27 +1,24 @@
 import { discount } from 'constants';
-import { useModalContext } from 'hooks';
-import { ProductName, Icon } from 'shared';
-import ProductCardModal from '../ProductCardModal/ProductCardModal.jsx';
+import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
+import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
 import CartItemControl from '../CartItemControl/CartItemControl.jsx';
 import css from './DiscountProductItem.module.css';
 
-const DiscountProductItem = ({ product }) => {
-  const { img, name } = product;
-  const { openModal } = useModalContext();
+const DiscountProductItem = ({ product, handleOpenModal }) => {
+  const { img, name, _id } = product;
 
   return (
     <>
-      <div
+      <ProductCartImage
+        img={img}
+        name={name}
+        handleClick={handleOpenModal}
+        isDiscount={true}
         className={css.imgWrapper}
-        onClick={() => {
-          openModal(ProductCardModal, { product });
-        }}
-      >
-        <img src={img} alt={name} width={140} height={140} />
-        <Icon iconId="discount" className={css.icon} />
-      </div>
+        _id={_id}
+      />
       <div className={css.descriptionWrapper}>
-        <ProductName className={css.productName}>{name}</ProductName>
+        <ProductCardInfo product={product} renderLocation={discount} />
         <CartItemControl product={product} renderLocation={discount} />
       </div>
     </>

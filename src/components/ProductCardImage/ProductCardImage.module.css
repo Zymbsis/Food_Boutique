@@ -1,0 +1,29 @@
+.imgWrapper {
+  border-radius: 10px;
+  background: var(--primary-white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.discountIcon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -13px;
+  right: -5px;
+  animation: rotate 10000ms linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

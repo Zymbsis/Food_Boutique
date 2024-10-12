@@ -14,8 +14,8 @@ const Header = () => {
     <header className={css.header}>
       <Container className={css.container}>
         <Logo />
-        <nav>
-          <ul className={css.navigation}>
+        <nav className={css.navigation}>
+          <ul className={css.navigationList}>
             <li>
               <NavLink
                 to="/"

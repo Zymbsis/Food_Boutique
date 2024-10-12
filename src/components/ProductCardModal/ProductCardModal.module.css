@@ -35,21 +35,20 @@
   }
 }
 
-.cardImgWrapper {
-  border-radius: 10px;
-  background-color: var(--primary-white-color);
-  padding: 26px 67.5px;
+.imgWrapper {
+  padding: 26px 67px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
+    width: 240px;
+    height: 212px;
     padding: 26px 40px;
     margin-bottom: 0;
   }
 }
 
-.cardImgWrapper > img {
-  width: 160px;
-  height: 160px;
+.cardInfo .imgWrapper {
+  cursor: auto;
 }
 
 .cardName {

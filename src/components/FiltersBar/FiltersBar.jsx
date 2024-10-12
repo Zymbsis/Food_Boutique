@@ -8,12 +8,12 @@ const FiltersBar = () => {
   return (
     <section>
       <Container>
-        <p className={css.filtersBarTitle}>Filters:</p>
-        <div className={css.filtersWrapper}>
+        <fieldset className={css.filtersWrapper}>
+          <legend className={css.filtersBarTitle}>Filters:</legend>
           <SearchByKeyword />
           <FilterByCategory />
           <SortByParameter />
-        </div>
+        </fieldset>
       </Container>
     </section>
   );
