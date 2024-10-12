@@ -5,17 +5,12 @@ import CartItemControl from '../CartItemControl/CartItemControl.jsx';
 import css from './DiscountProductItem.module.css';
 
 const DiscountProductItem = ({ product, handleOpenModal }) => {
-  const { img, name, _id } = product;
-
   return (
     <>
       <ProductCartImage
-        img={img}
-        name={name}
+        product={product}
         handleClick={handleOpenModal}
-        isDiscount={true}
-        className={css.imgWrapper}
-        _id={_id}
+        renderLocation={discount}
       />
       <div className={css.descriptionWrapper}>
         <ProductCardInfo product={product} renderLocation={discount} />

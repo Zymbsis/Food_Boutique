@@ -8,7 +8,7 @@ import CartItemControl from '../CartItemControl/CartItemControl.jsx';
 import css from './ProductCardModal.module.css';
 
 const ProductCardModal = ({ _id }) => {
-  const [productCard, setProductCard] = useState(null);
+  const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -18,7 +18,7 @@ const ProductCardModal = ({ _id }) => {
         setIsLoading(true);
         setIsError(false);
         const data = await fetchProductById(_id);
-        setProductCard(data);
+        setProduct(data);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);
@@ -37,22 +37,18 @@ const ProductCardModal = ({ _id }) => {
   if (isError) return <div className={css.loaderWrapper}>Error</div>;
 
   return (
-    productCard !== null && (
+    product !== null && (
       <div className={css.cardWrapper}>
         <div className={css.cardInfo}>
-          <ProductCartImage
-            img={productCard.img}
-            name={productCard.name}
-            className={css.imgWrapper}
-          />
+          <ProductCartImage product={product} renderLocation={modal} />
           <div className={css.textContent}>
-            <ProductCardInfo product={productCard} renderLocation={modal} />
+            <ProductCardInfo product={product} renderLocation={modal} />
             <div className={css.descWrapper}>
-              <p className={css.cardDesc}>{productCard.desc}</p>
+              <p className={css.cardDesc}>{product.desc}</p>
             </div>
           </div>
         </div>
-        <CartItemControl product={productCard} renderLocation={modal} />
+        <CartItemControl product={product} renderLocation={modal} />
       </div>
     )
   );

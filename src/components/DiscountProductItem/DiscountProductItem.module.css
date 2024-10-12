@@ -1,40 +1,5 @@
-.imgWrapper {
-  margin-bottom: 16px;
-  padding: 18px 95px;
-
-  @media screen and (min-width: 1440px) {
-    padding: 23px 69px 22px;
-  }
-}
-
 .descriptionWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.productName {
-  @media screen and (min-width: 1440px) {
-    max-width: 124px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-.priceWrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.priceWrapper span {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.1;
-
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    line-height: 1.2;
-  }
 }

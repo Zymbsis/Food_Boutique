@@ -7,6 +7,41 @@
   flex-shrink: 0;
   cursor: pointer;
   position: relative;
+  margin-bottom: 20px;
+  padding: 19px 78px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 19px 58px;
+  }
+}
+
+.discountImg {
+  margin-bottom: 16px;
+  padding: 18px 95px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 23px 69px 22px;
+  }
+}
+
+.popularImg {
+  margin-bottom: 0;
+  width: 74px;
+  height: 74px;
+  padding: 9px;
+}
+
+.modalImg {
+  padding: 26px 67px;
+  margin-bottom: 20px;
+  cursor: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 240px;
+    height: 212px;
+    padding: 26px 40px;
+    margin-bottom: 0;
+  }
 }
 
 .discountIcon {
