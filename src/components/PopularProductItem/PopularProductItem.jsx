@@ -1,7 +1,7 @@
-import { popular } from 'constants';
+import { POPULAR } from 'constants';
 import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
 import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import CartItemControl from '../CartItemControl/CartItemControl.jsx';
+import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
 
 const PopularProductItem = ({ product, handleOpenModal }) => {
   return (
@@ -9,11 +9,11 @@ const PopularProductItem = ({ product, handleOpenModal }) => {
       <ProductCartImage
         product={product}
         handleClick={handleOpenModal}
-        renderLocation={popular}
+        renderLocation={POPULAR}
       />
       <div>
-        <ProductCardInfo product={product} renderLocation={popular} />
-        <CartItemControl product={product} renderLocation={popular} />
+        <ProductCardInfo product={product} renderLocation={POPULAR} />
+        <ProductCardAction product={product} renderLocation={POPULAR} />
       </div>
     </>
   );

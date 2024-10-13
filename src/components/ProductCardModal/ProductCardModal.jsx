@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { modal } from 'constants';
+import { MODAL } from 'constants';
 import { fetchProductById } from 'services';
 import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
 import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import CartItemControl from '../CartItemControl/CartItemControl.jsx';
+import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
 import css from './ProductCardModal.module.css';
 
 const ProductCardModal = ({ _id }) => {
@@ -40,15 +40,15 @@ const ProductCardModal = ({ _id }) => {
     product !== null && (
       <div className={css.cardWrapper}>
         <div className={css.cardInfo}>
-          <ProductCartImage product={product} renderLocation={modal} />
+          <ProductCartImage product={product} renderLocation={MODAL} />
           <div className={css.textContent}>
-            <ProductCardInfo product={product} renderLocation={modal} />
+            <ProductCardInfo product={product} renderLocation={MODAL} />
             <div className={css.descWrapper}>
               <p className={css.cardDesc}>{product.desc}</p>
             </div>
           </div>
         </div>
-        <CartItemControl product={product} renderLocation={modal} />
+        <ProductCardAction product={product} renderLocation={MODAL} />
       </div>
     )
   );

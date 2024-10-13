@@ -1,16 +1,22 @@
-import css from './DiscountProductList.module.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectDiscountProductsList } from '@redux/productLists/selectors.js';
-import { useSelector } from 'react-redux';
+import { fetchDiscountProducts } from '@redux/productLists/operations.js';
+import { useModalContext } from 'hooks';
 import DiscountProductItem from '../DiscountProductItem/DiscountProductItem.jsx';
-import { useModalContext } from '../../hooks/useContext.js';
 import ProductCardModal from '../ProductCardModal/ProductCardModal.jsx';
+import css from './DiscountProductList.module.css';
 
 const DiscountProductList = () => {
-  const data = useSelector(selectDiscountProductsList);
+  const dispatch = useDispatch();
   const { openModal } = useModalContext();
-  const handleOpenModal = _id => {
-    openModal(ProductCardModal, { _id });
-  };
+  const data = useSelector(selectDiscountProductsList);
+  const handleOpenModal = _id => openModal(ProductCardModal, { _id });
+
+  useEffect(() => {
+    if (data.length) return;
+    dispatch(fetchDiscountProducts());
+  }, [data, dispatch]);
 
   return (
     <div className={css.innerContainer}>

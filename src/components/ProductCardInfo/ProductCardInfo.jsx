@@ -1,27 +1,27 @@
-import { all, discount, popular, modal, cart } from 'constants';
 import clsx from 'clsx';
 import css from './ProductCardInfo.module.css';
+import { ALL, POPULAR, DISCOUNT, MODAL, CART } from '../../constants/index.js';
 
 const ProductCardInfo = ({
   product: { name, category, size, popularity },
-  renderLocation = all,
+  renderLocation = ALL,
 }) => {
   return (
     <>
       <h3
         className={clsx(css.productName, {
-          [css.discountName]: renderLocation === discount,
+          [css.discountName]: renderLocation === DISCOUNT,
         })}
       >
         {name}
       </h3>
-      {renderLocation !== discount && (
+      {renderLocation !== DISCOUNT && (
         <ul
           className={clsx(css.featuresList, {
-            [css.allFeaturesList]: renderLocation === all,
-            [css.popularFeaturesList]: renderLocation === popular,
-            [css.modalFeaturesList]: renderLocation === modal,
-            [css.cartFeaturesList]: renderLocation === cart,
+            [css.allFeaturesList]: renderLocation === ALL,
+            [css.popularFeaturesList]: renderLocation === POPULAR,
+            [css.modalFeaturesList]: renderLocation === MODAL,
+            [css.cartFeaturesList]: renderLocation === CART,
           })}
         >
           <li className={css.descriptionItem}>
@@ -32,7 +32,7 @@ const ProductCardInfo = ({
             <span>Size:</span>
             <span>{size}</span>
           </li>
-          {renderLocation !== cart && (
+          {renderLocation !== CART && (
             <li className={css.descriptionItem}>
               <span>Popularity:</span>
               <span>{(popularity / 10000).toFixed(2)}</span>

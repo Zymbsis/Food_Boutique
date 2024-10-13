@@ -1,6 +1,8 @@
-const defaultOption = { value: '', label: 'Category' };
+export const defaultOption = { value: '', label: 'Category' };
 
-const createOption = category => {
+export const createOptionFromCategory = category => {
+  if (!category) return defaultOption;
+
   return {
     value: category,
     label: category.replace('_&_', ' & ').replace('_', ' '),
@@ -8,21 +10,10 @@ const createOption = category => {
 };
 
 export const createOptionsList = arr => {
-  if (arr.length === 0) {
-    return defaultOption;
-  }
-
+  if (!arr.length) return;
   const optionsList = [
-    ...arr.map(category => createOption(category)),
+    ...arr.map(category => createOptionFromCategory(category)),
     { value: '', label: 'Show all' },
   ];
   return optionsList;
-};
-
-export const createOptionFromCategory = category => {
-  if (category === '') {
-    return defaultOption;
-  }
-
-  return [createOption(category)];
 };

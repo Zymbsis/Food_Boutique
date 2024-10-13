@@ -1,7 +1,7 @@
-import { discount } from 'constants';
+import { DISCOUNT } from 'constants';
 import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
 import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import CartItemControl from '../CartItemControl/CartItemControl.jsx';
+import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
 import css from './DiscountProductItem.module.css';
 
 const DiscountProductItem = ({ product, handleOpenModal }) => {
@@ -10,11 +10,11 @@ const DiscountProductItem = ({ product, handleOpenModal }) => {
       <ProductCartImage
         product={product}
         handleClick={handleOpenModal}
-        renderLocation={discount}
+        renderLocation={DISCOUNT}
       />
       <div className={css.descriptionWrapper}>
-        <ProductCardInfo product={product} renderLocation={discount} />
-        <CartItemControl product={product} renderLocation={discount} />
+        <ProductCardInfo product={product} renderLocation={DISCOUNT} />
+        <ProductCardAction product={product} renderLocation={DISCOUNT} />
       </div>
     </>
   );

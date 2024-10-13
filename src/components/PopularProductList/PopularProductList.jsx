@@ -1,16 +1,22 @@
-import PopularProductItem from '../PopularProductItem/PopularProductItem';
-import css from './PopularProductList.module.css';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPopularProducts } from '@redux/productLists/operations.js';
 import { selectPopularProductsList } from '@redux/productLists/selectors.js';
-import { useModalContext } from '../../hooks/useContext.js';
+import { useModalContext } from 'hooks';
+import PopularProductItem from '../PopularProductItem/PopularProductItem';
 import ProductCardModal from '../ProductCardModal/ProductCardModal.jsx';
+import css from './PopularProductList.module.css';
 
 const PopularProductList = () => {
-  const data = useSelector(selectPopularProductsList);
+  const dispatch = useDispatch();
   const { openModal } = useModalContext();
-  const handleOpenModal = _id => {
-    openModal(ProductCardModal, { _id });
-  };
+  const data = useSelector(selectPopularProductsList);
+  const handleOpenModal = _id => openModal(ProductCardModal, { _id });
+
+  useEffect(() => {
+    if (data.length) return;
+    dispatch(fetchPopularProducts());
+  }, [data, dispatch]);
 
   return (
     <ul className={css.productList}>

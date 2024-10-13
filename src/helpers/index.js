@@ -1,4 +1,9 @@
-export * from './productCategoriesOptions.js';
+export {
+  defaultOption,
+  createOptionFromCategory,
+  createOptionsList,
+} from './productCategoriesOptions.js';
+
 export * from './productsSortingOptions.js';
 export { debounce } from './debounce.js';
 export { scrollIntoView } from './scrollIntoView.js';

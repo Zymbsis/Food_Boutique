@@ -1,3 +1,6 @@
+import { createSelector } from '@reduxjs/toolkit';
+import { createOptionsList } from '../../helpers/productCategoriesOptions.js';
+
 export const selectAllProductsList = state =>
   state.productLists.allProducts.allProductsList;
 export const selectTotalPages = state =>
@@ -27,3 +30,8 @@ export const selectIsProductCategoriesLoading = state =>
   state.productLists.productCategories.isLoading;
 export const selectIsProductCategoriesError = state =>
   state.productLists.productCategories.isError;
+
+export const selectOptionsListFromCategories = createSelector(
+  [selectProductCategoriesList],
+  categories => createOptionsList(categories)
+);

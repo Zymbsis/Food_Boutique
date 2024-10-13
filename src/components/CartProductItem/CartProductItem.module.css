@@ -4,67 +4,12 @@
   padding: 18px;
   border-radius: 10px;
   background-color: var(--secondary-white-color);
+  flex-shrink: 0;
 
   @media screen and (min-width: 768px) {
     width: 120px;
     height: 120px;
     padding: 24px;
-  }
-}
-
-.imgWrapper > img {
-  width: 64px;
-  height: 64px;
-
-  @media screen and (min-width: 768px) {
-    width: 72px;
-    height: 72px;
-  }
-}
-
-.name {
-  margin-bottom: 10px;
-}
-
-.featuresList {
-  display: flex;
-  max-width: 215px;
-  column-gap: 8px;
-  margin-bottom: 36px;
-
-  @media screen and (min-width: 768px) {
-    max-width: 100%;
-    column-gap: 16px;
-    margin-bottom: 44px;
-  }
-}
-
-.textWrapper {
-  flex-grow: 1;
-}
-
-.featuresList > li:last-child {
-  display: none;
-}
-
-.featuresList > li:first-child {
-  white-space: nowrap;
-}
-
-.featuresList > li:nth-child(2) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.1;
-
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-    line-height: 1.2;
   }
 }
 
@@ -83,31 +28,88 @@
   }
 }
 
+.textWrapper {
+  flex-grow: 1;
+}
+
 .productControl {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media screen and (min-width: 768px) {
+    align-items: flex-end;
+  }
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .changeQuantity {
+  width: 74px;
+  height: 26px;
   border-radius: 100px;
   border: 1px solid rgba(1, 1, 1, 0.10);
-  padding: 4px 12px;
   display: flex;
-  gap: 6px;
+  justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 96px;
+    height: 34px;
+  }
 }
 
 .changeQuantity > button {
-  width: 14px;
-  height: 14px;
+  width: 27px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 33px;
+    height: 32px;
+  }
+
+  &:first-of-type {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    justify-content: flex-end;
+  }
+
+  &:last-of-type {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
 }
 
 .changeQuantity > button > svg {
+  width: 14px;
+  height: 14px;
   stroke: var(--primary-black-color);
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .changeQuantity > span {
+  display: inline-flex;
+  width: 20px;
+  justify-content: center;
   font-size: 16px;
   line-height: 1.12;
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+  }
 }

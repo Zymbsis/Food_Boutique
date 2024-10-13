@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct, deleteProduct, selectCart } from '@redux/cart/slice.js';
-import { all, discount, modal, popular } from 'constants';
+import { ALL, DISCOUNT, MODAL, POPULAR } from 'constants';
 import { Icon } from 'shared';
 import clsx from 'clsx';
-import css from './CartItemControl.module.css';
+import css from './ProductCardAction.module.css';
 
-const CartItemControl = ({ product, renderLocation = all, className }) => {
+const ProductCardAction = ({ product, renderLocation = ALL, className }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const isInCart = cart.some(item => item._id === product._id);
@@ -19,24 +19,24 @@ const CartItemControl = ({ product, renderLocation = all, className }) => {
   return (
     <div
       className={clsx(css.ctrlWrapper, {
-        [css.popularWrapper]: renderLocation === popular,
-        [css.discountWrapper]: renderLocation === discount,
-        [css.modalWrapper]: renderLocation === modal,
+        [css.popularWrapper]: renderLocation === POPULAR,
+        [css.discountWrapper]: renderLocation === DISCOUNT,
+        [css.modalWrapper]: renderLocation === MODAL,
         [css.isInCart]: isInCart,
         className,
       })}
     >
-      {renderLocation !== popular && (
+      {renderLocation !== POPULAR && (
         <span>{`$${product.price.toFixed(2)}`}</span>
       )}
       <button type="button" onClick={handleToggleCart}>
-        {renderLocation === modal && <>{isInCart ? 'Remove from' : 'Add to'}</>}
+        {renderLocation === MODAL && <>{isInCart ? 'Remove from' : 'Add to'}</>}
         <Icon
-          iconId={!isInCart || renderLocation === modal ? 'cart' : 'check'}
+          iconId={!isInCart || renderLocation === MODAL ? 'cart' : 'check'}
         />
       </button>
     </div>
   );
 };
 
-export default CartItemControl;
+export default ProductCardAction;

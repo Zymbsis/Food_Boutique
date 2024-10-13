@@ -1,8 +1,8 @@
-import { tablet } from 'constants';
+import { TABLET } from 'constants';
 
 export const createPaginationPageNumbers = (totalPages, page, windowWidth) => {
   if (totalPages === 1) return;
-  if (windowWidth < tablet.width) {
+  if (windowWidth < TABLET.vw_width) {
     return page === totalPages ? [page - 1, page] : [page, page + 1];
   } else {
     if (totalPages <= 4) {

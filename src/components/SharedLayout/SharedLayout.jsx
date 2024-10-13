@@ -5,7 +5,7 @@ import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLimit } from '@redux/requestParams/selectors.js';
 import { useWindowSize } from 'hooks';
-import { desktop, mobile, tablet } from 'constants';
+import { MOBILE, TABLET, DESKTOP } from 'constants';
 import { changeLimit } from '@redux/requestParams/slice.js';
 import css from './SharedLayout.module.css';
 
@@ -16,12 +16,12 @@ const SharedLayout = ({ children }) => {
 
   useEffect(() => {
     let perPageLimit;
-    if (windowWidth >= desktop.width) {
-      perPageLimit = desktop.perPage;
-    } else if (windowWidth >= tablet.width) {
-      perPageLimit = tablet.perPage;
+    if (windowWidth >= DESKTOP.vw_width) {
+      perPageLimit = DESKTOP.perPage;
+    } else if (windowWidth >= TABLET.vw_width) {
+      perPageLimit = TABLET.perPage;
     } else {
-      perPageLimit = mobile.perPage;
+      perPageLimit = MOBILE.perPage;
     }
     if (perPageLimit === limit) return;
     dispatch(changeLimit(perPageLimit));

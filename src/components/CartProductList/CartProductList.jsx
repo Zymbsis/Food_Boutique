@@ -14,18 +14,11 @@ const CartProductList = () => {
   const dispatch = useDispatch();
   const productList = useSelector(selectCart);
 
-  const handleDeleteAll = () => {
-    dispatch(deleteAllProducts());
-  };
-  const handleDeleteProduct = _id => {
-    dispatch(deleteProduct(_id));
-  };
-  const handleIncreaseQuantity = _id => {
-    dispatch(increaseProductQuantity(_id));
-  };
-  const handleDecreaseQuantity = _id => {
-    dispatch(decreaseProductQuantity(_id));
-  };
+  const handleDeleteAll = () => dispatch(deleteAllProducts());
+  const handleDeleteProduct = _id => dispatch(deleteProduct(_id));
+  const handleIncreaseQuantity = _id => dispatch(increaseProductQuantity(_id));
+  const handleDecreaseQuantity = _id => dispatch(decreaseProductQuantity(_id));
+
   return (
     <div className={css.cartListWrapper}>
       <div className={css.deleteAll}>

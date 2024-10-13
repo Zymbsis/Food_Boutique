@@ -47,7 +47,7 @@
 
 .cartList {
   padding-right: 7px;
-  height: 443px;
+  height: 436px;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -84,13 +84,13 @@
   display: flex;
   gap: 20px;
   padding-top: 30px;
-  padding-bottom: 24px;
+  padding-bottom: 23px;
   border-bottom: 1px solid rgba(1, 1, 1, 0.10);
 
   @media screen and (min-width: 768px) {
     gap: 40px;
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 39px;
   }
 }
 

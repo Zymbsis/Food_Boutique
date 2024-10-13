@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectTotalPages } from '@redux/productLists/selectors.js';
 import { changePage } from '@redux/requestParams/slice';
-import { tablet } from 'constants';
+import { TABLET } from 'constants';
 import { useWindowSize } from 'hooks';
 import { Icon } from 'shared';
 
@@ -19,11 +19,11 @@ const Pagination = () => {
   const page = useSelector(selectPage);
   const [buttonPanel, setButtonPanel] = useState([]);
   const showNavigationArrows =
-    (windowWidth < tablet.width && totalPages > 2) ||
-    (windowWidth >= tablet.width && totalPages > 4);
+    (windowWidth < TABLET.vw_width && totalPages > 2) ||
+    (windowWidth >= TABLET.vw_width && totalPages > 4);
   const showEllipsis =
-    (windowWidth < tablet.width && totalPages > page + 1) ||
-    (windowWidth >= tablet.width && totalPages > page + 3);
+    (windowWidth < TABLET.vw_width && totalPages > page + 1) ||
+    (windowWidth >= TABLET.vw_width && totalPages > page + 3);
 
   useEffect(() => {
     const buttonArray = createPaginationPageNumbers(

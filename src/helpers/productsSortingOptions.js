@@ -1,4 +1,4 @@
-export const defaultOption = [{ value: '{"byABC": true}', label: 'A to Z' }];
+export const defaultOption = { value: '{"byABC": true}', label: 'A to Z' };
 
 export const sortParamsOptionsList = [
   { value: '{"byABC":true}', label: 'A to Z' },
@@ -10,10 +10,10 @@ export const sortParamsOptionsList = [
   { value: '{}', label: 'Show all' },
 ];
 
-export const createOptionFromSortParams = selectedSortParams => {
-  return JSON.stringify(selectedSortParams) === '{}'
+export const createOptionFromSortParams = sortParams => {
+  return JSON.stringify(sortParams) === '{}'
     ? defaultOption
     : sortParamsOptionsList.find(
-        item => item.value === JSON.stringify(selectedSortParams)
+        item => item.value === JSON.stringify(sortParams)
       );
 };

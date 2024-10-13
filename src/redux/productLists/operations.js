@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { BASE_URL, PRODUCTS } from '../../constants';
+import { BASE_URL, PRODUCTS_ENDPOINT } from '../../constants';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const axiosInstance = axios.create({
-  baseURL: `${BASE_URL}${PRODUCTS}`,
+  baseURL: `${BASE_URL}${PRODUCTS_ENDPOINT}`,
 });
 
 export const fetchAllProducts = createAsyncThunk(
@@ -17,7 +17,7 @@ export const fetchAllProducts = createAsyncThunk(
       });
       return { results, totalPages };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error?.message);
     }
   }
 );
@@ -29,7 +29,7 @@ export const fetchPopularProducts = createAsyncThunk(
       const { data } = await axiosInstance('/popular');
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error?.message);
     }
   }
 );
@@ -41,7 +41,7 @@ export const fetchDiscountProducts = createAsyncThunk(
       const { data } = await axiosInstance('/discount');
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error?.message);
     }
   }
 );
@@ -53,7 +53,7 @@ export const fetchProductCategories = createAsyncThunk(
       const { data } = await axiosInstance(`/categories`);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error?.message);
     }
   }
 );

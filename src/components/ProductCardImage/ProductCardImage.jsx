@@ -1,19 +1,19 @@
-import clsx from 'clsx';
+import { ALL, DISCOUNT, MODAL, POPULAR } from 'constants';
 import { Icon } from '../../shared/index.js';
+import clsx from 'clsx';
 import css from './ProductCardImage.module.css';
-import { discount, modal, popular, all } from 'constants';
 
 const ProductCartImage = ({
   product: { img, name, _id, is10PercentOff },
   handleClick,
-  renderLocation = all,
+  renderLocation = ALL,
 }) => {
   return (
     <div
       className={clsx(css.imgWrapper, {
-        [css.popularImg]: renderLocation === popular,
-        [css.discountImg]: renderLocation === discount,
-        [css.modalImg]: renderLocation === modal,
+        [css.popularImg]: renderLocation === POPULAR,
+        [css.discountImg]: renderLocation === DISCOUNT,
+        [css.modalImg]: renderLocation === MODAL,
       })}
       onClick={() => handleClick(_id)}
     >
