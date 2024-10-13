@@ -4,9 +4,9 @@ const initialState = {
   requestParams: {
     keyword: '',
     category: '',
-    page: 1,
     limit: null,
   },
+  page: 1,
   sortParams: {},
 };
 
@@ -16,22 +16,22 @@ const requestParams = createSlice({
   reducers: {
     changeKeyword: (state, action) => {
       state.requestParams.keyword = action.payload;
-      state.requestParams.page = 1;
+      state.page = 1;
     },
     changeCategory: (state, action) => {
       state.requestParams.category = action.payload;
-      state.requestParams.page = 1;
+      state.page = 1;
     },
     changePage: (state, action) => {
-      state.requestParams.page = action.payload;
+      state.page = action.payload;
     },
     changeLimit: (state, action) => {
       state.requestParams.limit = action.payload;
-      state.requestParams.page = 1;
+      state.page = 1;
     },
     addSortParams: (state, action) => {
       state.sortParams = action.payload;
-      state.requestParams.page = 1;
+      state.page = 1;
     },
   },
 });

@@ -1,13 +1,15 @@
 import { DISCOUNT } from 'constants';
-import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
-import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
+import {
+  ProductCardImage,
+  ProductCardInfo,
+  ProductCardAction,
+} from 'components';
 import css from './DiscountProductItem.module.css';
 
 const DiscountProductItem = ({ product, handleOpenModal }) => {
   return (
     <>
-      <ProductCartImage
+      <ProductCardImage
         product={product}
         handleClick={handleOpenModal}
         renderLocation={DISCOUNT}

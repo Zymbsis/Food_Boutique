@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTotalPages } from '@redux/productLists/selectors.js';
-import { changePage } from '@redux/requestParams/slice';
 import { TABLET } from 'constants';
 import { useWindowSize } from 'hooks';
+import { createPaginationPageNumbers } from 'helpers';
+import { selectTotalPages } from '@redux/productLists/selectors.js';
+import { selectPage } from '@redux/requestParams/selectors.js';
+import { changePage } from '@redux/requestParams/slice';
 import { Icon } from 'shared';
-
 import clsx from 'clsx';
 import css from './Pagination.module.css';
-
-import { createPaginationPageNumbers } from 'helpers';
-import { selectPage } from '@redux/requestParams/selectors.js';
 
 const Pagination = () => {
   const dispatch = useDispatch();

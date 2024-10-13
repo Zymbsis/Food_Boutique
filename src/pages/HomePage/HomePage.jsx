@@ -3,7 +3,7 @@ import { Container } from 'shared';
 import {
   Hero,
   FiltersBar,
-  MainProductsSection,
+  AllProductsSection,
   PopularProductsSection,
   DiscountProductsSection,
 } from 'components';
@@ -19,7 +19,7 @@ const HomePage = () => {
       <Hero />
       <FiltersBar />
       <Container className={css.container}>
-        <MainProductsSection />
+        <AllProductsSection />
         <aside>
           <PopularProductsSection />
           <DiscountProductsSection />

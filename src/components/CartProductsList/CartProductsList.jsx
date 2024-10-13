@@ -4,13 +4,13 @@ import {
   deleteAllProducts,
   deleteProduct,
   increaseProductQuantity,
-  selectCart,
 } from '@redux/cart/slice.js';
+import { selectCart } from '@redux/cart/selectors.js';
 import { CloseButton } from 'shared';
-import CartProductItem from '../CartProductItem/CartProductItem.jsx';
-import css from './CartProductList.module.css';
+import { CartProductItem } from 'components';
+import css from './CartProductsList.module.css';
 
-const CartProductList = () => {
+const CartProductsList = () => {
   const dispatch = useDispatch();
   const productList = useSelector(selectCart);
 
@@ -29,10 +29,10 @@ const CartProductList = () => {
         />
       </div>
       <ul className={css.cartList}>
-        {productList.map(item => (
-          <li key={item._id}>
+        {productList.map(product => (
+          <li key={product._id}>
             <CartProductItem
-              product={item}
+              product={product}
               handleDeleteProduct={handleDeleteProduct}
               handleIncreaseQuantity={handleIncreaseQuantity}
               handleDecreaseQuantity={handleDecreaseQuantity}
@@ -44,4 +44,4 @@ const CartProductList = () => {
   );
 };
 
-export default CartProductList;
+export default CartProductsList;

@@ -1,7 +1,9 @@
 import { Container } from 'shared';
-import FilterByCategory from '../FilterByCategory/FilterByCategory';
-import SortByParameter from '../SortByParameter/SortByParameter';
-import SearchByKeyword from '../SearchByKeyword/SearchByKeyword.jsx';
+import {
+  FilterByCategory,
+  SortByParameters,
+  SearchByKeyword,
+} from 'components';
 import css from './FiltersBar.module.css';
 
 const FiltersBar = () => {
@@ -12,7 +14,7 @@ const FiltersBar = () => {
           <legend className={css.filtersBarTitle}>Filters:</legend>
           <SearchByKeyword />
           <FilterByCategory />
-          <SortByParameter />
+          <SortByParameters />
         </fieldset>
       </Container>
     </section>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { MODAL } from 'constants';
 import { fetchProductById } from 'services';
-import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
-import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
-import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
+import {
+  OrganicFoodBadge,
+  ProductCardImage,
+  ProductCardInfo,
+  ProductCardAction,
+} from 'components';
 import css from './ProductCardModal.module.css';
 
 const ProductCardModal = ({ _id }) => {
@@ -40,7 +42,7 @@ const ProductCardModal = ({ _id }) => {
     product !== null && (
       <div className={css.cardWrapper}>
         <div className={css.cardInfo}>
-          <ProductCartImage product={product} renderLocation={MODAL} />
+          <ProductCardImage product={product} renderLocation={MODAL} />
           <div className={css.textContent}>
             <ProductCardInfo product={product} renderLocation={MODAL} />
             <div className={css.descWrapper}>

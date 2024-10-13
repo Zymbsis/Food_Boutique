@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useModalContext } from 'hooks';
 import { selectDiscountProductsList } from '@redux/productLists/selectors.js';
 import { fetchDiscountProducts } from '@redux/productLists/operations.js';
-import { useModalContext } from 'hooks';
-import DiscountProductItem from '../DiscountProductItem/DiscountProductItem.jsx';
-import ProductCardModal from '../ProductCardModal/ProductCardModal.jsx';
-import css from './DiscountProductList.module.css';
+import { DiscountProductItem, ProductCardModal } from 'components';
+import css from './DiscountProductsList.module.css';
 
-const DiscountProductList = () => {
+const DiscountProductsList = () => {
   const dispatch = useDispatch();
   const { openModal } = useModalContext();
   const data = useSelector(selectDiscountProductsList);
@@ -35,4 +34,4 @@ const DiscountProductList = () => {
   );
 };
 
-export default DiscountProductList;
+export default DiscountProductsList;

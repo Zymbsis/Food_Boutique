@@ -1,2 +1,4 @@
-export { fetchProductById } from './foodBoutiqueProductsApi.js';
-export { sendSubscriptionRequest } from './foodBoutiqueCustomersApi.js';
+export {
+  sendSubscriptionRequest,
+  fetchProductById,
+} from './foodBoutiqueApi.js';

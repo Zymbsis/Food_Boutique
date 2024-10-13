@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Container, Logo } from 'shared';
-import CartSummary from '../CartSummary/CartSummary.jsx';
+import { CartSummary } from 'components';
 import clsx from 'clsx';
 import css from './Header.module.css';
 

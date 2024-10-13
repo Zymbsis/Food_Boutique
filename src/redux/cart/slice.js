@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 
 const initialState = { cart: [], totalSum: 0 };
@@ -38,14 +38,9 @@ const cart = createSlice({
       }
     },
   },
-  selectors: {
-    selectCart: state => state.cart,
-  },
 });
 
 export const cartReducer = cart.reducer;
-
-export const { selectCart } = cart.selectors;
 
 export const {
   addProduct,
@@ -54,14 +49,6 @@ export const {
   increaseProductQuantity,
   decreaseProductQuantity,
 } = cart.actions;
-
-export const selectTotalSum = createSelector([selectCart], cart =>
-  cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
-);
-export const selectProductQuantity = createSelector(
-  [selectCart],
-  cart => cart.length
-);
 
 export const cartPersistConfig = {
   key: 'cart',

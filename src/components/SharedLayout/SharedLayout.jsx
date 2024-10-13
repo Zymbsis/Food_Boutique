@@ -1,12 +1,10 @@
 import { Suspense, useEffect } from 'react';
-import Header from '../Header/Header.jsx';
-import Footer from '../Footer/Footer.jsx';
-import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectLimit } from '@redux/requestParams/selectors.js';
-import { useWindowSize } from 'hooks';
 import { MOBILE, TABLET, DESKTOP } from 'constants';
+import { useWindowSize } from 'hooks';
+import { selectLimit } from '@redux/requestParams/selectors.js';
 import { changeLimit } from '@redux/requestParams/slice.js';
+import { OrganicFoodBadge, Footer, Header } from 'components';
 import css from './SharedLayout.module.css';
 
 const SharedLayout = ({ children }) => {

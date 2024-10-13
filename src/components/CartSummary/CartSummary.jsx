@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Icon } from 'shared';
-import { selectProductQuantity } from '@redux/cart/slice.js';
+import { selectProductQuantity } from '@redux/cart/selectors.js';
 import css from './CartSummary.module.css';
 
 const CartSummary = ({ className }) => {

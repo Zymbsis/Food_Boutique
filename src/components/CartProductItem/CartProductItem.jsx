@@ -1,7 +1,7 @@
-import { CloseButton, Icon } from 'shared';
-import css from './CartProductItem.module.css';
-import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
 import { CART } from 'constants';
+import { CloseButton, Icon } from 'shared';
+import { ProductCardInfo } from 'components';
+import css from './CartProductItem.module.css';
 
 const CartProductItem = ({
   product,

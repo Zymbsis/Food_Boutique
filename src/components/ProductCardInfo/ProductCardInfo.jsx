@@ -1,6 +1,6 @@
+import { ALL, POPULAR, DISCOUNT, MODAL, CART } from 'constants';
 import clsx from 'clsx';
 import css from './ProductCardInfo.module.css';
-import { ALL, POPULAR, DISCOUNT, MODAL, CART } from '../../constants/index.js';
 
 const ProductCardInfo = ({
   product: { name, category, size, popularity },

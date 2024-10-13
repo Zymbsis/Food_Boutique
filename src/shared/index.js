@@ -1,5 +1,5 @@
-export { default as Container } from './components/Container/Container';
-export { default as Logo } from './components/Logo/Logo';
-export { default as Icon } from './components/Icon/Icon';
-export { default as ProductListTitle } from './components/ProductListTitle/ProductListTitle';
-export { default as CloseButton } from './components/CloseButton/CloseButton';
+export { default as Container } from './Container/Container.jsx';
+export { default as Logo } from './Logo/Logo';
+export { default as Icon } from './Icon/Icon';
+export { default as ProductListTitle } from './ProductListTitle/ProductListTitle';
+export { default as CloseButton } from './CloseButton/CloseButton';

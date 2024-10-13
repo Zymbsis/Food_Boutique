@@ -1,6 +1,6 @@
-import { Container, Icon, Logo } from 'shared';
 import { Link } from 'react-router-dom';
-import SubscriptionForm from '../SubscriptionForm/SubscriptionForm.jsx';
+import { Container, Icon, Logo } from 'shared';
+import { SubscriptionForm } from 'components';
 import css from './Footer.module.css';
 
 const Footer = () => {

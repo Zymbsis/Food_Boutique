@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, deleteProduct, selectCart } from '@redux/cart/slice.js';
 import { ALL, DISCOUNT, MODAL, POPULAR } from 'constants';
+import { addProduct, deleteProduct } from '@redux/cart/slice.js';
+import { selectCart } from '@redux/cart/selectors.js';
 import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './ProductCardAction.module.css';

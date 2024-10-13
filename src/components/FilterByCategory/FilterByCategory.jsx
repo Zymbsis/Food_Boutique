@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { changeCategory } from '@redux/requestParams/slice';
@@ -8,7 +8,6 @@ import {
   selectProductCategoriesList,
 } from '@redux/productLists/selectors.js';
 import { fetchProductCategories } from '@redux/productLists/operations.js';
-import { createOptionsList } from 'helpers';
 import { selectComponentStyles } from 'styles/selectComponentStyles';
 import css from './FilterByCategory.module.css';
 

@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useModalContext } from 'hooks';
 import { fetchPopularProducts } from '@redux/productLists/operations.js';
 import { selectPopularProductsList } from '@redux/productLists/selectors.js';
-import { useModalContext } from 'hooks';
-import PopularProductItem from '../PopularProductItem/PopularProductItem';
-import ProductCardModal from '../ProductCardModal/ProductCardModal.jsx';
-import css from './PopularProductList.module.css';
+import { PopularProductItem, ProductCardModal } from 'components';
+import css from './PopularProductsList.module.css';
 
-const PopularProductList = () => {
+const PopularProductsList = () => {
   const dispatch = useDispatch();
   const { openModal } = useModalContext();
   const data = useSelector(selectPopularProductsList);
@@ -33,4 +32,4 @@ const PopularProductList = () => {
   );
 };
 
-export default PopularProductList;
+export default PopularProductsList;

@@ -1,5 +1,5 @@
 import { Container } from 'shared';
-import OrganicFoodBadge from '../OrganicFoodBadge/OrganicFoodBadge.jsx';
+import { OrganicFoodBadge } from 'components';
 import css from './Hero.module.css';
 
 const Hero = () => {

@@ -31,9 +31,7 @@ export const useSubscribe = () => {
     }
   };
 
-  const onInputChange = ({ target: { value } }) => {
-    setEmail(value);
-  };
+  const onInputChange = ({ target: { value } }) => setEmail(value);
 
   useEffect(() => {
     if (!invalidEmail) return;

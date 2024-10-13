@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalContext } from 'hooks';
-import { CloseButton, Icon } from 'shared';
+import { CloseButton } from 'shared';
 import css from './ModalProvider.module.css';
 
 const ModalProvider = ({ children }) => {

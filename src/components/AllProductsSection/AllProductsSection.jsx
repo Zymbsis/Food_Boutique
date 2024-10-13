@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { scrollIntoView } from 'helpers';
+import { useWindowSize } from 'hooks';
 import { fetchAllProducts } from '@redux/productLists/operations.js';
 import {
   selectAllProductsList,
@@ -8,18 +10,18 @@ import {
   selectTotalPages,
 } from '@redux/productLists/selectors.js';
 import {
-  selectRequestParams,
-  selectSortParams,
+  selectPage,
+  selectRequestParamsExceptPage,
 } from '@redux/requestParams/selectors.js';
-import { scrollIntoView } from 'helpers';
-import { useWindowSize } from 'hooks';
-import MainProductList from './MainProductList/MainProductList';
-import Pagination from '../../Pagination/Pagination';
-import NothingFound from './NothingFound/NothingFound';
-import css from './MainProductsSection.module.css';
-import OrganicFoodBadge from '../../OrganicFoodBadge/OrganicFoodBadge.jsx';
+import {
+  AllProductsList,
+  Pagination,
+  NothingFound,
+  OrganicFoodBadge,
+} from 'components';
+import css from './AllProductsSection.module.css';
 
-const MainProductsSection = () => {
+const AllProductsSection = () => {
   const dispatch = useDispatch();
   const windowWidth = useWindowSize();
   const [firstRender, setFirstRender] = useState(true);
@@ -28,13 +30,15 @@ const MainProductsSection = () => {
   const allProducts = useSelector(selectAllProductsList);
   const loading = useSelector(selectIsAllProductsLoading);
   const error = useSelector(selectIsAllProductsError);
-  const sortParams = useSelector(selectSortParams);
-  const requestParams = useSelector(selectRequestParams);
+  const requestParams = useSelector(selectRequestParamsExceptPage);
+  const page = useSelector(selectPage);
 
   useEffect(() => {
     if (requestParams.limit === null) return;
-    dispatch(fetchAllProducts({ ...requestParams, ...sortParams }));
-  }, [requestParams, sortParams, dispatch]);
+    if (firstRender && allProducts.length) return;
+    dispatch(fetchAllProducts({ ...requestParams, page }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestParams, page, dispatch]);
 
   useEffect(() => {
     if (!firstRender) {
@@ -42,7 +46,7 @@ const MainProductsSection = () => {
       return;
     }
     setFirstRender(false);
-  }, [requestParams.page, firstRender, windowWidth]);
+  }, [page, firstRender, windowWidth]);
 
   if (loading)
     return (
@@ -60,9 +64,9 @@ const MainProductsSection = () => {
   }
   return (
     <section ref={sectionRef} className={css.section}>
-      <MainProductList /> {totalPages > 1 && <Pagination />}
+      <AllProductsList /> {totalPages > 1 && <Pagination />}
     </section>
   );
 };
 
-export default MainProductsSection;
+export default AllProductsSection;

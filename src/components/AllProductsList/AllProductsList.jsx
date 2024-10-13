@@ -1,23 +1,21 @@
 import { useSelector } from 'react-redux';
+import { useModalContext } from 'hooks';
 import { selectAllProductsList } from '@redux/productLists/selectors.js';
-import MainProductItem from '../MainProductItem/MainProductItem';
-import css from './MainProductList.module.css';
-import { useModalContext } from '../../../../hooks/useContext.js';
-import ProductCardModal from '../../../ProductCardModal/ProductCardModal.jsx';
+import { AllProductItem, ProductCardModal } from 'components';
+import css from './AllProductsList.module.css';
 
-const MainProductList = () => {
-  const allProducts = useSelector(selectAllProductsList);
+const AllProductsList = () => {
   const { openModal } = useModalContext();
-  const handleOpenModal = _id => {
-    openModal(ProductCardModal, { _id });
-  };
+  const allProducts = useSelector(selectAllProductsList);
+  const handleOpenModal = _id => openModal(ProductCardModal, { _id });
+
   return (
     <>
       <h2 className="visually-hidden">Organic Food</h2>
       <ul className={css.productList}>
         {allProducts.map(product => (
           <li className={css.productItem} key={product._id}>
-            <MainProductItem
+            <AllProductItem
               product={product}
               handleOpenModal={handleOpenModal}
             />
@@ -28,4 +26,4 @@ const MainProductList = () => {
   );
 };
 
-export default MainProductList;
+export default AllProductsList;

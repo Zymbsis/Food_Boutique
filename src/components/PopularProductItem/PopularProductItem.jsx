@@ -1,12 +1,14 @@
 import { POPULAR } from 'constants';
-import ProductCartImage from '../ProductCardImage/ProductCardImage.jsx';
-import ProductCardInfo from '../ProductCardInfo/ProductCardInfo.jsx';
-import ProductCardAction from '../ProductCardAction/ProductCardAction.jsx';
+import {
+  ProductCardImage,
+  ProductCardInfo,
+  ProductCardAction,
+} from 'components';
 
 const PopularProductItem = ({ product, handleOpenModal }) => {
   return (
     <>
-      <ProductCartImage
+      <ProductCardImage
         product={product}
         handleClick={handleOpenModal}
         renderLocation={POPULAR}

@@ -1,11 +1,11 @@
 import { ProductListTitle } from 'shared';
-import DiscountProductList from '../DiscountProductList/DiscountProductList.jsx';
+import { DiscountProductsList } from 'components';
 
 const DiscountProductsSection = () => {
   return (
     <section>
       <ProductListTitle>Discount products</ProductListTitle>
-      <DiscountProductList />
+      <DiscountProductsList />
     </section>
   );
 };
