@@ -1,0 +1,62 @@
+.wrapper {
+  height: 335px;
+  padding-right: 40px;
+  padding-left: 28px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  background-image: url(/img/empty_basket/empty_basket_png_@1x.png);
+  background-image: image-set(url('/img/empty_basket/empty_basket_webp_@1x.webp') 1x,
+      url('/img/empty_basket/empty_basket_webp_@2x.webp') 2x,
+      url('/img/empty_basket/empty_basket_webp_@3x.webp') 3x,
+      url('/img/empty_basket/empty_basket_png_@1x.png') 1x,
+      url('/img/empty_basket/empty_basket_png_@2x.png') 2x,
+      url('/img/empty_basket/empty_basket_png_@3x.png') 3x);
+  background-repeat: no-repeat;
+  background-position: center top 83px;
+  background-size: 132px 114px;
+
+  @media screen and (min-width: 768px) {
+    height: 390px;
+    padding-bottom: 20px;
+    padding-right: 44px;
+    background-size: 164px 140px;
+    background-position: center top 104px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 450px;
+    padding-bottom: 50px;
+    background-position: center top 134px;
+  }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.title > span {
+  color: var(--primary-green-color);
+}
+
+.text {
+  color: rgba(1, 1, 1, 0.70);
+  line-height: 1.28;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    width: 387px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

@@ -1,13 +1,13 @@
 .textWrapper {
   width: 335px;
   padding: 100px 45px 166px;
-  background-image: url(/img/subscriptionSuccess-png-1x.png);
-  background-image: image-set(url('/img/subscriptionSuccess-webp-1x.webp') 1x,
-      url('/img/subscriptionSuccess-webp-2x.webp') 2x,
-      url('/img/subscriptionSuccess-webp-3x.webp') 3x,
-      url('/img/subscriptionSuccess-png-1x.png') 1x,
-      url('/img/subscriptionSuccess-png-2x.png') 2x,
-      url('/img/subscriptionSuccess-png-3x.png') 3x);
+  background-image: url(/img/success_subscription/success_subscription_png_@1x.png);
+  background-image: image-set(url('/img/success_subscription/success_subscription_webp_@1x.webp') 1x,
+      url('/img/success_subscription/success_subscription_webp_@2x.webp') 2x,
+      url('/img/success_subscription/success_subscription_webp_@3x.webp') 3x,
+      url('/img/success_subscription/success_subscription_png_@1x.png') 1x,
+      url('/img/success_subscription/success_subscription_png_@2x.png') 2x,
+      url('/img/success_subscription/success_subscription_png_@3x.png') 3x);
   background-repeat: no-repeat;
   background-position: right 0 bottom 0;
   background-size: auto 144px;

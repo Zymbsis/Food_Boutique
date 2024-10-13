@@ -5,6 +5,7 @@ import css from './OrderPage.module.css';
 import Cart from '../../components/Cart/Cart.jsx';
 import { useEffect } from 'react';
 import CartSummary from '../../components/CartSummary/CartSummary.jsx';
+import EmptyCart from '../../components/EmptyCart/EmptyCart.jsx';
 
 const OrderPage = () => {
   const productsQuantity = useSelector(selectProductQuantity);
@@ -16,7 +17,7 @@ const OrderPage = () => {
     <section className={css.section}>
       <Container className={css.container}>
         <CartSummary />
-        {productsQuantity ? <Cart /> : <p>Empty</p>}
+        {productsQuantity ? <Cart /> : <EmptyCart />}
       </Container>
     </section>
   );
