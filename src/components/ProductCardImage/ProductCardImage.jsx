@@ -18,7 +18,7 @@ const ProductCartImage = ({
       onClick={() => handleClick(_id)}
     >
       <img src={img} alt={name} width={295} height={178} />
-      {is10PercentOff && (
+      {is10PercentOff && renderLocation !== MODAL && (
         <Icon iconId="discount" className={css.discountIcon}></Icon>
       )}
     </div>

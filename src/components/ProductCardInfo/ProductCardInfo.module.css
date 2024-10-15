@@ -17,6 +17,12 @@
   margin-bottom: 0;
 }
 
+.popularName {
+  @media screen and (max-width: 767.98px) {}
+
+  margin-bottom: 12px;
+}
+
 .featuresList {
   display: flex;
   gap: 9px;

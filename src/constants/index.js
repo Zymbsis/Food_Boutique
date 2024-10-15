@@ -1,3 +1,8 @@
+export const { APP_ROOT, MODAL_ROOT } = {
+  APP_ROOT: document.getElementById('root'),
+  MODAL_ROOT: document.getElementById('modal-root'),
+};
+
 export const {
   BASE_URL,
   PRODUCTS_ENDPOINT,

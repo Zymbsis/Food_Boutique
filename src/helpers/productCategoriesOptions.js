@@ -1,4 +1,4 @@
-export const defaultOption = { value: '', label: 'Category' };
+export const defaultOption = { value: '', label: 'Categories' };
 
 export const createOptionFromCategory = category => {
   if (!category) return defaultOption;

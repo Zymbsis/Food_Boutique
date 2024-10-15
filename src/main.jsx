@@ -1,15 +1,16 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from '@redux/store';
+import { APP_ROOT } from 'constants';
+import { ModalProvider } from 'components';
 import App from './App';
 import 'styles/index.css';
-import { BrowserRouter } from 'react-router-dom';
-import { persistor, store } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
-import { ModalProvider } from 'components';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.createRoot(APP_ROOT).render(
+  <StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ModalProvider>
@@ -19,5 +20,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ModalProvider>
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+  </StrictMode>
 );

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalContext } from 'hooks';
 import { CloseButton } from 'shared';
+import { MODAL_ROOT } from 'constants';
 import css from './ModalProvider.module.css';
 
 const ModalProvider = ({ children }) => {
@@ -35,7 +36,7 @@ const ModalProvider = ({ children }) => {
               {modalContent}
             </div>
           </div>,
-          document.querySelector('#modal-root')
+          MODAL_ROOT
         )}
     </ModalContext.Provider>
   );

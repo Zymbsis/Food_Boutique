@@ -7,10 +7,11 @@ import { selectDataForOrdering } from '../../redux/cart/selectors.js';
 const OrderForm = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const data = useSelector(selectDataForOrdering);
   const handleChange = ({ target: { value } }) => {
     setEmail(value);
+    if (error) setError('');
   };
-  console.log(useSelector(selectDataForOrdering));
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -23,8 +24,11 @@ const OrderForm = () => {
       setError('Invalid email format');
       return;
     }
-    console.log(e.target.email.value);
+    setEmail('');
+    console.log(data);
+    console.log(value);
   };
+
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <label htmlFor="email">Mail:</label>
@@ -33,6 +37,7 @@ const OrderForm = () => {
         value={email}
         onChange={handleChange}
         name="email"
+        id="email"
         placeholder="Enter your email"
       />
       {error && <span>{error}</span>}

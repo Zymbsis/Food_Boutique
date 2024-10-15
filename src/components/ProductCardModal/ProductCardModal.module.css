@@ -29,21 +29,24 @@
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
+    overflow: hidden;
     display: flex;
+    height: 212px;
     gap: 24px;
     margin-bottom: 48px;
   }
 }
 
 .descWrapper {
-  max-height: 100px;
+  max-height: 112px;
+
+  @media screen and (min-width: 768px) {
+    max-height: 100%;
+  }
+
   padding-right: 10px;
   overflow-y: auto;
   overflow-x: hidden;
-
-  @media screen and (min-width: 768px) {
-    max-height: 109px;
-  }
 }
 
 .descWrapper::-webkit-scrollbar {

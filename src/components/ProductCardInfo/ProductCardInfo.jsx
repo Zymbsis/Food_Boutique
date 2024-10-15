@@ -11,6 +11,7 @@ const ProductCardInfo = ({
       <h3
         className={clsx(css.productName, {
           [css.discountName]: renderLocation === DISCOUNT,
+          [css.popularName]: renderLocation === POPULAR,
         })}
       >
         {name}
