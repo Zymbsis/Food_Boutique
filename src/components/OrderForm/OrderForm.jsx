@@ -6,9 +6,12 @@ import { OrderSuccess, SubscriptionError } from 'components';
 import css from './OrderForm.module.css';
 
 const OrderForm = () => {
-  const orderRequest = async () => {
+  const data = useSelector(selectDataForOrdering);
+  const { openModal, removeCart } = useModalContext();
+
+  const orderRequest = async email => {
     try {
-      await orderProducts({ email, products: data });
+      await orderProducts({ email: email, products: data });
       openModal(OrderSuccess);
       removeCart();
       setEmail('');
@@ -16,10 +19,9 @@ const OrderForm = () => {
       openModal(SubscriptionError);
     }
   };
+
   const { email, invalidEmail, handleFormSubmit, handleInputChange, setEmail } =
     useCustomersFetch(orderRequest);
-  const { openModal, removeCart } = useModalContext();
-  const data = useSelector(selectDataForOrdering);
 
   return (
     <form onSubmit={handleFormSubmit} className={css.form}>

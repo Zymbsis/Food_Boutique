@@ -24,12 +24,12 @@ export const useCustomersFetch = callback => {
     }
   };
 
-  const handleFormSubmit = async e => {
+  const handleFormSubmit = e => {
     e.preventDefault();
     const emailValue = e.target.email.value.trim();
     const isEmailValid = handleCheckEmail(emailValue);
     if (isEmailValid) {
-      await callback(emailValue);
+      callback(emailValue);
     }
   };
 

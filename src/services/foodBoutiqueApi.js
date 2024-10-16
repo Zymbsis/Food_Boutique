@@ -6,8 +6,8 @@ const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
 
-export const sendSubscription = async payload => {
-  await axiosInstance.post(SUBSCRIPTION_ENDPOINT, { email: payload });
+export const sendSubscription = payload => {
+  return axiosInstance.post(SUBSCRIPTION_ENDPOINT, { email: payload });
 };
 
 export const fetchProductById = async id => {
@@ -15,8 +15,8 @@ export const fetchProductById = async id => {
   return data;
 };
 
-export const orderProducts = async ({ email, products }) => {
-  axiosInstance.post(ORDER_ENDPOINT, {
+export const orderProducts = ({ email, products }) => {
+  return axiosInstance.post(ORDER_ENDPOINT, {
     email,
     products,
   });

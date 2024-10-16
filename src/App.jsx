@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { SharedLayout } from 'components';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -11,6 +11,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<OrderPage />} />
+        <Route path="/privacyPolicy" element={<p>Privacy Policy</p>} />
+        <Route path="/termsOfServices" element={<p>Terms Of Services</p>} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </SharedLayout>
   );
