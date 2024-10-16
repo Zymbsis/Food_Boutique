@@ -4,9 +4,12 @@ import clsx from 'clsx';
 import css from './ProductCardImage.module.css';
 
 const ProductCartImage = ({
-  product: { img, name, _id, is10PercentOff },
-  handleClick,
   renderLocation = ALL,
+  handleClick,
+  name,
+  img,
+  is10PercentOff,
+  _id,
 }) => {
   return (
     <div

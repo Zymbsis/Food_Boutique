@@ -3,7 +3,10 @@ import clsx from 'clsx';
 import css from './ProductCardInfo.module.css';
 
 const ProductCardInfo = ({
-  product: { name, category, size, popularity },
+  name,
+  category,
+  size,
+  popularity,
   renderLocation = ALL,
 }) => {
   return (

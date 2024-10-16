@@ -4,12 +4,12 @@ import {
   ProductCardAction,
 } from 'components';
 
-const MainProductItem = ({ product, handleOpenModal }) => {
+const MainProductItem = ({ handleOpenModal, ...product }) => {
   return (
     <>
-      <ProductCardImage product={product} handleClick={handleOpenModal} />
-      <ProductCardInfo product={product} />
-      <ProductCardAction product={product} />
+      <ProductCardImage {...product} handleClick={handleOpenModal} />
+      <ProductCardInfo {...product} />
+      <ProductCardAction {...product} />
     </>
   );
 };

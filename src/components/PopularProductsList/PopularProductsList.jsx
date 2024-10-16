@@ -23,7 +23,7 @@ const PopularProductsList = () => {
         data.map(product => (
           <li className={css.productItem} key={product._id}>
             <PopularProductItem
-              product={product}
+              {...product}
               handleOpenModal={handleOpenModal}
             />
           </li>

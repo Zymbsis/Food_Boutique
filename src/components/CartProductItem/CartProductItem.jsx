@@ -4,10 +4,10 @@ import { ProductCardInfo } from 'components';
 import css from './CartProductItem.module.css';
 
 const CartProductItem = ({
-  product,
   handleDeleteProduct,
   handleIncreaseQuantity,
   handleDecreaseQuantity,
+  ...product
 }) => {
   return (
     <>
@@ -19,7 +19,7 @@ const CartProductItem = ({
         <img src={product.img} alt={product.name} width={72} height={72} />
       </div>
       <div className={css.textWrapper}>
-        <ProductCardInfo product={product} renderLocation={CART} />
+        <ProductCardInfo {...product} renderLocation={CART} />
         <div className={css.productControl}>
           <span className={css.price}>{`$${(
             product.price * product.quantity

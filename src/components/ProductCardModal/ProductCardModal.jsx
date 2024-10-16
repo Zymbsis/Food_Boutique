@@ -42,15 +42,15 @@ const ProductCardModal = ({ _id }) => {
     product !== null && (
       <div className={css.cardWrapper}>
         <div className={css.cardInfo}>
-          <ProductCardImage product={product} renderLocation={MODAL} />
+          <ProductCardImage {...product} renderLocation={MODAL} />
           <div className={css.textContent}>
-            <ProductCardInfo product={product} renderLocation={MODAL} />
+            <ProductCardInfo {...product} renderLocation={MODAL} />
             <div className={css.descWrapper}>
               <p className={css.cardDesc}>{product.desc}</p>
             </div>
           </div>
         </div>
-        <ProductCardAction product={product} renderLocation={MODAL} />
+        <ProductCardAction {...product} renderLocation={MODAL} />
       </div>
     )
   );

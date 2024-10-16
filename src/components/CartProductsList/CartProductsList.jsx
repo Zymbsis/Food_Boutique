@@ -32,7 +32,7 @@ const CartProductsList = () => {
         {productList.map(product => (
           <li key={product._id}>
             <CartProductItem
-              product={product}
+              {...product}
               handleDeleteProduct={handleDeleteProduct}
               handleIncreaseQuantity={handleIncreaseQuantity}
               handleDecreaseQuantity={handleDecreaseQuantity}

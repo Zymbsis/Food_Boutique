@@ -6,17 +6,17 @@ import {
 } from 'components';
 import css from './DiscountProductItem.module.css';
 
-const DiscountProductItem = ({ product, handleOpenModal }) => {
+const DiscountProductItem = ({ handleOpenModal, ...product }) => {
   return (
     <>
       <ProductCardImage
-        product={product}
+        {...product}
         handleClick={handleOpenModal}
         renderLocation={DISCOUNT}
       />
       <div className={css.descriptionWrapper}>
-        <ProductCardInfo product={product} renderLocation={DISCOUNT} />
-        <ProductCardAction product={product} renderLocation={DISCOUNT} />
+        <ProductCardInfo {...product} renderLocation={DISCOUNT} />
+        <ProductCardAction {...product} renderLocation={DISCOUNT} />
       </div>
     </>
   );

@@ -24,7 +24,7 @@ const DiscountProductsList = () => {
           data.map(product => (
             <li className={css.productItem} key={product._id}>
               <DiscountProductItem
-                product={product}
+                {...product}
                 handleOpenModal={handleOpenModal}
               />
             </li>

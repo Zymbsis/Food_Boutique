@@ -6,7 +6,7 @@ import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './ProductCardAction.module.css';
 
-const ProductCardAction = ({ product, renderLocation = ALL, className }) => {
+const ProductCardAction = ({ renderLocation = ALL, className, ...product }) => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
   const isInCart = cart.some(item => item._id === product._id);

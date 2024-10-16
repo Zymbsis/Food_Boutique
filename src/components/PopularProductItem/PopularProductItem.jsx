@@ -5,17 +5,17 @@ import {
   ProductCardAction,
 } from 'components';
 
-const PopularProductItem = ({ product, handleOpenModal }) => {
+const PopularProductItem = ({ handleOpenModal, ...product }) => {
   return (
     <>
       <ProductCardImage
-        product={product}
+        {...product}
         handleClick={handleOpenModal}
         renderLocation={POPULAR}
       />
       <div>
-        <ProductCardInfo product={product} renderLocation={POPULAR} />
-        <ProductCardAction product={product} renderLocation={POPULAR} />
+        <ProductCardInfo {...product} renderLocation={POPULAR} />
+        <ProductCardAction {...product} renderLocation={POPULAR} />
       </div>
     </>
   );
