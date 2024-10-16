@@ -1,34 +1,12 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { EMAIL_PATTERN } from 'constants';
-import { selectDataForOrdering } from '@redux/cart/selectors.js';
+import { useModalContext, useCustomersFetch } from 'hooks';
 import { orderProducts } from 'services';
-import { useModalContext } from 'hooks';
-import { SubscriptionError } from 'components';
-import OrderSuccess from '../OrderSuccess/OrderSuccess.jsx';
+import { selectDataForOrdering } from '@redux/cart/selectors.js';
+import { OrderSuccess, SubscriptionError } from 'components';
 import css from './OrderForm.module.css';
 
 const OrderForm = () => {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const { openModal, removeCart } = useModalContext();
-  const data = useSelector(selectDataForOrdering);
-  const handleChange = ({ target: { value } }) => {
-    setEmail(value);
-    if (error) setError('');
-  };
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const value = e.target.email.value;
-    if (!value.trim()) {
-      setError('Please enter your email');
-      return;
-    }
-    if (!EMAIL_PATTERN.test(value)) {
-      setError('Invalid email format');
-      return;
-    }
+  const orderRequest = async () => {
     try {
       await orderProducts({ email, products: data });
       openModal(OrderSuccess);
@@ -38,19 +16,23 @@ const OrderForm = () => {
       openModal(SubscriptionError);
     }
   };
+  const { email, invalidEmail, handleFormSubmit, handleInputChange, setEmail } =
+    useCustomersFetch(orderRequest);
+  const { openModal, removeCart } = useModalContext();
+  const data = useSelector(selectDataForOrdering);
 
   return (
-    <form onSubmit={handleSubmit} className={css.form}>
+    <form onSubmit={handleFormSubmit} className={css.form}>
       <label htmlFor="email">Mail:</label>
       <input
         type="text"
         value={email}
-        onChange={handleChange}
+        onChange={handleInputChange}
         name="email"
         id="email"
         placeholder="Enter your email"
       />
-      {error && <span>{error}</span>}
+      {invalidEmail && <span>{invalidEmail}</span>}
       <button type="submit">Checkout</button>
     </form>
   );
