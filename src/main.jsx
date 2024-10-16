@@ -11,14 +11,14 @@ import 'styles/index.css';
 
 ReactDOM.createRoot(APP_ROOT).render(
   <StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ModalProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <ModalProvider>
             <App />
-          </BrowserRouter>
-        </ModalProvider>
-      </PersistGate>
-    </Provider>
+          </ModalProvider>
+        </PersistGate>
+      </Provider>
+    </BrowserRouter>
   </StrictMode>
 );

@@ -18,7 +18,7 @@
   font-size: 14px;
   line-height: 1.28;
   background-color: var(--primary-white-color);
-  transition: border-color 300ms ease-in;
+  transition: border-color var(--transition);
 
   @media (min-width:768px) {
     font-size: 18px;

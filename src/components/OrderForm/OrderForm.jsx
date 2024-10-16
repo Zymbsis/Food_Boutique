@@ -1,19 +1,24 @@
 import { useState } from 'react';
-import { EMAIL_PATTERN } from '../../constants/index.js';
-import css from './OrderForm.module.css';
 import { useSelector } from 'react-redux';
-import { selectDataForOrdering } from '../../redux/cart/selectors.js';
+import { EMAIL_PATTERN } from 'constants';
+import { selectDataForOrdering } from '@redux/cart/selectors.js';
+import { orderProducts } from 'services';
+import { useModalContext } from 'hooks';
+import { SubscriptionError } from 'components';
+import OrderSuccess from '../OrderSuccess/OrderSuccess.jsx';
+import css from './OrderForm.module.css';
 
 const OrderForm = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const { openModal, removeCart } = useModalContext();
   const data = useSelector(selectDataForOrdering);
   const handleChange = ({ target: { value } }) => {
     setEmail(value);
     if (error) setError('');
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const value = e.target.email.value;
     if (!value.trim()) {
@@ -24,9 +29,14 @@ const OrderForm = () => {
       setError('Invalid email format');
       return;
     }
-    setEmail('');
-    console.log(data);
-    console.log(value);
+    try {
+      await orderProducts({ email, products: data });
+      openModal(OrderSuccess);
+      removeCart();
+      setEmail('');
+    } catch (error) {
+      openModal(SubscriptionError);
+    }
   };
 
   return (

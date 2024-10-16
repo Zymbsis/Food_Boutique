@@ -7,12 +7,12 @@ export const {
   BASE_URL,
   PRODUCTS_ENDPOINT,
   SUBSCRIPTION_ENDPOINT,
-  ORDERS_ENDPOINT,
+  ORDER_ENDPOINT,
 } = {
   BASE_URL: 'https://food-boutique.b.goit.study/api',
   PRODUCTS_ENDPOINT: '/products',
   SUBSCRIPTION_ENDPOINT: '/subscription',
-  ORDERS_ENDPOINT: '/orders',
+  ORDER_ENDPOINT: '/orders',
 };
 
 export const EMAIL_PATTERN = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;

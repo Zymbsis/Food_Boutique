@@ -17,6 +17,8 @@ export { default as Hero } from './Hero/Hero.jsx';
 export { default as ModalProvider } from './ModalProvider/ModalProvider.jsx';
 export { default as NothingFound } from './NothingFound/NothingFound.jsx';
 export { default as Order } from './Order/Order.jsx';
+export { default as OrderForm } from './OrderForm/OrderForm.jsx';
+export { default as OrderSuccess } from './OrderSuccess/OrderSuccess.jsx';
 export { default as OrganicFoodBadge } from './OrganicFoodBadge/OrganicFoodBadge.jsx';
 export { default as Pagination } from './Pagination/Pagination.jsx';
 export { default as PopularProductItem } from './PopularProductItem/PopularProductItem.jsx';

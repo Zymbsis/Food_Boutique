@@ -14,7 +14,7 @@ export const selectComponentStyles = {
     paddingLeft: 20,
     paddingRight: 12,
     cursor: 'pointer',
-    transition: 'all 200ms',
+    transition: 'all 300ms ease-in',
     '&:hover': {},
     '@media (min-width:768px)': { height: 52 },
   }),
@@ -57,7 +57,7 @@ export const selectComponentStyles = {
       lineHeight: '1.28',
       cursor: 'pointer',
       backgroundColor: state.isFocused ? '#fff' : '#fff',
-      transition: 'all 100ms',
+      transition: 'all 300ms ease-in',
       '&:hover': { backgroundColor: '#6D8434', color: '#E8E8E2' },
       '@media (min-width:768px)': { fontSize: '18px' },
     };
@@ -65,6 +65,6 @@ export const selectComponentStyles = {
   indicatorsContainer: (baseStyles, state) => ({
     ...baseStyles,
     rotate: state.selectProps.menuIsOpen ? '180deg' : '0',
-    transition: 'all 200ms',
+    transition: 'all 300ms ease-in',
   }),
 };

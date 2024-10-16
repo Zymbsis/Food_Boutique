@@ -1,4 +1,5 @@
 export {
-  sendSubscriptionRequest,
+  sendSubscription,
   fetchProductById,
+  orderProducts,
 } from './foodBoutiqueApi.js';

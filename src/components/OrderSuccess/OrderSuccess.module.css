@@ -1,0 +1,59 @@
+.wrapper {
+  position: relative;
+  width: 335px;
+  padding: 220px 20px 60px;
+  background-color: var(--primary-white-color);
+  background-image: url(/img/success_order/success_order_png_@1x.png);
+  background-image: image-set(url('/img/success_order/success_order_webp_@1x.webp') 1x,
+      url('/img/success_order/success_order_webp_@2x.webp') 2x,
+      url('/img/success_order/success_order_webp_@3x.webp') 3x,
+      url('/img/success_order/success_order_png_@1x.png') 1x,
+      url('/img/success_order/success_order_png_@2x.png') 2x,
+      url('/img/success_order/success_order_png_@3x.png') 3x);
+  background-repeat: no-repeat;
+  background-position: top 40px center;
+  background-size: 140px;
+  border-radius: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 560px;
+    padding: 257px 40px 80px;
+    background-position: top 80px center;
+  }
+}
+
+.wrapper::before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 145px;
+  height: 28px;
+  background-color: rgba(1, 1, 1, 0.10);
+  filter: blur(10px);
+  border-radius: 50%;
+  left: 50%;
+  top: 149px;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper::before {
+    top: 189px;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.text {
+  color: rgba(1, 1, 1, 0.70);
+  text-align: center;
+  line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}

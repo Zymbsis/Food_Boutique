@@ -48,7 +48,7 @@
   height: 40px;
   border-radius: 10px;
   border: 1px solid rgba(232, 232, 226, 0.30);
-  transition: background-color 300ms ease-in;
+  transition: background-color var(--transition);
 
   @media screen and (min-width: 768px) {
     width: 44px;

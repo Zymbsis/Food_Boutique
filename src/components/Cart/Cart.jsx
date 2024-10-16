@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectProductQuantity } from '@redux/cart/selectors.js';
+import { selectCart } from '@redux/cart/selectors.js';
 import { CartProductsList, Order, EmptyCart } from 'components';
 import css from './Cart.module.css';
 
 const Cart = () => {
-  const productsQuantity = useSelector(selectProductQuantity);
+  const productsQuantity = useSelector(selectCart);
 
-  if (!productsQuantity) return <EmptyCart />;
+  if (!productsQuantity.length) return <EmptyCart />;
 
   return (
     <div className={css.cartWrapper}>

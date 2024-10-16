@@ -71,7 +71,7 @@
   border: 1px solid var(--primary-green-color);
   font-weight: 500;
   line-height: 1.28;
-  transition: color 300ms ease-in, border-color 300ms ease-in;
+  transition: color var(--transition), border-color var(--transition);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -142,7 +142,7 @@
   pointer-events: none;
   background-color: transparent;
   border-radius: 30px;
-  transition: left 300ms ease-in, background-color 300ms ease-in;
+  transition: left var(--transition), background-color var(--transition);
 }
 
 .cartNavLink::after {

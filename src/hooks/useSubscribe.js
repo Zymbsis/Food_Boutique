@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { EMAIL_PATTERN } from 'constants';
 import { useModalContext } from 'hooks';
-import { sendSubscriptionRequest } from 'services';
+import { sendSubscription } from 'services';
 import SubscriptionSuccess from '../components/SubscriptionSuccess/SubscriptionSuccess.jsx';
 import SubscriptionError from '../components/SubscriptionError/SubscriptionError.jsx';
 
@@ -23,7 +23,7 @@ export const useSubscribe = () => {
       return;
     }
     try {
-      await sendSubscriptionRequest(emailValue);
+      await sendSubscription(emailValue);
       openModal(SubscriptionSuccess);
       setEmail('');
     } catch ({ response: { status } }) {

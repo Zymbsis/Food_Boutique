@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { ProductListTitle } from '../../shared/index.js';
+import { ProductListTitle } from 'shared';
+import { selectTotalSum } from '@redux/cart/selectors.js';
+import { OrderForm } from 'components';
 import css from './Order.module.css';
-import { selectTotalSum } from '../../redux/cart/selectors.js';
-import OrderForm from '../OrderForm/OrderForm.jsx';
 
 const Order = () => {
   const totalSum = useSelector(selectTotalSum);

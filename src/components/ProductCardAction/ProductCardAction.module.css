@@ -26,7 +26,7 @@
   padding: 8px;
   border-radius: 30px;
   background-color: var(--primary-green-color);
-  transition: all 300ms ease-in;
+  transition: all var(--transition);
 }
 
 .ctrlWrapper > button > svg {
@@ -70,7 +70,7 @@
   font-weight: 500;
   line-height: 1.28;
   white-space: nowrap;
-  transition: all 100ms ease-in;
+  transition: all var(--transition);
 
   @media screen and (min-width: 768px) {
     width: 130px;

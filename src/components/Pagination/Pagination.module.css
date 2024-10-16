@@ -53,7 +53,7 @@
 .activeBtn {
   color: var(--primary-white-color);
   background-color: var(--primary-green-color);
-  transition: background-color 300ms ease-in;
+  transition: background-color var(--transition);
 }
 
 .activeBtn:hover {
