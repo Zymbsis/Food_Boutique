@@ -15,7 +15,7 @@
   position: absolute;
   color: rgba(1, 1, 1, 0.50);
   line-height: 1.28;
-  top: 13 px;
+  top: 13px;
   left: 20px;
 
   @media screen and (min-width: 768px) {
