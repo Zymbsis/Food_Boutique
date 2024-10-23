@@ -1,8 +1,8 @@
 import { Icon } from 'shared';
 
-const CloseButton = ({ handleClick, className }) => {
+const CloseButton = ({ ...props }) => {
   return (
-    <button type="button" onClick={handleClick} className={className}>
+    <button type="button" {...props}>
       <Icon iconId="close" />
     </button>
   );

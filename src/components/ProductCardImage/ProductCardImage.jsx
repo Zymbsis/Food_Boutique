@@ -9,7 +9,6 @@ const ProductCartImage = ({
   name,
   img,
   is10PercentOff,
-  _id,
 }) => {
   return (
     <div
@@ -18,7 +17,7 @@ const ProductCartImage = ({
         [css.discountImg]: renderLocation === DISCOUNT,
         [css.modalImg]: renderLocation === MODAL,
       })}
-      onClick={() => handleClick(_id)}
+      onClick={handleClick}
     >
       <img src={img} alt={name} width={295} height={178} />
       {is10PercentOff && renderLocation !== MODAL && (

@@ -1,14 +1,8 @@
 import { icon } from 'images';
-import clsx from 'clsx';
-import css from './Icon.module.css';
 
-const Icon = ({ iconId, className, ...props }) => {
+const Icon = ({ iconId, ...props }) => {
   return (
-    <svg
-      className={clsx(css.icon, { [className]: className })}
-      role="img"
-      {...props}
-    >
+    <svg role="img" {...props}>
       <use xlinkHref={`${icon}#${iconId}`} />
     </svg>
   );

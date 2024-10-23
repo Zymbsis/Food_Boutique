@@ -9,11 +9,11 @@ const CartSummary = ({ className }) => {
   return (
     <span className={`${css.summeryWrapper} ${className}`}>
       <span className={css.cartIconWrapper}>
-        <Icon iconId={'cart'} />
+        <Icon iconId="cart" />
       </span>
-      <span
-        className={css.cartTextWrapper}
-      >{`Cart (${productsQuantity.length})`}</span>
+      <span className={css.cartTextWrapper}>
+        Cart {productsQuantity.length}
+      </span>
     </span>
   );
 };

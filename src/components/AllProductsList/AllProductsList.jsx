@@ -15,7 +15,10 @@ const AllProductsList = () => {
       <ul className={css.productList}>
         {allProducts.map(product => (
           <li className={css.productItem} key={product._id}>
-            <AllProductItem {...product} handleOpenModal={handleOpenModal} />
+            <AllProductItem
+              {...product}
+              handleOpenModal={() => handleOpenModal(product._id)}
+            />
           </li>
         ))}
       </ul>

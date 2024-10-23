@@ -24,7 +24,7 @@ const PopularProductsList = () => {
           <li className={css.productItem} key={product._id}>
             <PopularProductItem
               {...product}
-              handleOpenModal={handleOpenModal}
+              handleOpenModal={() => handleOpenModal(product._id)}
             />
           </li>
         ))}

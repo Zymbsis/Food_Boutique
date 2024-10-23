@@ -1,6 +1,8 @@
 import { useModalContext, useCustomersFetch } from 'hooks';
 import { sendSubscription } from 'services';
 import { SubscriptionError, SubscriptionSuccess } from 'components';
+import { InputField } from '../../shared/index.js';
+import Form from '../../shared/Form/Form.jsx';
 import css from './SubscriptionForm.module.css';
 
 const SubscriptionForm = () => {
@@ -19,20 +21,21 @@ const SubscriptionForm = () => {
   const { openModal } = useModalContext();
 
   return (
-    <form onSubmit={handleFormSubmit} className={css.form}>
-      <p>Subscribe and learn about new products!</p>
-      <input
+    <Form
+      onSubmit={handleFormSubmit}
+      className={css.form}
+      additionalComponent={<p>Subscribe and learn about new products!</p>}
+      buttonName="Send"
+    >
+      <InputField
+        errorMessage={invalidEmail}
         type="text"
         placeholder="Email"
         name="email"
         value={email}
         onChange={handleInputChange}
       />
-      {invalidEmail && <span className={css.invalidEmail}>{invalidEmail}</span>}
-      <button type="submit" className={css.submitBtn}>
-        Send
-      </button>
-    </form>
+    </Form>
   );
 };
 

@@ -21,6 +21,7 @@
   background-color: var(--secondary-white-color);
   border-radius: 20px;
   max-height: 100%;
+  /* animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards; */
 }
 
 .closeBtn {
@@ -42,3 +43,19 @@
 .closeBtn > svg {
   pointer-events: none;
 }
+
+/* @keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+} */

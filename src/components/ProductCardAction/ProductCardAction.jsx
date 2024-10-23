@@ -27,9 +27,7 @@ const ProductCardAction = ({ renderLocation = ALL, className, ...product }) => {
         className,
       })}
     >
-      {renderLocation !== POPULAR && (
-        <span>{`$${product.price.toFixed(2)}`}</span>
-      )}
+      {renderLocation !== POPULAR && <span>${product.price.toFixed(2)}</span>}
       <button type="button" onClick={handleToggleCart}>
         {renderLocation === MODAL && <>{isInCart ? 'Remove from' : 'Add to'}</>}
         <Icon

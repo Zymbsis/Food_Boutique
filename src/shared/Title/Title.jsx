@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import css from './ProductListTitle.module.css';
+import css from './Title.module.css';
 
-const ProductListTitle = ({ children, className }) => {
+const Title = ({ children, className }) => {
   return (
     <h2 className={clsx(css.productListTitle, { [className]: className })}>
       {children}
@@ -9,4 +9,4 @@ const ProductListTitle = ({ children, className }) => {
   );
 };
 
-export default ProductListTitle;
+export default Title;

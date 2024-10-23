@@ -1,11 +1,11 @@
-import { ProductListTitle } from 'shared';
+import { Title } from 'shared';
 import { PopularProductsList } from 'components';
 import css from './PopularProductsSection.module.css';
 
 const PopularProductsSection = () => {
   return (
     <section className={css.section}>
-      <ProductListTitle>Popular products</ProductListTitle>
+      <Title>Popular products</Title>
       <PopularProductsList />
     </section>
   );

@@ -25,7 +25,7 @@ const DiscountProductsList = () => {
             <li className={css.productItem} key={product._id}>
               <DiscountProductItem
                 {...product}
-                handleOpenModal={handleOpenModal}
+                handleOpenModal={() => handleOpenModal(product._id)}
               />
             </li>
           ))}

@@ -4,6 +4,7 @@ import { orderProducts } from 'services';
 import { selectDataForOrdering } from '@redux/cart/selectors.js';
 import { OrderSuccess, SubscriptionError } from 'components';
 import css from './OrderForm.module.css';
+import { Form, InputField } from '../../shared/index.js';
 
 const OrderForm = () => {
   const data = useSelector(selectDataForOrdering);
@@ -24,9 +25,14 @@ const OrderForm = () => {
     useCustomersFetch(orderRequest);
 
   return (
-    <form onSubmit={handleFormSubmit} className={css.form}>
-      <label htmlFor="email">Mail:</label>
-      <input
+    <Form
+      onSubmit={handleFormSubmit}
+      className={css.form}
+      buttonName="Checkout"
+    >
+      <InputField
+        label={<label htmlFor="email">Mail:</label>}
+        errorMessage={invalidEmail}
         type="text"
         value={email}
         onChange={handleInputChange}
@@ -34,9 +40,7 @@ const OrderForm = () => {
         id="email"
         placeholder="Enter your email"
       />
-      {invalidEmail && <span>{invalidEmail}</span>}
-      <button type="submit">Checkout</button>
-    </form>
+    </Form>
   );
 };
 

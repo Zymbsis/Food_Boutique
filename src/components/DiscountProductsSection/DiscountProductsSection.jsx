@@ -1,10 +1,10 @@
-import { ProductListTitle } from 'shared';
+import { Title } from 'shared';
 import { DiscountProductsList } from 'components';
 
 const DiscountProductsSection = () => {
   return (
     <section>
-      <ProductListTitle>Discount products</ProductListTitle>
+      <Title>Discount products</Title>
       <DiscountProductsList />
     </section>
   );

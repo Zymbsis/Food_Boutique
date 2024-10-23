@@ -46,7 +46,7 @@ const ModalProvider = ({ children }) => {
         createPortal(
           <div className={css.modalBackdrop} onClick={closeModal}>
             <div className={css.modalWindow}>
-              <CloseButton handleClick={closeModal} className={css.closeBtn} />
+              <CloseButton onClick={closeModal} className={css.closeBtn} />
               {modalContent}
             </div>
           </div>,

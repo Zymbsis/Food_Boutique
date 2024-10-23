@@ -13,7 +13,7 @@ const CartProductItem = ({
     <>
       <CloseButton
         className={css.deleteBtn}
-        handleClick={() => handleDeleteProduct(product._id)}
+        onClick={() => handleDeleteProduct(product._id)}
       />
       <div className={css.imgWrapper}>
         <img src={product.img} alt={product.name} width={72} height={72} />
@@ -21,9 +21,9 @@ const CartProductItem = ({
       <div className={css.textWrapper}>
         <ProductCardInfo {...product} renderLocation={CART} />
         <div className={css.productControl}>
-          <span className={css.price}>{`$${(
-            product.price * product.quantity
-          ).toFixed(2)}`}</span>
+          <span className={css.price}>
+            {(product.price * product.quantity).toFixed(2)}
+          </span>
           <div className={css.changeQuantity}>
             <button
               type="button"

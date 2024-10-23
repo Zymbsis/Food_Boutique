@@ -42,7 +42,7 @@
   color: rgba(232, 232, 226, 0.60);
 }
 
-.submitBtn {
+.form > button {
   height: 42px;
   border-radius: 30px;
   background-color: var(--primary-white-color);
@@ -57,11 +57,11 @@
   }
 }
 
-.submitBtn:hover {
+.form > button:hover {
   color: var(--primary-green-color);
 }
 
-.invalidEmail {
+.form > input + span {
   position: absolute;
   font-size: 12px;
   padding-left: 18px;

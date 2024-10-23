@@ -25,7 +25,7 @@ const CartProductsList = () => {
         <span>Delete all</span>
         <CloseButton
           className={css.deleteAllBtn}
-          handleClick={handleDeleteAll}
+          onClick={handleDeleteAll}
         />
       </div>
       <ul className={css.cartList}>
