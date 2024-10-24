@@ -22,7 +22,7 @@ const CartProductItem = ({
         <ProductCardInfo {...product} renderLocation={CART} />
         <div className={css.productControl}>
           <span className={css.price}>
-            {(product.price * product.quantity).toFixed(2)}
+            ${(product.price * product.quantity).toFixed(2)}
           </span>
           <div className={css.changeQuantity}>
             <button
