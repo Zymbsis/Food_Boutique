@@ -41,7 +41,9 @@ const ProductCardAction = ({ className, price, buttonCaption, product }) => {
 
   return (
     <div className={`flex items-end justify-between ${className}`}>
-      {price && <span className="text-18 md:text-20 font-medium">{formattedPrice}</span>}
+      {price && (
+        <span className="text-18 font-medium text-fontPrimary md:text-20">{formattedPrice}</span>
+      )}
       <button type="button" onClick={handleToggleCart} className={baseButtonClasses}>
         {caption && <span>{caption}</span>}
         <Icon iconId={iconId} width={cartIconSize} height={cartIconSize} />
