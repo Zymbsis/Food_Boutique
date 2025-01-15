@@ -2,9 +2,9 @@ import { formatProductCategory, formatProductPopularity } from 'utils';
 
 const ProductCardAttribute = ({ caption, value, className }) => {
   return (
-    <li className={`text-12 mr-2 ${className}`}>
+    <li className={`mr-2 text-12 ${className}`}>
       <span className="mr-1 text-fontPrimary/30">{caption}</span>
-      <span className="md:text-14">{value}</span>
+      <span className="text-fontPrimary md:text-14">{value}</span>
     </li>
   );
 };

@@ -1,6 +1,10 @@
 const ProductCardTitle = ({ children, className }) => {
   return (
-    <h3 className={`text-18 md:text-20 mb-[10px] truncate font-medium ${className}`}>{children}</h3>
+    <h3
+      className={`mb-[10px] truncate text-18 font-medium text-fontPrimary md:text-20 ${className}`}
+    >
+      {children}
+    </h3>
   );
 };
 
