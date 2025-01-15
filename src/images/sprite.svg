@@ -63,12 +63,12 @@
     </symbol>
 
     <symbol id="singleArrow" viewBox="0 0 32 32">
-      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M13.333 10.667l5.333 5.333-5.333 5.333"></path>
+      <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M13.333 10.667l5.333 5.333-5.333 5.333"></path>
     </symbol>
 
     <symbol id="doubleArrow" viewBox="0 0 32 32">
-      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
-      <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M10.667 21.333l5.333-5.333-5.333-5.333"></path>
+      <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
+      <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M10.667 21.333l5.333-5.333-5.333-5.333"></path>
     </symbol>
 
     <symbol id="close" viewBox="0 0 32 32">

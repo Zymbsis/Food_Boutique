@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TABLET } from 'constants';
-import { useWindowSize } from 'hooks';
 import { createPaginationPageNumbers } from 'utils';
 import { selectTotalPages } from '@redux/productLists/selectors.js';
-import { selectPage } from '@redux/requestParams/selectors.js';
+import { selectLimit, selectPage } from '@redux/requestParams/selectors.js';
 import { changePage } from '@redux/requestParams/slice';
 import { Icon } from 'shared';
 import clsx from 'clsx';
@@ -12,46 +9,30 @@ import css from './Pagination.module.css';
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const windowWidth = useWindowSize();
   const totalPages = useSelector(selectTotalPages);
   const page = useSelector(selectPage);
-  const [buttonPanel, setButtonPanel] = useState([]);
-  const showNavigationArrows =
-    (windowWidth < TABLET.vw_width && totalPages > 2) ||
-    (windowWidth >= TABLET.vw_width && totalPages > 4);
-  const showEllipsis =
-    (windowWidth < TABLET.vw_width && totalPages > page + 1) ||
-    (windowWidth >= TABLET.vw_width && totalPages > page + 3);
+  const limit = useSelector(selectLimit);
 
-  useEffect(() => {
-    const buttonArray = createPaginationPageNumbers(totalPages, page, windowWidth);
-    setButtonPanel(buttonArray);
-  }, [windowWidth, totalPages, page]);
+  const showNavigationArrows = limit === 6 ? totalPages > 2 : totalPages > 4;
+  const showEllipsis = limit === 6 ? page < totalPages - 1 : page < totalPages - 3;
+  const buttonPanel = createPaginationPageNumbers(totalPages, page, limit);
 
   return (
     <div className={css.navWrapper}>
       {showNavigationArrows && (
         <div className={css.btnWrapper}>
-          <button
-            className={`${css.arrowBtn} ${css.rotatedBtn}`}
+          <PaginationArrowButton
+            iconId="doubleArrow"
+            inverted
             disabled={page === 1}
-            onClick={() => {
-              dispatch(changePage(1));
-            }}
-            type="button"
-          >
-            <Icon iconId="doubleArrow" />
-          </button>
-          <button
-            className={`${css.arrowBtn} ${css.rotatedBtn}`}
+            onClick={() => dispatch(changePage(1))}
+          />
+          <PaginationArrowButton
+            iconId="singleArrow"
+            inverted
             disabled={page === 1}
-            onClick={() => {
-              dispatch(changePage(page - 1));
-            }}
-            type="button"
-          >
-            <Icon iconId="singleArrow" />
-          </button>
+            onClick={() => dispatch(changePage(page - 1))}
+          />
         </div>
       )}
 
@@ -64,38 +45,30 @@ const Pagination = () => {
               className={clsx(css.numberBtn, {
                 [css.activeBtn]: page === item,
               })}
-              onClick={() => {
-                dispatch(changePage(item));
-              }}
+              onClick={() => dispatch(changePage(item))}
             >
               {item}
             </button>
           ))}
-        {showEllipsis && <span className={css.ellipsis}>...</span>}
+        {showEllipsis && (
+          <span className="inline-flex size-10 items-end justify-center pb-[4px] text-neutral-400">
+            ...
+          </span>
+        )}
       </div>
 
       {showNavigationArrows && (
         <div className={css.btnWrapper}>
-          <button
-            className={css.arrowBtn}
+          <PaginationArrowButton
+            iconId="singleArrow"
             disabled={totalPages === page}
-            onClick={() => {
-              dispatch(changePage(page + 1));
-            }}
-            type="button"
-          >
-            <Icon iconId="singleArrow" />
-          </button>
-          <button
-            className={css.arrowBtn}
+            onClick={() => dispatch(changePage(page + 1))}
+          />
+          <PaginationArrowButton
+            iconId="doubleArrow"
             disabled={totalPages === page}
-            onClick={() => {
-              dispatch(changePage(totalPages));
-            }}
-            type="button"
-          >
-            <Icon iconId="doubleArrow" />
-          </button>
+            onClick={() => dispatch(changePage(totalPages))}
+          />
         </div>
       )}
     </div>
@@ -103,3 +76,15 @@ const Pagination = () => {
 };
 
 export default Pagination;
+
+const PaginationArrowButton = ({ iconId, inverted, ...props }) => {
+  return (
+    <button
+      className={`w-fit rounded-full bg-zinc-50 p-[8px] text-neutral-400 transition hover:text-neutral-600 disabled:text-neutral-400/30 ${inverted ? 'rotate-180' : ''}`}
+      type="button"
+      {...props}
+    >
+      <Icon iconId={iconId} width={24} height={24} />
+    </button>
+  );
+};

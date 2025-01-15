@@ -11,8 +11,8 @@ const ProductCartImage = ({ className, name, img, is10PercentOff, _id }) => {
 
   return (
     <div
-      onClick={handleOpenModal}
-      className={`relative cursor-pointer rounded-[10px] bg-bgPrimary ${className}`}
+      onClick={_id ? handleOpenModal : null}
+      className={`relative rounded-[10px] bg-bgPrimary ${className} ${_id ? 'cursor-pointer' : ''}`}
     >
       <img src={img} alt={name} className={`h-full object-cover`} />
       {is10PercentOff && (
