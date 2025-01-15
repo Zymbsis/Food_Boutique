@@ -9,3 +9,6 @@ export const selectTotalSum = createSelector([selectCart], cart =>
 export const selectDataForOrdering = createSelector([selectCart], cart => {
   return cart.map(item => ({ productId: item._id, amount: item.quantity }));
 });
+
+export const makeSelectIsInCart = productId =>
+  createSelector([selectCart], cart => cart.some(item => item._id === productId));

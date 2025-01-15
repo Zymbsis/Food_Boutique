@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Container } from 'shared';
 import { Cart, CartSummary } from 'components';
-import css from './OrderPage.module.css';
 
 const OrderPage = () => {
   useEffect(() => {
@@ -9,8 +8,8 @@ const OrderPage = () => {
   }, []);
 
   return (
-    <section className={css.section}>
-      <Container className={css.container}>
+    <section className='pt-32 pb-20 md:pt-[171px] md:pb-[100px] xl:pt-[153px]'>
+      <Container className='pr-2 md:pr-4'>
         <CartSummary />
         <Cart />
       </Container>

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { debounce } from 'helpers';
+import { debounce } from 'utils';
 
 export const useWindowSize = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

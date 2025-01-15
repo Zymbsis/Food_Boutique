@@ -1,27 +1,25 @@
-import { ALL, DISCOUNT, MODAL, POPULAR } from 'constants';
-import { Icon } from '../../shared/index.js';
-import clsx from 'clsx';
-import css from './ProductCardImage.module.css';
+import { use } from 'react';
+import { Icon } from 'shared';
+import { ModalContext } from '../Modal/ModalProvider.jsx';
+import { ProductCardModal } from '../index.js';
 
-const ProductCartImage = ({
-  renderLocation = ALL,
-  handleClick,
-  name,
-  img,
-  is10PercentOff,
-}) => {
+const ProductCartImage = ({ className, name, img, is10PercentOff, _id }) => {
+  const { openModal } = use(ModalContext);
+  const handleOpenModal = () => {
+    openModal(ProductCardModal, { _id });
+  };
+
   return (
     <div
-      className={clsx(css.imgWrapper, {
-        [css.popularImg]: renderLocation === POPULAR,
-        [css.discountImg]: renderLocation === DISCOUNT,
-        [css.modalImg]: renderLocation === MODAL,
-      })}
-      onClick={handleClick}
+      onClick={handleOpenModal}
+      className={`relative cursor-pointer rounded-[10px] bg-bgPrimary ${className}`}
     >
-      <img src={img} alt={name} width={295} height={178} />
-      {is10PercentOff && renderLocation !== MODAL && (
-        <Icon iconId="discount" className={css.discountIcon}></Icon>
+      <img src={img} alt={name} className={`h-full object-cover`} />
+      {is10PercentOff && (
+        <Icon
+          iconId="discount"
+          className="absolute right-[-5px] top-[-13px] size-[60px] animate-rotate"
+        ></Icon>
       )}
     </div>
   );

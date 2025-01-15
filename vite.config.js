@@ -10,7 +10,7 @@ export default defineConfig({
       pages: '/src/pages',
       '@redux': '/src/redux',
       shared: '/src/shared',
-      helpers: '/src/helpers',
+      utils: '/src/utils',
       context: '/src/context',
       services: '/src/services',
       images: '/src/images',

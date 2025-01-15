@@ -1,10 +1,9 @@
 import { Title } from 'shared';
 import { PopularProductsList } from 'components';
-import css from './PopularProductsSection.module.css';
 
 const PopularProductsSection = () => {
   return (
-    <section className={css.section}>
+    <section className="xl:pr-1">
       <Title>Popular products</Title>
       <PopularProductsList />
     </section>

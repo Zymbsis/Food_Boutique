@@ -18,9 +18,14 @@
 }
 
 .popularName {
-  @media screen and (max-width: 767.98px) {}
+  @media screen and (max-width: 767.98px) {
+  }
 
   margin-bottom: 12px;
+}
+
+.modalName {
+  flex-shrink: 0;
 }
 
 .featuresList {
@@ -62,7 +67,6 @@
 }
 
 .popularFeaturesList .descriptionItem {
-
   &:nth-of-type(2),
   &:nth-of-type(3) {
     max-width: calc((100% - 9px) / 2);

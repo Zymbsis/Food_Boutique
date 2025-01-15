@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TABLET } from 'constants';
 import { useWindowSize } from 'hooks';
-import { createPaginationPageNumbers } from 'helpers';
+import { createPaginationPageNumbers } from 'utils';
 import { selectTotalPages } from '@redux/productLists/selectors.js';
 import { selectPage } from '@redux/requestParams/selectors.js';
 import { changePage } from '@redux/requestParams/slice';
@@ -24,11 +24,7 @@ const Pagination = () => {
     (windowWidth >= TABLET.vw_width && totalPages > page + 3);
 
   useEffect(() => {
-    const buttonArray = createPaginationPageNumbers(
-      totalPages,
-      page,
-      windowWidth
-    );
+    const buttonArray = createPaginationPageNumbers(totalPages, page, windowWidth);
     setButtonPanel(buttonArray);
   }, [windowWidth, totalPages, page]);
 

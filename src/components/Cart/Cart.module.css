@@ -1,6 +1,0 @@
-.cartWrapper {
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    gap: 101px;
-  }
-}

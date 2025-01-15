@@ -14,7 +14,8 @@ export { default as FiltersBar } from './FiltersBar/FiltersBar.jsx';
 export { default as Footer } from './Footer/Footer.jsx';
 export { default as Header } from './Header/Header.jsx';
 export { default as Hero } from './Hero/Hero.jsx';
-export { default as ModalProvider } from './ModalProvider/ModalProvider.jsx';
+export { default as ModalWindow } from './Modal/ModalWindow.jsx';
+export { default as ModalProvider } from './Modal/ModalProvider.jsx';
 export { default as NothingFound } from './NothingFound/NothingFound.jsx';
 export { default as Order } from './Order/Order.jsx';
 export { default as OrderForm } from './OrderForm/OrderForm.jsx';
@@ -26,7 +27,7 @@ export { default as PopularProductsList } from './PopularProductsList/PopularPro
 export { default as PopularProductsSection } from './PopularProductsSection/PopularProductsSection.jsx';
 export { default as ProductCardAction } from './ProductCardAction/ProductCardAction.jsx';
 export { default as ProductCardImage } from './ProductCardImage/ProductCardImage.jsx';
-export { default as ProductCardInfo } from './ProductCardInfo/ProductCardInfo.jsx';
+export { default as ProductCardAttributes } from './ProductCardAttributes/ProductCardAttributes.jsx';
 export { default as ProductCardModal } from './ProductCardModal/ProductCardModal.jsx';
 export { default as SearchByKeyword } from './SearchByKeyword/SearchByKeyword.jsx';
 export { default as SharedLayout } from './SharedLayout/SharedLayout.jsx';

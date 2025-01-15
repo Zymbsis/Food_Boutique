@@ -3,12 +3,7 @@ export const { APP_ROOT, MODAL_ROOT } = {
   MODAL_ROOT: document.getElementById('modal-root'),
 };
 
-export const {
-  BASE_URL,
-  PRODUCTS_ENDPOINT,
-  SUBSCRIPTION_ENDPOINT,
-  ORDER_ENDPOINT,
-} = {
+export const { BASE_URL, PRODUCTS_ENDPOINT, SUBSCRIPTION_ENDPOINT, ORDER_ENDPOINT } = {
   BASE_URL: 'https://food-boutique.b.goit.study/api',
   PRODUCTS_ENDPOINT: '/products',
   SUBSCRIPTION_ENDPOINT: '/subscription',

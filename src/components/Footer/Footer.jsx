@@ -31,9 +31,8 @@ const Footer = () => {
           <div className={css.footerText}>
             <h2>Discover the Variety of Flavors and Quality</h2>
             <p>
-              An online store where you will find fresh, natural and delicious
-              products for a healthy life and unforgettable gastronomic
-              adventures.
+              An online store where you will find fresh, natural and delicious products for a
+              healthy life and unforgettable gastronomic adventures.
             </p>
           </div>
           <SubscriptionForm />
@@ -42,13 +41,13 @@ const Footer = () => {
           <p>Food Boutique. All rights reserved.</p>
           <ul className={css.legalLinksList}>
             <li>
-              <Link to="/privacyPolicy">
+              <Link to="/privacy-policy">
                 <span>Privacy Policy</span>
                 <span>/</span>
               </Link>
             </li>
             <li>
-              <Link to="/termsOfServices">Terms of Service</Link>
+              <Link to="/terms-of-services">Terms of Service</Link>
             </li>
           </ul>
         </div>

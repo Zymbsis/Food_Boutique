@@ -11,27 +11,20 @@ const getActiveClass = (isActive, necessaryClassName) =>
 
 const Header = () => {
   return (
-    <header className={css.header}>
-      <Container className={css.container}>
+    <header className="fixed inset-0 z-10 h-[74px] w-full bg-bgPrimary py-[18px] md:h-[96px] md:py-6">
+      <Container className="flex h-full items-center justify-between">
         <Logo />
-        <nav className={css.navigation}>
-          <ul className={css.navigationList}>
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  getActiveClass(isActive, 'homeNavLink')
-                }
-              >
+        <nav className="h-full">
+          <ul className="flex h-full gap-[6px] md:gap-4 xl:gap-6">
+            <li className="w-[77px] md:w-[104px]">
+              <NavLink to="/" className={({ isActive }) => getActiveClass(isActive, 'homeNavLink')}>
                 <span>Home</span>
               </NavLink>
             </li>
-            <li>
+            <li className="w-[38px] md:w-[153px]">
               <NavLink
                 to="/cart"
-                className={({ isActive }) =>
-                  getActiveClass(isActive, 'cartNavLink')
-                }
+                className={({ isActive }) => getActiveClass(isActive, 'cartNavLink')}
               >
                 <CartSummary className={css.headerCartSummery} />
               </NavLink>

@@ -3,3 +3,6 @@
 @import url('../../assets/fonts/fonts.css');
 @import url('./variables.css');
 @import url('./base.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

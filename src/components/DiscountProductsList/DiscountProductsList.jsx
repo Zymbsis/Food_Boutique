@@ -1,36 +1,33 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useModalContext } from 'hooks';
 import { selectDiscountProductsList } from '@redux/productLists/selectors.js';
 import { fetchDiscountProducts } from '@redux/productLists/operations.js';
-import { DiscountProductItem, ProductCardModal } from 'components';
+import { DiscountProductItem } from 'components';
 import css from './DiscountProductsList.module.css';
 
 const DiscountProductsList = () => {
   const dispatch = useDispatch();
-  const { openModal } = useModalContext();
-  const data = useSelector(selectDiscountProductsList);
-  const handleOpenModal = _id => openModal(ProductCardModal, { _id });
+  const discountProducts = useSelector(selectDiscountProductsList);
 
   useEffect(() => {
-    if (data.length) return;
+    if (discountProducts.length) return;
+
     dispatch(fetchDiscountProducts());
-  }, [data, dispatch]);
+  }, [discountProducts, dispatch]);
 
   return (
-    <div className={css.innerContainer}>
+    !!discountProducts.length && (
       <ul className={css.productList}>
-        {data.length > 0 &&
-          data.map(product => (
-            <li className={css.productItem} key={product._id}>
-              <DiscountProductItem
-                {...product}
-                handleOpenModal={() => handleOpenModal(product._id)}
-              />
-            </li>
-          ))}
+        {discountProducts.map(product => (
+          <li
+            className="relative h-[232px] rounded-[15px] bg-bgSecondary p-4 md-lg:flex-shrink-0"
+            key={product._id}
+          >
+            <DiscountProductItem {...product} />
+          </li>
+        ))}
       </ul>
-    </div>
+    )
   );
 };
 

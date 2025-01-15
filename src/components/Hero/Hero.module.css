@@ -39,10 +39,6 @@
   }
 }
 
-.container {
-  position: relative;
-}
-
 .title {
   margin-bottom: 16px;
   text-align: center;
@@ -62,10 +58,6 @@
     margin-right: auto;
     margin-left: auto;
   }
-}
-
-.title > span {
-  color: var(--primary-green-color);
 }
 
 .text {

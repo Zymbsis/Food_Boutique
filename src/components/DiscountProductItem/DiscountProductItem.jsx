@@ -1,22 +1,19 @@
-import { DISCOUNT } from 'constants';
-import {
-  ProductCardImage,
-  ProductCardInfo,
-  ProductCardAction,
-} from 'components';
-import css from './DiscountProductItem.module.css';
+import { ProductCardImage, ProductCardAction } from 'components';
+import ProductCardTitle from '../ProductCardTitle/ProductCardTitle.jsx';
 
-const DiscountProductItem = ({ handleOpenModal, ...product }) => {
+const DiscountProductItem = ({ ...product }) => {
   return (
     <>
       <ProductCardImage
-        {...product}
-        handleClick={handleOpenModal}
-        renderLocation={DISCOUNT}
+        img={product.img}
+        name={product.name}
+        is10PercentOff={product.is10PercentOff}
+        _id={product._id}
+        className="mb-[16px] h-[150px] px-[95px] py-[18px] xl:px-[69px] xl:py-[22px]"
       />
-      <div className={css.descriptionWrapper}>
-        <ProductCardInfo {...product} renderLocation={DISCOUNT} />
-        <ProductCardAction {...product} renderLocation={DISCOUNT} />
+      <div className="flex items-center justify-between gap-1">
+        <ProductCardTitle className="mb-[0] flex-1">{product.name}</ProductCardTitle>
+        <ProductCardAction className="items-center gap-2" price={product.price} product={product} />
       </div>
     </>
   );

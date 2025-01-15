@@ -17,8 +17,9 @@
 .loaderWrapper {
   padding-top: 60px;
   padding-bottom: 80px;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  /* display: flex;
+  justify-content: center; */
 
   @media screen and (min-width: 768px) {
     padding-top: 110px;
@@ -26,8 +27,8 @@
   }
 
   @media screen and (min-width: 1440px) {
-    width: 925px;
-    min-height: 1249px;
+    /* width: 925px; */
+    /* min-height: 1249px; */
     padding-top: 140px;
     padding-bottom: 200px;
   }
@@ -37,5 +38,4 @@
   position: static;
   width: 150px;
   height: 150px;
-  right: unset;
 }

@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2023: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -9,7 +9,7 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  settings: { react: { version: '19.0' } },
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',
@@ -21,5 +21,6 @@ module.exports = {
     'no-var': 'error',
     'no-console': 'warn',
     'no-param-reassign': 'warn',
+    'no-unused-vars': 'warn',
   },
 };

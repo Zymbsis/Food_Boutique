@@ -1,20 +1,21 @@
 import { useSelector } from 'react-redux';
-import { useModalContext, useCustomersFetch } from 'hooks';
+import { useCustomersFetch } from 'hooks';
 import { orderProducts } from 'services';
 import { selectDataForOrdering } from '@redux/cart/selectors.js';
 import { OrderSuccess, SubscriptionError } from 'components';
 import css from './OrderForm.module.css';
 import { Form, InputField } from '../../shared/index.js';
+import { use } from 'react';
+import { ModalContext } from '../Modal/ModalProvider.jsx';
 
 const OrderForm = () => {
   const data = useSelector(selectDataForOrdering);
-  const { openModal, removeCart } = useModalContext();
+  const { openModal } = use(ModalContext);
 
   const orderRequest = async email => {
     try {
       await orderProducts({ email: email, products: data });
       openModal(OrderSuccess);
-      removeCart();
       setEmail('');
     } catch (error) {
       openModal(SubscriptionError);
@@ -25,11 +26,7 @@ const OrderForm = () => {
     useCustomersFetch(orderRequest);
 
   return (
-    <Form
-      onSubmit={handleFormSubmit}
-      className={css.form}
-      buttonName="Checkout"
-    >
+    <Form onSubmit={handleFormSubmit} className={css.form} buttonName="Checkout">
       <InputField
         label={<label htmlFor="email">Mail:</label>}
         errorMessage={invalidEmail}
