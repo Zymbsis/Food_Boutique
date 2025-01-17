@@ -2,12 +2,15 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  position: absolute;
-  width: 100%;
-  bottom: -80px;
 
   @media screen and (min-width: 768px) {
     gap: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    width: 100%;
+    bottom: -80px;
   }
 }
 
