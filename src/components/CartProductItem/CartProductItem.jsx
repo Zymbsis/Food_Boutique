@@ -12,9 +12,16 @@ import ProductCardTitle from '../ProductCardTitle/ProductCardTitle.jsx';
 
 const CartProductItem = ({ ...product }) => {
   const dispatch = useDispatch();
-  const handleDeleteProduct = () => dispatch(deleteProduct(product._id));
-  const handleIncreaseQuantity = () => dispatch(increaseProductQuantity(product._id));
-  const handleDecreaseQuantity = () => dispatch(decreaseProductQuantity(product._id));
+  const handleDeleteProduct = event => {
+    event.stopPropagation();
+    dispatch(deleteProduct(product._id));
+  };
+  const handleChangeQuantity = (event, increase) => {
+    event.stopPropagation();
+    increase
+      ? dispatch(increaseProductQuantity(product._id))
+      : dispatch(decreaseProductQuantity(product._id));
+  };
 
   return (
     <>
@@ -23,7 +30,7 @@ const CartProductItem = ({ ...product }) => {
         img={product.img}
         name={product.name}
         _id={product._id}
-        className="bg-bgSecondary size-[100px] flex-shrink-0 p-[18px] md:size-[120px] md:p-[24px]"
+        className="size-[100px] flex-shrink-0 bg-bgSecondary p-[18px] md:size-[120px] md:p-[24px]"
       />
       <div className="flex flex-1 flex-col justify-between">
         <div className="flex-1">
@@ -40,11 +47,11 @@ const CartProductItem = ({ ...product }) => {
         <div className={css.productControl}>
           <span className={css.price}>${(product.price * product.quantity).toFixed(2)}</span>
           <div className={css.changeQuantity}>
-            <button type="button" onClick={handleDecreaseQuantity}>
+            <button type="button" onClick={handleChangeQuantity}>
               <Icon iconId="symbol-minus" />
             </button>
             <span>{product.quantity}</span>
-            <button type="button" onClick={handleIncreaseQuantity}>
+            <button type="button" onClick={event => handleChangeQuantity(event, true)}>
               <Icon iconId="symbol-plus" />
             </button>
           </div>

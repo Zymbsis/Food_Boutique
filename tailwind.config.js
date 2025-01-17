@@ -3,7 +3,12 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    screens: { md: '768px', xl: '1440px', 'md-lg': { min: '768px', max: '1439.98px' } },
+    screens: {
+      sx: '375px',
+      md: '768px',
+      xl: '1440px',
+      'md-xl': { min: '768px', max: '1439.98px' },
+    },
     extend: {
       colors: {
         bgPrimary: '#e8e8e2',

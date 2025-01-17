@@ -1,9 +1,9 @@
 import { Title } from 'shared';
-import { PopularProductsList } from 'components';
+import PopularProductsList from './PopularProductsList.jsx';
 
 const PopularProductsSection = () => {
   return (
-    <section className="xl:pr-1">
+    <section>
       <Title>Popular products</Title>
       <PopularProductsList />
     </section>

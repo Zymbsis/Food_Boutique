@@ -1,4 +1,4 @@
-import { useEffect, useState, useTransition } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchProductById } from 'services';
 import {
   OrganicFoodBadge,
@@ -12,17 +12,22 @@ import ProductCardTitle from '../ProductCardTitle/ProductCardTitle.jsx';
 const ProductCardModal = ({ _id }) => {
   const [product, setProduct] = useState(null);
   const [isError, setIsError] = useState(false);
-  const [isPending, startTransition] = useTransition();
+  const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
-    startTransition(async () => {
+    (async () => {
       try {
+        setIsPending(true);
         const data = await fetchProductById(_id);
         setProduct(data);
+        setIsPending(false);
       } catch (error) {
+        setIsPending(false);
         setIsError(true);
+      } finally {
+        setIsPending(false);
       }
-    });
+    })();
   }, [_id]);
 
   if (isPending)

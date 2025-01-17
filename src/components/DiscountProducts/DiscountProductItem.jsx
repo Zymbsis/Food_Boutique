@@ -8,7 +8,6 @@ const DiscountProductItem = ({ ...product }) => {
         img={product.img}
         name={product.name}
         is10PercentOff={product.is10PercentOff}
-        _id={product._id}
         className="mb-[16px] h-[150px] px-[95px] py-[18px] xl:px-[69px] xl:py-[22px]"
       />
       <div className="flex items-center justify-between gap-1">

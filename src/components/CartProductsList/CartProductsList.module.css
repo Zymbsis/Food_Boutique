@@ -30,21 +30,6 @@
   }
 }
 
-.deleteAll > span {
-  font-weight: 500;
-  line-height: 1.28;
-
-  @media screen and (min-width: 768px) {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-
-.deleteAllBtn {
-  width: 24px;
-  height: 24px;
-}
-
 .cartList {
   padding-right: 7px;
   height: 436px;
@@ -82,6 +67,7 @@
 .cartList > li {
   position: relative;
   display: flex;
+  cursor: pointer;
   gap: 20px;
   padding-top: 30px;
   padding-bottom: 23px;

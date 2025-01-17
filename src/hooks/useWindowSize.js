@@ -12,9 +12,8 @@ export const useWindowSize = () => {
 
   useEffect(() => {
     window.addEventListener('resize', debounceResize);
-    return () => {
-      window.removeEventListener('resize', debounceResize);
-    };
+
+    return () => window.removeEventListener('resize', debounceResize);
   }, [debounceResize]);
 
   return windowWidth;

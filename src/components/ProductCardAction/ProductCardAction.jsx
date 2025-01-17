@@ -30,7 +30,8 @@ const ProductCardAction = ({ className, price, buttonCaption, product }) => {
   const iconId = !isInCart ? 'cart' : 'check';
   const caption = buttonCaption ? (isInCart ? 'Remove from' : 'Add to') : null;
 
-  const handleToggleCart = () => {
+  const handleToggleCart = event => {
+    event.stopPropagation();
     isInCart
       ? dispatch(deleteProduct(product._id))
       : dispatch(addProduct({ ...product, quantity: 1 }));

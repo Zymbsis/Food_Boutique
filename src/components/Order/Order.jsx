@@ -6,6 +6,7 @@ import css from './Order.module.css';
 
 const Order = () => {
   const totalSum = useSelector(selectTotalSum);
+
   return (
     <div className={css.wrapper}>
       <Title className={css.title}>Your Order</Title>

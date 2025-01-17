@@ -1,4 +1,5 @@
 .section {
+  position: relative;
   padding-top: 128px;
   padding-bottom: 586px;
   background-image: url('/img/hero_mobile/hero_banner_mobile_png_@1x.png');
@@ -77,16 +78,16 @@
 }
 
 .organicFoodImg {
-  bottom: -125px;
+  top: 320px;
   right: 28px;
 
   @media screen and (min-width: 768px) {
-    bottom: -110px;
+    top: 426px;
     right: 42px;
   }
 
   @media screen and (min-width: 1440px) {
-    bottom: -90px;
+    top: 287px;
     right: 52px;
   }
 }

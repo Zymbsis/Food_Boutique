@@ -1,19 +1,8 @@
-import { use } from 'react';
 import { Icon } from 'shared';
-import { ModalContext } from '../Modal/ModalProvider.jsx';
-import { ProductCardModal } from '../index.js';
 
-const ProductCartImage = ({ className, name, img, is10PercentOff, _id }) => {
-  const { openModal } = use(ModalContext);
-  const handleOpenModal = () => {
-    openModal(ProductCardModal, { _id });
-  };
-
+const ProductCardImage = ({ className, name, img, is10PercentOff }) => {
   return (
-    <div
-      onClick={_id ? handleOpenModal : null}
-      className={`relative rounded-[10px] bg-bgPrimary ${className} ${_id ? 'cursor-pointer' : ''}`}
-    >
+    <div className={`relative rounded-[10px] bg-bgPrimary ${className}`}>
       <img src={img} alt={name} className={`h-full object-cover`} />
       {is10PercentOff && (
         <Icon
@@ -25,4 +14,4 @@ const ProductCartImage = ({ className, name, img, is10PercentOff, _id }) => {
   );
 };
 
-export default ProductCartImage;
+export default ProductCardImage;

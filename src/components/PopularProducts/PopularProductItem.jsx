@@ -7,7 +7,6 @@ const PopularProductItem = ({ ...product }) => {
       <ProductCardImage
         img={product.img}
         name={product.name}
-        _id={product._id}
         className="size-[74px] flex-shrink-0 p-[9px]"
       />
       <div className="w-[207px] md:w-[150px]">

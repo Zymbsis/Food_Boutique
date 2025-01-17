@@ -1,27 +1,34 @@
 import { useSelector } from 'react-redux';
 import {
+  selectAllProductsList,
   selectIsAllProductsError,
   selectIsAllProductsLoading,
   selectTotalPages,
 } from '@redux/productLists/selectors.js';
-import { AllProductsList, Pagination, OrganicFoodBadge } from 'components';
+import { Pagination, OrganicFoodBadge, NothingFound } from 'components';
+import AllProductsList from './AllProductsList.jsx';
 
 const AllProductsSection = () => {
+  const allProducts = useSelector(selectAllProductsList);
   const totalPages = useSelector(selectTotalPages);
   const loading = useSelector(selectIsAllProductsLoading);
   const error = useSelector(selectIsAllProductsError);
 
+  const hasPagination = totalPages > 1 && !loading && !error;
+  const noContent = !loading && !error && !allProducts.length;
+
   return (
-    <section className="flex flex-col gap-10 md:gap-[50px] xl:w-[925px] xl:gap-10 justify-between">
+    <section className="relative flex flex-1 flex-col justify-between">
       <h2 className="visually-hidden">Organic Food</h2>
-      <AllProductsList />
-      {totalPages > 1 && !loading && !error && <Pagination />}
       {loading && (
-        <div className="pt-[60px] pb-20 mx-auto md:pt-28 md:pb-52 xl:pt-36">
+        <div className="mx-auto pb-20 pt-[60px] md:pb-52 md:pt-28 xl:pt-36">
           <OrganicFoodBadge className="static size-40" />
         </div>
       )}
       {error && <p>Error</p>}
+      {noContent && <NothingFound />}
+      <AllProductsList />
+      {hasPagination && <Pagination />}
     </section>
   );
 };
